@@ -83,10 +83,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇博客——hexo搭建以及美化">
 <meta property="og:url" content="http://yoursite.com/2019/07/17/我的第一篇博客/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="写在前面因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。 搭建过程首先是根据羊哥评论里面一个小伙伴博客的帖子，把前期安装给解决了。然后跟着羊哥（codesheep）的视频把博客部署到了github上去。最后看知乎的一个帖子来美化我的博客。怎么说呢，现在markdown格式什么的也是第">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-18T09:33:04.135Z">
+<meta property="og:updated_time" content="2019-07-18T12:33:10.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的第一篇博客——hexo搭建以及美化">
 <meta name="twitter:description" content="写在前面因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。 搭建过程首先是根据羊哥评论里面一个小伙伴博客的帖子，把前期安装给解决了。然后跟着羊哥（codesheep）的视频把博客部署到了github上去。最后看知乎的一个帖子来美化我的博客。怎么说呢，现在markdown格式什么的也是第">
@@ -99,7 +99,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -125,7 +125,7 @@
 
 
 
-  <title>我的第一篇博客——hexo搭建以及美化 | Hexo</title>
+  <title>我的第一篇博客——hexo搭建以及美化 | Yuan's Blog</title>
   
 
 
@@ -155,12 +155,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Yuan's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">Learn, Life, Share</p>
       
   </div>
 
@@ -201,9 +201,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -235,13 +267,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/我的第一篇博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Yuan Zhibo">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Yuan's Blog">
     </span>
 
     
@@ -283,6 +315,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span id="busuanzi_value_page_pv"></span>次阅读
+          
+          
+          
 
           
 
@@ -308,7 +345,7 @@
 hexo g
 hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像发布就得这个样子，后期再研究研究。<br>发布之前可以先通过本地的localhost来看一下博客格式是否与自己想法一致，通过输入下面的指令来开启本地hexo服务。</p>
 <pre><code>hexo s</code></pre><p>不过这种方式默认使用的是4000端口，我的本地4000端口好像被占用了，解决这个有两种方法，一个是干掉本地占用4000端口的服务，让hexo来使用。另一种方式就是将hexo服务换一个端口来实现，这里我使用的是5000端口，指令如下。</p>
-<pre><code>hexo s -p 5000</code></pre><h1 id="美化进阶"><a href="#美化进阶" class="headerlink" title="美化进阶"></a>美化进阶</h1><p>之前就是换了个Next主题，虽然说挺够用的，还是挺简陋的，不够酷，所以找了个教程来配置next主题，先码住，之后再修改。<a href="https://www.jianshu.com/p/1ff2fcbdd155" target="_blank" rel="noopener">Hexo博客第三方主题next进阶教程</a></p>
+<pre><code>hexo s -p 5000</code></pre><h1 id="美化进阶"><a href="#美化进阶" class="headerlink" title="美化进阶"></a>美化进阶</h1><p>之前就是换了个Next主题，虽然说挺够用的，还是挺简陋的，不够酷，所以找了个教程来配置next主题，先码住，之后再修改。<a href="https://www.jianshu.com/p/1ff2fcbdd155" target="_blank" rel="noopener">Hexo博客第三方主题next进阶教程</a><br>一个next基础配置<a href="https://www.jianshu.com/p/3a05351a37dc" target="_blank" rel="noopener">帖子</a>,很受用。</p>
 <h1 id="博客再更"><a href="#博客再更" class="headerlink" title="博客再更"></a>博客再更</h1><p>我突然明白了为什么有现成的博客网站大家不用，而是选择自己搭建博客这种比较麻烦的方式，因为可以自定义。有的人喜欢现成的东西，用起来简单省心，虽然可能有一些自己想有但是没有的功能，或者是用起来不舒服的地方。有的人喜欢自己来定义，虽然比较麻烦，比较操心，但出了什么问题都可以通过自己来解决，就很合自己的心意。就像《食戟之灵》里面的central和幸平他们的争斗，也是如此，为了自由而战。也明白了为什么UDP协议既然是不安全的，都用TCP协议不就好了，因为UDP轻量，方便自己去定制。</p>
 
       
@@ -408,7 +445,9 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="Yuan Zhibo">
+            
+              <p class="site-author-name" itemprop="name">Yuan Zhibo</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -456,7 +495,7 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建过程"><span class="nav-number">1.</span> <span class="nav-text">搭建过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图床搭建"><span class="nav-number">2.</span> <span class="nav-text">图床搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客发表"><span class="nav-number">3.</span> <span class="nav-text">博客发表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化进阶"><span class="nav-number">4.</span> <span class="nav-text">美化进阶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客再更"><span class="nav-number">5.</span> <span class="nav-text">博客再更</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建过程"><span class="nav-text">搭建过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图床搭建"><span class="nav-text">图床搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客发表"><span class="nav-text">博客发表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化进阶"><span class="nav-text">美化进阶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客再更"><span class="nav-text">博客再更</span></a></li></ol></div>
             
 
           </div>
@@ -480,7 +519,7 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Yuan Zhibo</span>
 
   
 </div>
@@ -495,6 +534,18 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
 
 
   <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+<div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv" style="display:none">
+    本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    <span class="post-meta-divider">|</span>
+</span>
+<span id="busuanzi_container_site_uv" style="display:none">
+    有<span id="busuanzi_value_site_uv"></span>人看过我的博客啦
+</span>
+</div>
 
 
 
@@ -514,6 +565,8 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -648,6 +701,323 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

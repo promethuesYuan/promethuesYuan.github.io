@@ -87,17 +87,16 @@
 <meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="掌握HTTP相关，实验内容比较简单，尝试学习中成长。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png">
 <meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/$_%7BXFA4$N6%60GQ@NY132%5D$%28I.png">
 <meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/HWI6%29%25CL~KO%299F%29U$EN8%2551.png">
 <meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/R%25BR%60@%7B2VD$LGKHAPZ%5D%5DLA0.png">
 <meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/@%7DQ%258JZX%28HYLWYR%7DETBRWXB.png">
 <meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/%28LO@E%5DQY%28LIWQ%28BMC7T_4LK.png">
-<meta property="og:updated_time" content="2019-07-22T07:39:23.981Z">
+<meta property="og:updated_time" content="2019-07-22T07:42:13.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wireshark实验：HTTP">
 <meta name="twitter:description" content="掌握HTTP相关，实验内容比较简单，尝试学习中成长。">
-<meta name="twitter:image" content="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png">
+<meta name="twitter:image" content="http://puui5s2bo.bkt.clouddn.com/$_%7BXFA4$N6%60GQ@NY132%5D$%28I.png">
 
 
 
@@ -391,9 +390,14 @@
       
 
       
-        <p>掌握HTTP相关，实验内容比较简单，尝试学习中成长。</p>
+        <center>掌握HTTP相关，实验内容比较简单，尝试学习中成长。</center>
 <a id="more"></a>  
-<h1 id="1-基本HTTP-GET-response交互"><a href="#1-基本HTTP-GET-response交互" class="headerlink" title="1.基本HTTP GET/response交互"></a>1.基本HTTP GET/response交互</h1><p>这个实验的本身很简单，就是让你访问一个仅含有一段简单的html代码的网站，然后根据http协议的请求头所包含的信息，来回答问题即可。但是在这个过程中我还遇到了挺多奇奇怪怪的问题。<br>最开始操作不熟练，每次筛选后的到的纪录依然很多，多次尝试后，终于得到了和任务书介绍的类似界面。<br><img src="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png" alt="11111111" title="实验一结果"><br>但是我发现自己的HTTP状态响应为304 Not Modified, 和任务书中的200 OK不同，就很奇怪为什么。当时在下面详情里面看到了If Modified Since, 以及Accept Language。因为不是很明白为什么会出现这种情况，于是就先跳过实验一，看实验二去了。看了实验二才知道，304响应是因为我之前就访问过这个界面，然后浏览器产生了这个网页的缓存，304是说这个界面没有改变的意思。</p>
+# 1.基本HTTP GET/response交互
+这个实验的本身很简单，就是让你访问一个仅含有一段简单的html代码的网站，然后根据http协议的请求头所包含的信息，来回答问题即可。但是在这个过程中我还遇到了挺多奇奇怪怪的问题。  
+最开始操作不熟练，每次筛选后的到的纪录依然很多，多次尝试后，终于得到了和任务书介绍的类似界面。  
+![11111111](http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png "实验一结果")
+但是我发现自己的HTTP状态响应为304 Not Modified, 和任务书中的200 OK不同，就很奇怪为什么。当时在下面详情里面看到了If Modified Since, 以及Accept Language。因为不是很明白为什么会出现这种情况，于是就先跳过实验一，看实验二去了。看了实验二才知道，304响应是因为我之前就访问过这个界面，然后浏览器产生了这个网页的缓存，304是说这个界面没有改变的意思。
+
 <h1 id="2-HTTP条件Get-response交互"><a href="#2-HTTP条件Get-response交互" class="headerlink" title="2.HTTP条件Get/response交互"></a>2.HTTP条件Get/response交互</h1><p>实验二中熟悉操作之后就得到了对应的结果。<br><img src="http://puui5s2bo.bkt.clouddn.com/$_%7BXFA4$N6%60GQ@NY132%5D$%28I.png" alt="实验二结果" title="实验二结果"><br>在检查If-Modified-Since时，发现状态304中出现了这个标识，而且在状态200中，对应的是Last Modified,而且二者时间是一致的。<br>探究If-Modified-Since是何物，网上给到的结果是  </p>
 <blockquote>
 <p>意思是我们在请求时会发送给服务器上次它修改这个文件最后一次时间，如果服务器发现仍然没有修改这个文件，就会返回304文件为改变的信息，调用本地caceh缓存，如果改变就会重新得到。</p>
@@ -578,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-基本HTTP-GET-response交互"><span class="nav-text">1.基本HTTP GET/response交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP条件Get-response交互"><span class="nav-text">2.HTTP条件Get/response交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-检索长文件"><span class="nav-text">3.检索长文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-具有嵌入对象的HTML文档"><span class="nav-text">4.具有嵌入对象的HTML文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-HTTP认证"><span class="nav-text">5.HTTP认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-实验收获"><span class="nav-text">6.实验收获</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP条件Get-response交互"><span class="nav-text">2.HTTP条件Get/response交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-检索长文件"><span class="nav-text">3.检索长文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-具有嵌入对象的HTML文档"><span class="nav-text">4.具有嵌入对象的HTML文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-HTTP认证"><span class="nav-text">5.HTTP认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-实验收获"><span class="nav-text">6.实验收获</span></a></li></ol></div>
             
 
           </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="LeetCode,">
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="写在前面因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。">
+<meta name="description" content="LeetCode刷题纪录">
+<meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客——hexo搭建以及美化">
-<meta property="og:url" content="http://yoursite.com/2019/07/17/我的第一篇博客/index.html">
+<meta property="og:title" content="LeetCode:数组题(1)">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/LeetCode-数组题/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
-<meta property="og:description" content="写在前面因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。">
+<meta property="og:description" content="LeetCode刷题纪录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-18T15:39:28.965Z">
+<meta property="og:image" content="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg">
+<meta property="og:updated_time" content="2019-08-01T14:08:48.818Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博客——hexo搭建以及美化">
-<meta name="twitter:description" content="写在前面因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。">
+<meta name="twitter:title" content="LeetCode:数组题(1)">
+<meta name="twitter:description" content="LeetCode刷题纪录">
+<meta name="twitter:image" content="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/17/我的第一篇博客/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/01/LeetCode-数组题/">
 
 
 
 
 
-  <title>我的第一篇博客——hexo搭建以及美化 | Yuan's Blog</title>
+  <title>LeetCode:数组题(1) | Yuan's Blog</title>
   
 
 
@@ -294,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/17/我的第一篇博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/LeetCode-数组题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan Zhibo">
@@ -311,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">我的第一篇博客——hexo搭建以及美化</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode:数组题(1)</h1>
         
 
         <div class="post-meta">
@@ -323,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-17T17:11:22+08:00">
-                2019-07-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T21:12:56+08:00">
+                2019-08-01
               </time>
             
 
@@ -333,6 +336,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -355,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  906
+                  1.9k
                 </span>
               
 
@@ -371,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -392,19 +417,68 @@
       
 
       
-        <p><strong>写在前面</strong><br>因为刚好想总结一下这段时间的学习到的东西，正在考虑注册个csdn还是简书，看到了羊哥的视频，就心血来潮自己搭了个独立博客，还是很有趣的，希望以后能多多学习多多积累。</p>
+        <center>LeetCode刷题纪录</center>
 <a id="more"></a>
-<h1 id="搭建过程"><a href="#搭建过程" class="headerlink" title="搭建过程"></a>搭建过程</h1><p>首先是根据羊哥评论里面一个<a href="https://caiyantao.gitee.io/2019/04/13/Hexo-%E4%B8%80/#more" target="_blank" rel="noopener">小伙伴博客的帖子</a>，把前期安装给解决了。<br>然后跟着羊哥（<a href="https://www.bilibili.com/video/av44544186?from=search&seid=14611983330903971670" target="_blank" rel="noopener">codesheep</a>）的视频把博客部署到了github上去。<br>最后看知乎的一个<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">帖子</a>来美化我的博客。<br>怎么说呢，现在markdown格式什么的也是第一次接触，都挺不熟练的，但是总要迈出第一步的嘛。这一篇就记录一下搭建的过程，有些东西还想补充，但是markdown语法不会，不知道该怎么添加，就以后再加。这几天就把这段时间爬虫的学习经历总结一下，发一篇博客。</p>
-<h1 id="图床搭建"><a href="#图床搭建" class="headerlink" title="图床搭建"></a>图床搭建</h1><p>博客中的图片插入还会一个问题，需要使用到图床，这里采用的是七牛云图床，具体搭建方法参考了这个<a href="https://www.jianshu.com/p/316dee2ba185" target="_blank" rel="noopener">博客</a>。</p>
-<p>刚才还发现markdown格式自己疏忽的地方，在添加“博客”这个链接的时候，通过中括号+小括号，发现并没有像之前的链接会变成蓝色，检查之后，原来是使用了中文括号的缘故。这种问题在编译器里面看都不是很容易察觉，更不用说在这个markdownpad中了，还是要注意一下。</p>
-<h1 id="博客发表"><a href="#博客发表" class="headerlink" title="博客发表"></a>博客发表</h1><p>之前每次发布、修改，都要通过下面三个指令来实现：</p>
-<pre><code>hexo clean
-hexo g
-hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像发布就得这个样子，后期再研究研究。<br>发布之前可以先通过本地的localhost来看一下博客格式是否与自己想法一致，通过输入下面的指令来开启本地hexo服务。</p>
-<pre><code>hexo s</code></pre><p>不过这种方式默认使用的是4000端口，我的本地4000端口好像被占用了，解决这个有两种方法，一个是干掉本地占用4000端口的服务，让hexo来使用。另一种方式就是将hexo服务换一个端口来实现，这里我使用的是5000端口，指令如下。</p>
-<pre><code>hexo s -p 5000</code></pre><h1 id="美化进阶"><a href="#美化进阶" class="headerlink" title="美化进阶"></a>美化进阶</h1><p>之前就是换了个Next主题，虽然说挺够用的，还是挺简陋的，不够酷，所以找了个教程来配置next主题，先码住，之后再修改。<a href="https://www.jianshu.com/p/1ff2fcbdd155" target="_blank" rel="noopener">Hexo博客第三方主题next进阶教程</a><br>一个next基础配置<a href="https://www.jianshu.com/p/3a05351a37dc" target="_blank" rel="noopener">帖子</a>,很受用。</p>
-<h1 id="博客再更"><a href="#博客再更" class="headerlink" title="博客再更"></a>博客再更</h1><p>我突然明白了为什么有现成的博客网站大家不用，而是选择自己搭建博客这种比较麻烦的方式，因为可以自定义。有的人喜欢现成的东西，用起来简单省心，虽然可能有一些自己想有但是没有的功能，或者是用起来不舒服的地方。有的人喜欢自己来定义，虽然比较麻烦，比较操心，但出了什么问题都可以通过自己来解决，就很合自己的心意。就像《食戟之灵》里面的central和幸平他们的争斗，也是如此，为了自由而战。也明白了为什么UDP协议既然是不安全的，都用TCP协议不就好了，因为UDP轻量，方便自己去定制。</p>
-<h1 id="markdown的一些语法"><a href="#markdown的一些语法" class="headerlink" title="markdown的一些语法"></a>markdown的一些语法</h1><p><a href="https://www.cnblogs.com/bigmagic/p/3301b25e8b0b8ef8b9415379385a798c.html" target="_blank" rel="noopener">markdown让文字居中和带颜色</a></p>
+
+<h1 id="26-删除排序数组中的重复项"><a href="#26-删除排序数组中的重复项" class="headerlink" title="26. 删除排序数组中的重复项"></a>26. 删除排序数组中的重复项</h1><h2 id="题目描述-简单"><a href="#题目描述-简单" class="headerlink" title="题目描述(简单)"></a>题目描述(简单)</h2><p>给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
+<p>示例 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定数组 nums = [1,1,2], </span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。 </span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p>示例 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [0,0,1,1,1,2,2,3,3,4],</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 5, 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array</a></p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>开始对原地修改有一些疑问, 后来发现直接进行覆盖即可, 就没什么难度了.</p>
+<p>注意数组长度为0这种情况.</p>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeDuplicates</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;nums.length; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j]!= nums[i])&#123;</span><br><span class="line">                i ++;</span><br><span class="line">                nums[i] = nums[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> (i+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="27-移除元素-简单"><a href="#27-移除元素-简单" class="headerlink" title="27. 移除元素(简单)"></a>27. 移除元素(简单)</h1><h2 id="题目描述-简单-1"><a href="#题目描述-简单-1" class="headerlink" title="题目描述(简单)"></a>题目描述(简单)</h2><p>给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。</p>
+<p>不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。</p>
+<p>元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。</p>
+<p>示例 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [3,2,2,3], val = 3,</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 2, 并且 nums 中的前两个元素均为 2。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p>示例 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [0,1,2,2,3,0,4,2], val = 2,</span><br><span class="line"></span><br><span class="line">函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。</span><br><span class="line"></span><br><span class="line">注意这五个元素可为任意顺序。</span><br><span class="line"></span><br><span class="line">你不需要考虑数组中超出新长度后面的元素。</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-element" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-element</a></p>
+<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><ul>
+<li>排序</li>
+<li>双指针</li>
+</ul>
+<p>先对数组进行排序, 然后通过双指针找到等于val的第一个数, 和不等于val的第一个数, 然后进行覆盖</p>
+<h2 id="解题代码-1"><a href="#解题代码-1" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">removeElement</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(nums.length == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	Arrays.sort(nums);</span><br><span class="line">	<span class="keyword">int</span> front,tail;</span><br><span class="line">	<span class="keyword">for</span>(front=<span class="number">0</span>; front&lt;nums.length; front++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(nums[front] == val) <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(tail = front; tail&lt;nums.length; tail++) &#123;</span><br><span class="line">		<span class="keyword">if</span>(nums[tail] != val) <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(tail == nums.length)	<span class="keyword">return</span> front;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">for</span>(; tail&lt;nums.length; tail++) &#123;</span><br><span class="line">			nums[front] = nums[tail];</span><br><span class="line">			front++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> front;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="283-移动零"><a href="#283-移动零" class="headerlink" title="283. 移动零"></a>283. 移动零</h1><h1 id="题目描述-简单-2"><a href="#题目描述-简单-2" class="headerlink" title="题目描述(简单)"></a>题目描述(简单)</h1><p>给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [0,1,0,3,12]</span><br><span class="line">输出: [1,3,12,0,0]</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/move-zeroes" target="_blank" rel="noopener">https://leetcode-cn.com/problems/move-zeroes</a></p>
+<h2 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h2><p>先把非0的数挪到前面, 并记录0的个数. 挪完后把后面的数全部置0即可</p>
+<h2 id="解题代码-2"><a href="#解题代码-2" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">moveZeroes</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> front= <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">		<span class="comment">//int [] nums = &#123;0,1,0,3,12&#125;;</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span> ; i&lt;nums.length; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(nums[i] != <span class="number">0</span>) &#123;</span><br><span class="line">				nums[front] = nums[i];</span><br><span class="line">				front ++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> counter++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=front; i&lt;nums.length; i++) &#123;</span><br><span class="line">			nums[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结前三题"><a href="#总结前三题" class="headerlink" title="总结前三题"></a>总结前三题</h1><p>刚上手LeetCode, 大部分题目对目前的我有点难度, 所以就从自己比较熟悉的数组开始尝试, 边学习Java的使用, 边提高算法能力.</p>
+<p>前三题其实还是挺简单的, 主要是一个原地修改数组不另外开辟空间的要求, 最后用覆盖的方法解决了就好了.</p>
+<h1 id="11-盛最多水的容器"><a href="#11-盛最多水的容器" class="headerlink" title="11. 盛最多水的容器"></a>11. 盛最多水的容器</h1><h2 id="题目描述-中等"><a href="#题目描述-中等" class="headerlink" title="题目描述(中等)"></a>题目描述(中等)</h2><p>给定 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p>说明：你不能倾斜容器，且 n 的值至少为 2。</p>
+<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt></p>
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+<p>示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出: 49</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/container-with-most-water" target="_blank" rel="noopener">https://leetcode-cn.com/problems/container-with-most-water</a></p>
+<h2 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>解法一</strong></p>
+<p>这个解法可以说相当好像到,就是暴力穷举, 用一个双重循环, 将所有的情况都枚举出来, 取其中的最大值即可. 想是很好想, 但是这个算法的效率却很低, 时间复杂度为O(n^2), 所以在这个题中, 我考虑的就是如何用别的算法来达到降低时间的这个目的.</p>
+<p>我先用双重循环试了试它的时间, 最后结果为Java提交记录中的30%, 可见效率之低.</p>
+<p><strong>解法二</strong></p>
+<p><strong>双指针解法</strong>:我是没想出来这个解法, 也是看了官方题解才明白的. 它的思路在于两条线段之间形成的区域面积受制于两条边中较短的边. 其次, 两条边距离越远, 面积越大. 通过放置两个指针, 一头一尾, 记录当前最大面积max. 然后移动较短的指针, 更新最大面积max, 直至头尾指针相遇. 只需要扫描一遍即可找到最大值, 所以时间复杂度为O(n).</p>
+<p>这个方法看起来比较简单, 但是我在思考为什么这个算法正确的时候花了不少时间. 也看了很多讨论, 利用数学的论证这个方法的正确性, 最终也算是搞懂了.</p>
+<p><strong>思考</strong></p>
+<p>我发现对于一个问题啊, 我们特别喜欢用暴力穷举的方法来的到答案, 因为在你穷举的过程中看似吧每种可能都给考虑到了,是最周全的方法,结果也是最可靠的. 但是这种方法就会消耗更多的时间, 并且在问题规模大到一定程度后, 穷举在一定的时间内就是不可能完成的, 所以才会有<strong>算法</strong>的出现.</p>
+<p>个人观点, 算法就是用一定的方法, 避免那些”不必要的”穷举, 只需要对部分内容进行操作, 就可以得到正确的结果的过程. 当然算法并不是说一拍脑子就想出来的, 可能想一个算法的过程会有aha moment, 但是想出来了之后都是要通过数学的证明来确定他的正确性的. 所以说数学这个工具也还是很重要的呢.</p>
+<h2 id="解题代码-3"><a href="#解题代码-3" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">maxAreaBetter</span><span class="params">(<span class="keyword">int</span>[] height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,  j=height.length-<span class="number">1</span>; i&lt;j;) &#123;</span><br><span class="line">			max = Math.max(max, Math.min(height[i], height[j])*(j-i));</span><br><span class="line">			<span class="keyword">if</span>(height[i] &lt; height[j]) &#123;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> j--;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -420,6 +494,12 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+        </div>
+      
 
       
       
@@ -429,15 +509,15 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/21/Wireshark实验：HTTP/" rel="next" title="Wireshark实验：HTTP">
+                <i class="fa fa-chevron-left"></i> Wireshark实验：HTTP
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/18/七月上半月总结/" rel="prev" title="七月上半月总结">
-                七月上半月总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +651,7 @@ hexo d</code></pre><p>之前感觉每次都这么输挺麻烦的，不过好像�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建过程"><span class="nav-text">搭建过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#图床搭建"><span class="nav-text">图床搭建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客发表"><span class="nav-text">博客发表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#美化进阶"><span class="nav-text">美化进阶</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客再更"><span class="nav-text">博客再更</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown的一些语法"><span class="nav-text">markdown的一些语法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#26-删除排序数组中的重复项"><span class="nav-text">26. 删除排序数组中的重复项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-简单"><span class="nav-text">题目描述(简单)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码"><span class="nav-text">解题代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#27-移除元素-简单"><span class="nav-text">27. 移除元素(简单)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-简单-1"><span class="nav-text">题目描述(简单)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码-1"><span class="nav-text">解题代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#283-移动零"><span class="nav-text">283. 移动零</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述-简单-2"><span class="nav-text">题目描述(简单)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码-2"><span class="nav-text">解题代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结前三题"><span class="nav-text">总结前三题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-盛最多水的容器"><span class="nav-text">11. 盛最多水的容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-中等"><span class="nav-text">题目描述(中等)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-3"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题代码-3"><span class="nav-text">解题代码</span></a></li></ol></li></ol></div>
             
 
           </div>

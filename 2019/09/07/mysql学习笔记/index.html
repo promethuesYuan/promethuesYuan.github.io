@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="MySQL学习记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-08T11:53:52.466Z">
+<meta property="og:updated_time" content="2019-09-09T15:52:09.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL学习笔记">
 <meta name="twitter:description" content="MySQL学习记录">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k
+                  2.2k
                 </span>
               
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  8
                 </span>
               
             </div>
@@ -528,7 +528,31 @@ Records: 0  Duplicates: 0  Warnings: 0</code></pre><p>若无 first 或 after，�
 <h4 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h4><pre><code>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;</code></pre><h4 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h4><pre><code>ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;；</code></pre><h4 id="修改字段名称"><a href="#修改字段名称" class="headerlink" title="修改字段名称"></a>修改字段名称</h4><pre><code>ALTER TABLE &lt;表名&gt; CHANGE &lt;旧字段名&gt; &lt;新字段名&gt; &lt;新数据类型&gt;；</code></pre><p>新数据类型指的是修改后的数据类型，如果不需要修改字段的数据类型，可以将新数据类型设置成与原来一样，但数据类型不能为空。</p>
 <h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><pre><code>ALTER TABLE &lt;旧表名&gt; RENAME [TO] &lt;新表名&gt;；</code></pre><h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p>语法格式如下：</p>
 <pre><code>DROP TABLE [IF EXISTS] &lt;表名&gt; [ , &lt;表名1&gt; , &lt;表名2&gt;] …</code></pre><p>语法说明如下：<br>1.&lt;表名&gt;：被删除的表名。DROP TABLE 语句可以同时删除多个表，用户必须拥有该命令的权限。<br>2.表被删除时，所有的表数据和表定义会被取消，所以使用本语句要小心。<br>3.表被删除时，用户在该表上的权限并不会自动被删除。<br>4.参数IF EXISTS用于在删除前判断删除的表是否存在，加上该参数后，在删除表的时候，如果表不存在，SQL 语句可以顺利执行，但会发出警告（warning）。</p>
-
+<h2 id="MySQL键约束"><a href="#MySQL键约束" class="headerlink" title="MySQL键约束"></a>MySQL键约束</h2><p>键约束感觉就是给一些键增加特定的标识，作为这个表的某一种标识的体现。</p>
+<p>键约束一共有主键、外键、唯一约束。</p>
+<h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p><strong>定义&amp;作用：</strong>“主键（PRIMARY KEY）”的完整称呼是“主键约束”。MySQL 主键约束是一个列或者列的组合，其值能唯一地标识表中的每一行。这样的一列或多列称为表的主键，通过它可以强制表的实体完整性。</p>
+<p><strong>创建语法：</strong></p>
+<pre><code>&lt;字段名&gt; &lt;数据类型&gt; PRIMARY KEY [默认值]</code></pre><p>实例：<code>id int(11) primary key</code>，此时id即成为这个表的主键。</p>
+<p>在定义完所有列之后，<strong>指定主键的语法格式为：</strong></p>
+<pre><code>[CONSTRAINT &lt;约束名&gt;] PRIMARY KEY [字段名]</code></pre><p>实例：<code>primary key(id)</code>,此时id即成为这个表的主键。</p>
+<p><strong>创建复合主键：</strong></p>
+<pre><code>PRIMARY KEY [字段1，字段2，…,字段n]</code></pre><p>实例：<code>primary key(id, deptId)</code>,此时id和deptId即成为这个表的复合主键。</p>
+<p><strong>修改表时添加主键：</strong></p>
+<pre><code>ALTER TABLE &lt;数据表名&gt; ADD PRIMARY KEY(&lt;列名&gt;);</code></pre><p>实例：<code>ALTER TABLE tb_emp2  ADD PRIMARY KEY(id);</code>，此时添加id成为这个表的主键。</p>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p><strong>定义&amp;作用：</strong><br>MySQL 外键约束（FOREIGN KEY）用来在两个表的数据之间建立链接，它可以是一列或者多列。一个表可以有一个或多个外键。<br>外键对应的是参照完整性，一个表的外键可以为空值，若不为空值，则每一个外键的值必须等于另一个表中主键的某个值。<br>外键是表的一个字段，不是本表的主键，但对应另一个表的主键。定义外键后，不允许删除另一个表中具有关联关系的行。</p>
+<p><strong>创建语法：</strong></p>
+<pre><code>[CONSTRAINT &lt;外键名&gt;] FOREIGN KEY 字段名 [，字段名2，…]
+REFERENCES &lt;主表名&gt; 主键列1 [，主键列2，…]</code></pre><p>实例：<code>CONSTRAINT fk_emp_dept1 FOREIGN KEY(deptId) REFERENCES tb_dept1(id)</code></p>
+<p><strong>修改表时添加外键：</strong></p>
+<pre><code>ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;索引名&gt;
+FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);</code></pre><p>实例：</p>
+<pre><code>mysql&gt; ALTER TABLE tb_emp2
+-&gt; ADD CONSTRAINT fk_tb_dept1
+-&gt; FOREIGN KEY(deptId)
+-&gt; REFERENCES tb_dept1(id);</code></pre><p><strong>删除外键：</strong></p>
+<pre><code>ALTER TABLE &lt;表名&gt; DROP FOREIGN KEY &lt;外键约束名&gt;;</code></pre><p>实例:</p>
+<pre><code>mysql&gt; ALTER TABLE tb_emp2
+    -&gt; DROP FOREIGN KEY fk_tb_dept1;</code></pre>
       
     </div>
     
@@ -704,7 +728,7 @@ Records: 0  Duplicates: 0  Warnings: 0</code></pre><p>若无 first 或 after，�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-1"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-1"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-1"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-text">删除</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-1"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-1"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-1"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL键约束"><span class="nav-text">MySQL键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-text">外键</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -755,7 +779,7 @@ Records: 0  Duplicates: 0  Warnings: 0</code></pre><p>若无 first 或 after，�
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">11.6k</span> 字
+      博客全站共： <span class="post-count">12.2k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="MySQL学习记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-09T15:52:09.950Z">
+<meta property="og:updated_time" content="2019-09-10T05:42:55.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL学习笔记">
 <meta name="twitter:description" content="MySQL学习记录">
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.2k
+                  2.9k
                 </span>
               
 
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  11
                 </span>
               
             </div>
@@ -552,7 +552,43 @@ FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);</code
 -&gt; REFERENCES tb_dept1(id);</code></pre><p><strong>删除外键：</strong></p>
 <pre><code>ALTER TABLE &lt;表名&gt; DROP FOREIGN KEY &lt;外键约束名&gt;;</code></pre><p>实例:</p>
 <pre><code>mysql&gt; ALTER TABLE tb_emp2
-    -&gt; DROP FOREIGN KEY fk_tb_dept1;</code></pre>
+    -&gt; DROP FOREIGN KEY fk_tb_dept1;</code></pre><h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p><strong>定义&amp;作用：</strong></p>
+<p>MySQL唯一约束（Unique Key）要求该列唯一，允许为空，但只能出现一个空值。唯一约束可以确保一列或者几列不出现重复值。</p>
+<p><strong>创建语法：</strong></p>
+<pre><code>&lt;字段名&gt; &lt;数据类型&gt; UNIQUE</code></pre><p><strong>添加唯一约束：</strong></p>
+<pre><code>ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;唯一约束名&gt; UNIQUE(&lt;列名&gt;);</code></pre><p>实例：<br>    mysql&gt; ALTER TABLE tb_dept1<br>        -&gt; ADD CONSTRAINT unique_name UNIQUE(name);</p>
+<p><strong>删除唯一约束：</strong></p>
+<pre><code>ALTER TABLE &lt;表名&gt; DROP INDEX &lt;唯一约束名&gt;;</code></pre><h3 id="检查约束"><a href="#检查约束" class="headerlink" title="检查约束"></a>检查约束</h3><p>具体语法: <code>CHECK &lt;表达式&gt;</code></p>
+<p>修改表时添加约束： <code>ALTER TABLE tb_emp7 ADD CONSTRAINT &lt;检查约束名&gt; CHECK(&lt;检查约束&gt;)</code></p>
+<p>删除约束: <code>ALTER TABLE &lt;数据表名&gt; DROP CONSTRAINT &lt;检查约束名&gt;;</code></p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>设置：<code>&lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;;</code></p>
+<h3 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h3><p>设置: <code>&lt;字段名&gt; &lt;数据类型&gt; NOT NULL;</code></p>
+<h2 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h2><h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><p>select语句语法：</p>
+<pre><code>SELECT
+{* | &lt;字段列名&gt;}
+[
+FROM &lt;表 1&gt;, &lt;表 2&gt;…
+[WHERE &lt;表达式&gt;
+[GROUP BY &lt;group by definition&gt;
+[HAVING &lt;expression&gt; [{&lt;operator&gt; &lt;expression&gt;}…]]
+[ORDER BY &lt;order by definition&gt;]
+[LIMIT[&lt;offset&gt;,] &lt;row count&gt;]
+]</code></pre><p>查询表中<strong>全部内容</strong>，具体格式：</p>
+<pre><code>SELECT * FROM 表名;</code></pre><p><strong>查询指定字段</strong>，具体格式：</p>
+<pre><code>SELECT &lt; 列名 &gt; FROM &lt; 表名 &gt;;</code></pre><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>消除重复的记录值，使用关键字distinct,具体语法:</p>
+<pre><code>SELECT DISTINCT &lt;字段名&gt; FROM &lt;表名&gt;;</code></pre><h3 id="限制查询条数"><a href="#限制查询条数" class="headerlink" title="限制查询条数"></a>限制查询条数</h3><p>当只需要查询某几行内容时，需要用到关键字llimit，具体格式:</p>
+<pre><code>&lt;LIMIT&gt; [&lt;位置偏移量&gt;,] &lt;行数&gt;</code></pre><p>实例1：</p>
+<pre><code>SELECT * FROM tb_students_info LIMIT 4;
+查询的就是1~4行的内容</code></pre><p>实例2：<br>    SELECT * FROM tb_students_info LIMIT 3,5;<br>    查询的就是偏移3行，即4~8行的内容</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>具体格式：</p>
+<pre><code>ORDER BY {&lt;列名&gt; | &lt;表达式&gt; | &lt;位置&gt;} [ASC|DESC]</code></pre><p><strong>注:</strong><br>关键字 ASC 表示按升序分组，关键字 DESC 表示按降序分组，其中 ASC 为默认值。这两个关键字必须位于对应的列名、表达式、列的位置之后。</p>
+<p>实例1：</p>
+<pre><code>SELECT * FROM tb_students_info ORDER BY height;</code></pre><p>以height为升序排序</p>
+<p>实例2：</p>
+<pre><code>SELECT name,height FROM tb_student_info ORDER BY height DESC,name ASC;</code></pre><p>先以height为降序排序，然后以name为升序排序</p>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>筛选数据，具体格式：</p>
+<pre><code>WHERE &lt;查询条件&gt; {&lt;判定运算1&gt;，&lt;判定运算2&gt;，…}</code></pre><p>判断语法如下:<br>&lt;表达式1&gt;{=|&lt;|&lt;=|&gt;|&gt;=|&lt;=&gt;|&lt;&gt;|！=}&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT]LIKE&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT][REGEXP|RLIKE]&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT]BETWEEN&lt;表达式2&gt;AND&lt;表达式3&gt;<br>&lt;表达式1&gt;IS[NOT]NULL</p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2>
       
     </div>
     
@@ -728,7 +764,7 @@ FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);</code
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-1"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-1"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-1"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL键约束"><span class="nav-text">MySQL键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-text">外键</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-1"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-1"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-1"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL键约束"><span class="nav-text">MySQL键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-text">外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一约束"><span class="nav-text">唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查约束"><span class="nav-text">检查约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非空约束"><span class="nav-text">非空约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择数据"><span class="nav-text">选择数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select"><span class="nav-text">select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去重"><span class="nav-text">去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制查询条数"><span class="nav-text">限制查询条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-text">条件查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-text">插入数据</span></a></li></ol></div>
             
 
           </div>
@@ -779,7 +815,7 @@ FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);</code
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">12.2k</span> 字
+      博客全站共： <span class="post-count">12.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

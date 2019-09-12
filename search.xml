@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JDBC学习笔记]]></title>
+    <url>%2F2019%2F09%2F11%2FJDBC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[记录JDBC使用方法 什么是JDBCJDBC, Java Database Connecive, Java 数据库连接，是一组专门负责连接并操作数据库的标准，在整个JDBC中实际上大量的提供的是接口。针对于各个不同的数据库生产商 ，只要想使用JAVA 进行数据库的开发，则对这些标准有所支持。 JDBC操作步骤 加载数据库驱动程序 连接数据库，通过Connection 接口和 DriverManager 类完成 操作数据库，通过Statement、PreparedStatement、ResultSet 三个接口完成 关闭数据库 加载数据库我使用的是mysql连接，需要将mysql-connector-java-8.0.17.jar（我使用的是这个版本）这个包导入到项目之中。IDEA导入方法是，File -&gt; project structre -&gt; 左边选择Modules -&gt; 在这个包管理界面，点击右侧的➕ -&gt; 通过你的包的路径，选择这个jar包即可导入。 连接数据库123456789101112131415public class Demo &#123; public static void main(String[] args) &#123; try &#123; //加载驱动类 Class.forName("com.mysql.cj.jdbc.Driver"); //建立连接(连接对象内部其实包含了Socket对象，是一个远程连接。比较耗时！) //真正开发中，为了提高效率，都会使用连接池来管理连接对象。 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC", "user","password"); System.out.println(con); &#125; catch (ClassNotFoundException | SQLException e) &#123; e.printStackTrace(); &#125; &#125;&#125; 连接的时候遇到了几个问题。 1.报错：Loading class com.mysql.jdbc.Driver. This is deprecated. The new driver class is com.mysql.cj.jdb这个问题是因为高版本的驱动，连接class有所修改，forname()里面需要写“com.mysql.cj.jdbc.Driver” 而不是”com.mysql.jdbc.Driver” 2.报错：SQLException: The server time zone value ‘�й���׼ʱ��’ is unrecognized在配置datasource.url时出现了时区不一致的问题，在后面加上“?serverTimezone=UTC”即可 3.这里有两个异常操作，Java基础不是很好，暂时无法理解为什么这么写，先记住就好。 操作数据库Statement接口1234567891011121314151617181920public class Demo1 &#123; public static void main(String[] args) &#123; try &#123; //加载驱动类 Class.forName("com.mysql.cj.jdbc.Driver"); //建立连接 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC", "user","password"); Statement stmt = con.createStatement(); String sql = " INSERT INTO tb_courses" + " (course_id,course_name,course_grade,course_info)" + " VALUES(2,'Network',3,'Computer Network');"; stmt.execute(sql); //SQL注入 &#125; catch (ClassNotFoundException | SQLException e) &#123; e.printStackTrace(); &#125; &#125;&#125; 建立连接和前面时一致的。主要是中间的执行有所区别。 Statement是通过一个String来存储所要进行的sql操作，然后通过execute()方法来实现要进行的操作。存储的sql操作支持字符串拼接，可以将values的值拼接成一句sql语句。 这种可拼接的方法就带来了一个问题，叫做SQL注入。什么是SQL注入，也就是说，你在拼接的过程中是没有进行字符串检查的，万一在某个where语句后面拼接时，出现了判断结果与你预期的不一致，最后导致数据库内容出错，甚至删库的情况出现。视频讲解并不推荐这种方法。 PreparedStatement接口12345678910111213141516171819202122232425262728public class Demo2 &#123; public static void main(String[] args) &#123; try &#123; //加载驱动类 Class.forName("com.mysql.cj.jdbc.Driver"); //建立连接(连接对象内部其实包含了Socket对象，是一个远程连接。比较耗时！) Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test_db?serverTimezone=UTC", "user","password"); String sql = "INSERT into tb_courses (course_name, course_grade) values(?,?)"; //?占位符 PreparedStatement ps = con.prepareCall(sql); //传参方法1// ps.setString(1, "JDBClearning");// ps.setFloat(2, 6.0f); //传参方法2 ps.setObject(1, "JDBC"); ps.setObject(2, 12); System.out.println("插入正在学习JDBC"); ps.execute(); &#125; catch (ClassNotFoundException | SQLException e) &#123; e.printStackTrace(); &#125; &#125;&#125; PreparedStatement作为Statement的子类，可以使用预编译，然后传参的方法，来实现sql语句。符号”?”作为占位符，为后面传参做准备。传参一共有两种方法可以使用。 一种是明确传参类型。比如传参是String类型，就用setString()方法来传参。第一个参数是表示位置信息，第二个是你要插入的数据。插入int就用setInt()方法，其他的类似。另一种是不明确传参类型。使用setObject()方法传所有参数。]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[当我在学MySQL时我到底在学什么]]></title>
     <url>%2F2019%2F09%2F09%2F%E5%BD%93%E6%88%91%E5%9C%A8%E5%AD%A6MySQL%E6%97%B6%E6%88%91%E5%88%B0%E5%BA%95%E5%9C%A8%E5%AD%A6%E4%BB%80%E4%B9%88%2F</url>
     <content type="text"><![CDATA[一点MySQL学习感想 因为软工大作业项目的缘故，所以最近自己在学习如何使用MySQL数据库。学了有几天了，都是在学习命令行下的一些操作，给我的直接感受和当时使用navicat的感觉差不多，觉得好像就是把图形化界面使用命令行来表示了而已啊。找来一篇SQL语言教程，发现其实二者是互通的嘛。那么问题来了，当我在学MySQL时我到底在学什么呢？ 在知乎上翻看跟数据库有关的话题，如何回答这个问题心中慢慢有了眉目。回顾这几天的学习，说白了就是学习如何使用这种数据库，而数据库的主要功能无非就是存储和查询。学习数据库不是目的，它只是做开发时必须要用到的工具。对于当时做爬虫项目而言，数据库更可以是发掘数据中潜藏价值的仓库。 所以先学好怎么使用，有兴趣再去深入研究数据库原理等相关知识吧。]]></content>
@@ -86,8 +97,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>codesheep笔记</tag>
         <tag>Java</tag>
+        <tag>codesheep笔记</tag>
       </tags>
   </entry>
   <entry>

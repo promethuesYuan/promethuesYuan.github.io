@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[(转)C++中struct和class的区别]]></title>
+    <url>%2F2019%2F09%2F27%2F%E8%BD%AC-C-%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[初学C++，对struct的用法感觉非常奇怪，和C中差别挺大。看到一篇博客写的挺好，转载一下。 原博客地址：C++中struct和class的区别 1）默认的继承访问权限。struct是public的，class是private的。 如果不知道什么是public继承，什么是private继承的，可以去查书，这里暂不讨论。 你可以写如下的代码： 123456789struct A&#123;char a;&#125;；struct B : A&#123;char b;&#125;； 这个时候B是public继承A的。如果都将上面的struct改成class，那么B是private继承A的。这就是默认的继承访问权限。所以我们在平时写类继承的时候，通常会这样写： 1struct B : public A 就是为了指明是public继承，而不是用默认的private继承。 当然，到底默认是public继承还是private继承，取决于子类而不是基类。我的意思是，struct可以继承class，同样class也可以继承struct，那么默认的继承访问权限是看子类到底是用的struct还是class。如下： 12345struct A&#123;&#125;；class B : A&#123;&#125;; //private继承struct C : B&#123;&#125;； //public继承 2）struct作为数据结构的实现体，它默认的数据访问控制是public的，而class作为对象的实现体，它默认的成员变量访问控制是private的。 注意我上面的用词，我依 旧强调struct是一种数据结构的实现体，虽然它是可以像class一样的用。我依旧将struct里的变量叫数据，class内的变量叫成员，虽然它 们并无区别。其实，到底是用struct还是class，完全看个人的喜好，你可以将你程序里所有的class全部替换成struct，它依旧可以很正常 的运行。但我给出的最好建议，还是：当你觉得你要做的更像是一种数据结构的话，那么用struct，如果你要做的更像是一种对象的话，那么用class。 当然，我在这里还要强调一点的就是，对于访问控制，应该在程序里明确的指出，而不是依靠默认，这是一个良好的习惯，也让你的代码更具可读性。]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Swing的一些使用技巧]]></title>
     <url>%2F2019%2F09%2F25%2FSwing%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%2F</url>
     <content type="text"><![CDATA[记录一些Swing做GUI时候的一些技巧 窗体居中设置 1this.setLocationRelativeTo(null);//窗体居中显示 窗口自适应大小用Java代码先获得屏幕大小，然后在设置宽高。获得屏幕大小代码如下 123Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();//得到屏幕的大小System.out.println (screen.getWidth());//输出屏幕的宽度System.out.println (screen.getHeight());//输出屏幕的高度 然后可以设置相应的bounds的比例 String使用的一个小经验下午在做判断两个字符串是否相等的时候，我用了==来进行判断，但一直会出错，当时一直不明白为什么。旁边的同学提醒我看idea的提示，让我改用equals()来判断，改完后就正确了。我就突然明白，两个字符串常量比较时候可以用==，因为他们判断时是判断他们是否指向同一个字符串。equals()是来判断两个字符串是否相等。]]></content>

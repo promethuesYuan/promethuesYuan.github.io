@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[printf与十六进制]]></title>
+    <url>%2F2019%2F10%2F06%2Fprintf%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%2F</url>
+    <content type="text"><![CDATA[如何用printf输出十六进制 CSP里面用到十六进制的地方还是挺多的，所以记录一下如何输出十六进制数据。 12345int a = 0xf;printf("%x\n", a); //x为小写时，输出a~fprintf("%X\n", a); //注意这里的X为大写，输出时A~F为大写printf("%4x\n", a); //补齐为4位，左边补空格printf("%04x\n", a); //补齐为4位，左边补0 结果 1234fF f000f]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[提高效率:cin和cout]]></title>
     <url>%2F2019%2F10%2F06%2F%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87-cin%E5%92%8Ccout%2F</url>
     <content type="text"><![CDATA[做题还是少用cin/cout,转用scanf/printf吧 今天做CSP：190303_RAID5这个题的时候，第一版做完结果30分，运行超时。费劲心思优化之后，还是一样的结果。不知道怎么优化后，去网上查别人的解法。看别人代码的时候主意到了这么一句话 1std::ios::sync_with_stdio(false);//避免c++中cin操作超时。 觉得可能跟这个原因有关，于是在代码中加上了上面这句话，于是就AC了…小伙感觉非常震惊，于是去网上了解详情。 博客解释 cin，cout之所以效率低，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段语句可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几，还有应注意的是scanf与printf使用的头文件应是stdio.h而不是iostream。 sync_with_stdio函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。 所以以后要是大型输入输出时候，采用cin/cout还是需要加上这句话来提速。]]></content>

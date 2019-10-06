@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[提高效率:cin和cout]]></title>
+    <url>%2F2019%2F10%2F06%2F%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87-cin%E5%92%8Ccout%2F</url>
+    <content type="text"><![CDATA[做题还是少用cin/cout,转用scanf/printf吧 今天做CSP：190303_RAID5这个题的时候，第一版做完结果30分，运行超时。费劲心思优化之后，还是一样的结果。不知道怎么优化后，去网上查别人的解法。看别人代码的时候主意到了这么一句话 1std::ios::sync_with_stdio(false);//避免c++中cin操作超时。 觉得可能跟这个原因有关，于是在代码中加上了上面这句话，于是就AC了…小伙感觉非常震惊，于是去网上了解详情。 博客解释 cin，cout之所以效率低，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段语句可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几，还有应注意的是scanf与printf使用的头文件应是stdio.h而不是iostream。 sync_with_stdio函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。 所以以后要是大型输入输出时候，采用cin/cout还是需要加上这句话来提速。]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[栈的用法:记一道LeetCode题目]]></title>
     <url>%2F2019%2F09%2F29%2F%E6%A0%88%E7%9A%84%E7%94%A8%E6%B3%95-%E8%AE%B0%E4%B8%80%E9%81%93LeetCode%E9%A2%98%E7%9B%AE%2F</url>
     <content type="text"><![CDATA[周赛中遇到的一道活用栈的题目，比较有启发意义。 题目 5206. 删除字符串中的所有相邻重复项 题目描述 给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。在执行完所有删除操作后，返回最终得到的字符串。本题答案保证唯一。 示例 输入：s = “deeedbbcccbdaa”, k = 3输出：”aa”解释： 先删除 “eee” 和 “ccc”，得到 “ddbbbdaa”再删除 “bbb”，得到 “dddaa”最后删除 “ddd”，得到 “aa” 数据结构：栈 解法：将字符串的每个字符按照顺序依次进站，如果栈中已经有k个相同的字符，就将他们依次弹出。最后将栈中剩余的字符串按照反序连接起来输出即得到正确答案。 启发：之前学了数据结构，但是感觉自己并没有用到解题中，没有这种思考的意识。本来自己在想怎么解的时候，一直在思考如何对字符串进行操作，听到别人解析用栈来实现的时候，觉得恍然大悟。所以还是数据结构基础要打好，然后就是如何灵活应用这些数据结构来解决问题。 代码 1234567891011121314151617181920212223242526272829303132333435363738394041import javafx.util.Pair;import java.util.Stack;class Solution &#123; public String removeDuplicates(String s, int k) &#123; /** *Pair用来记录当前字符以及这个字符是第几个了 */ Stack&lt;Pair&lt;Character, Integer&gt;&gt; stack = new Stack&lt;&gt;(); Pair&lt;Character, Integer&gt; pair = new Pair&lt;Character, Integer&gt;(s.charAt(0), 1); stack.push(pair); int len = s.length(); for(int i=1; i&lt;len; i++)&#123; if(!stack.isEmpty())&#123; char temp = stack.peek().getKey(); int num = stack.peek().getValue(); if(temp == s.charAt(i))&#123; stack.push(new Pair&lt;&gt;(temp, num+1)); if(num+1 == k)&#123; for(int a = 0; a&lt;k; a++) &#123; stack.pop(); &#125; &#125; &#125; else&#123; stack.push(new Pair&lt;&gt;(s.charAt(i), 1)); &#125; &#125; else &#123; stack.push(new Pair&lt;&gt;(s.charAt(i), 1)); &#125; &#125; String ans = ""; while (!stack.isEmpty())&#123; char a = stack.peek().getKey(); ans = a + ans; stack.pop(); &#125; return ans; &#125;&#125;]]></content>
@@ -130,8 +141,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>codesheep笔记</tag>
         <tag>Java</tag>
+        <tag>codesheep笔记</tag>
       </tags>
   </entry>
   <entry>

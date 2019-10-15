@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[C++之list]]></title>
+    <url>%2F2019%2F10%2F15%2FC-%E4%B9%8Blist%2F</url>
+    <content type="text"><![CDATA[记录C++中list的用法 list的实现list是 每个节点包含前继节点，后继节点，数据域三部分的双向循环链表。和普通链表性质一样，不提供随机访问，访问时间复杂度为0(n)，适合插入和删除。 头文件#include&lt;list&gt; list包含的函数1.声明list list list1; // 声明一个空的list1 list list3 (list2.begin(), list2.end()); // 用list2的迭代器内容声明list3 list list4 (list3); // 声明list4为list3的一个副本 list1.~list(); // 注销list 2.访问元素 list.front(); //返回第一个元素的值 list.back(); //返回最后一个元素的值 list.begin(); //返回第一个元素的迭代器 list.end(); //返回最后一个元素的迭代器 遍历 123456list&lt;int&gt; a;list&lt;int&gt;::iterator iter = a.begin();//或者 auto iter = a.begin();while(iter!=a.end())&#123; cout&lt;&lt; *iter++ &lt;&lt;endl;&#125; 3.添加、删除元素 list.pop_front(); //删除第一个元素 list.pop_back(); //删除最后一个元素 list.clear(); //清空list list.insert(iter, t); //在iter之前插入元素t list.erase(iter, t); //删除iter处的元素 如何控制iter位置： 123auto iter = a.begin();srd::advance(iter, 10); //将iter往后移10位a.erase(iter); //此时删除的就是第十一个元素 4.排序 list.sort(); //默认升序排序 list.reverse(); //将list元素反转]]></content>
+      <categories>
+        <category>解题记录</category>
+      </categories>
+      <tags>
+        <tag>C++, list</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[printf与十六进制]]></title>
     <url>%2F2019%2F10%2F06%2Fprintf%E4%B8%8E%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%2F</url>
     <content type="text"><![CDATA[如何用printf输出十六进制 CSP里面用到十六进制的地方还是挺多的，所以记录一下如何输出十六进制数据。 12345int a = 0xf;printf("%x\n", a); //x为小写时，输出a~fprintf("%X\n", a); //注意这里的X为大写，输出时A~F为大写printf("%4x\n", a); //补齐为4位，左边补空格printf("%04x\n", a); //补齐为4位，左边补0 结果 1234fF f000f]]></content>

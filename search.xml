@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[用命令行查询电池损耗]]></title>
+    <url>%2F2019%2F10%2F28%2F%E7%94%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9F%A5%E8%AF%A2%E7%94%B5%E6%B1%A0%E6%8D%9F%E8%80%97%2F</url>
+    <content type="text"><![CDATA[xps13电池损耗严重，windows下在cmd中可以很方便的查询电池现况，用过很多次了，记录一下。 以管理员身份运行cmd 输入命令：powercfg /batteryreport /output &quot;C:\battery_report.html&quot; 上面这段命令会生成一个电池报告，路径就在上面，该路径也可以自己定制。前往该路径打开html文件即可查看电池现况。 用了两年的xps13，之前电池还挺耐用的，一般去图书馆都不用带充电器，现在不得不带上了。用电池30min掉了20%，真的难顶啊，实在不行就只能去换一块电池了 :sob:]]></content>
+      <categories>
+        <category>电脑使用技巧</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[C++知识点清单]]></title>
     <url>%2F2019%2F10%2F18%2FC-%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B8%85%E5%8D%95%2F</url>
     <content type="text"><![CDATA[C++不熟悉知识点学习记录 TOLEARN List 访问限制 虚函数、友元函数、析构函数 运算符重载 多重继承]]></content>
@@ -185,8 +193,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>codesheep笔记</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>

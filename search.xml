@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux学习笔记]]></title>
+    <url>%2F2020%2F02%2F18%2FLinux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[记录Linux学习过程中学到的命令与用法 Linux学习笔记文件和目录管理文件类型 - 普通文件 d 目录 b 块设备文件，保存大块数据的设备，如硬盘 c 字符设备文件，如键盘鼠标 s 套接字文件，用于网络数据连接 p 管道文件，作用是解决多个程序同时存取一个文件所造成的错误 l 链接文件，软链接 cd 切换目录 ~ 当前登录用户主目录 ~用户名 切换到指定用户的主目录 上次所在的目录 . 当前目录 .. 上一级目录 / 根目录 pwd 显示当前工作路径（常用）ls 查看目录中的文件 ls [选项] 目录名称 常用选项 -a 显示全部的文件，包括隐藏文件（开头为 . 的文件）也一起罗列出来，这是最常用的选项之一。 -A 显示全部的文件，连同隐藏文件，但不包括 . 与 .. 这两个目录。 -l 使用长格式列出文件和目录信息。 -h 以人们易读的方式显示文件或目录大小，如 1KB、234MB、2GB 等。 -R 连同子目录内容一起列出来，等於将该目录下的所有文件都显示出来。 mkdir 创建目录 -p 选项递归建立目录。 如：mkdir -p lm/movie/jp/cangls -m 选项自定义目录权限。 如：mkdir -m 711 test2 rmdir 删除目录 也可以用-p选项递归删除，但是只能删除空目录，作用非常小，顾不常用 touch 创建文件ln 文件之间建立软/硬链接 ln [选项] 源文件 目标文件 -s：建立软链接文件。如果不加 “-s” 选项，则建立硬链接文件； -f：强制。如果目标文件已经存在，则删除目标文件后再建立链接文件； cp 复制文件和目录 cp [选项] 源文件 目标文件 常用选项 -r：递归复制，用于复制目录； -a：相当于 -d、-p、-r 选项的集合，这几个选项我们一一介绍； -p：复制后目标文件保留源文件的属性（包括所有者、所属组、权限和时间）；目的：我们发现，在执行复制命令后，目标文件的时间会变成复制命令的执行时间，而不是源文件的时间。 -i：询问，如果目标文件已经存在，则会询问是否覆盖； -d：如果源文件为软链接（对硬链接无效），则复制出的目标文件也为软链接； -l：把目标文件建立为源文件的硬链接文件，而不是复制源文件 -s：把目标文件建立为源文件的软链接文件，而不是复制源文件 分支主题 2分支主题 3XMind: ZEN - Trial Version]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux下C程序获得shell脚本输出]]></title>
     <url>%2F2020%2F02%2F17%2FLinux%E4%B8%8BC%E7%A8%8B%E5%BA%8F%E8%8E%B7%E5%BE%97shell%E8%84%9A%E6%9C%AC%E8%BE%93%E5%87%BA%2F</url>
-    <content type="text"><![CDATA[shell脚本输出结果重定向 课设里面，需要查看系统的相关信息。指导书上直接打开文件来获得，但我发现通过terminal中的一些命令更容易获得自己想要的信息，于是就研究如何把终端中输出的结果重定向过来。 使用popen 1FILE *popen(const char *command, const char *type); 该函数的作用是创建一个管道，fork一个进程，然后执行shell，而shell的输出可以采用读取文件的方式获得。采用这种方法，既避免了创建临时文件，又不受输出字符数的限制。 123#include &lt;stdio.h&gt; //头文件FILE *popen(const char *command, const char *type);int pclose(FILE *stream); popen 通过type是r还是w确定command的输入/输出方向，r和w是相对command的管道而言的。r表示command从管道中读入，w表示 command通过管道输出到它的stdout，popen返回FIFO管道的文件流指针。pclose则用于使用结束后关闭这个指针。 下面看一个示例，将free -m命令输出情况重定向输出到buf中，方便处理。 123456789101112131415161718192021#include &lt;sys/types.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;stdio.h&gt; #include &lt;string.h&gt;int main( void ) &#123; FILE *stream; FILE *wstream; char buf[1024]; memset( buf, '\0', sizeof(buf) ); stream = popen( "free -m", "r" ); fread( buf, sizeof(char), sizeof(buf), stream); printf("%s\n", buf); pclose( stream ); return 0;&#125;]]></content>
+    <content type="text"><![CDATA[shell脚本输出结果重定向 课设里面，需要查看系统的相关信息。指导书上直接打开文件来获得，但我发现通过terminal中的一些命令更容易获得自己想要的信息，于是就研究如何把终端中输出的结果重定向过来。 使用popen 1FILE *popen(const char *command, const char *type); 该函数的作用是创建一个管道，fork一个进程，然后执行shell，而shell的输出可以采用读取文件的方式获得。采用这种方法，既避免了创建临时文件，又不受输出字符数的限制。 123#include &lt;stdio.h&gt; //头文件FILE *popen(const char *command, const char *type);int pclose(FILE *stream); popen 通过type是r还是w确定command的输入/输出方向，r和w是相对command的管道而言的。r表示command从管道中读入，w表示 command通过管道输出到它的stdout，popen返回FIFO管道的文件流指针。pclose则用于使用结束后关闭这个指针。 下面看一个示例，将free -m命令输出情况重定向输出到buf中，方便处理。 1234567891011121314151617181920#include &lt;sys/types.h&gt; #include &lt;unistd.h&gt; #include &lt;stdlib.h&gt; #include &lt;stdio.h&gt; #include &lt;string.h&gt;int main( void ) &#123; FILE *stream; char buf[1024]; memset( buf, '\0', sizeof(buf) ); stream = popen( "free -m", "r" ); fread( buf, sizeof(char), sizeof(buf), stream); printf("%s\n", buf); pclose( stream ); return 0;&#125;]]></content>
       <tags>
         <tag>Linux</tag>
       </tags>

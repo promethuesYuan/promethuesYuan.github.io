@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据库,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuan&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/codesheep笔记/index.html">
+<meta name="description" content="介绍数据库中事务这个概念">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库:事务概念">
+<meta property="og:url" content="http://yoursite.com/2020/02/29/数据库-事务概念/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
+<meta property="og:description" content="介绍数据库中事务这个概念">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-29T13:18:24.438Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuan&#39;s Blog">
+<meta name="twitter:title" content="数据库:事务概念">
+<meta name="twitter:description" content="介绍数据库中事务这个概念">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/codesheep笔记/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/29/数据库-事务概念/">
 
 
 
 
 
-  <title>标签: codesheep笔记 | Yuan's Blog</title>
+  <title>数据库:事务概念 | Yuan's Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,52 +281,213 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>codesheep笔记<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/数据库-事务概念/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan Zhibo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/07/19/codesheep笔记-为什么推荐java而不是c/" itemprop="url">
-              
-                <span itemprop="name">codesheep笔记:为什么推荐Java而不是C++</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">数据库:事务概念</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-19T22:09:11+08:00" content="2019-07-19">
-          07-19
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-29T20:53:58+08:00">
+                2020-02-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+          
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center>
+    介绍数据库中事务这个概念
+</center>
+
+<a id="more"></a>
+
+<p>之前遇到过事务这个概念，在做pravega的时候有个名词叫做trasaction，英语不太懂，查了之后发现原来就是事务的意思，顺便再学习一下到底什么是“事务”。内容整理自<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/9744607" target="_blank" rel="noopener">百度百科</a></p>
+<h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>数据库事务( transaction)是访问并可能操作各种数据项的一个数据库操作序列，这些操作要么全部执行,要么全部不执行，是一个不可分割的工作单位。事务由事务开始与事务结束之间执行的全部数据库操作组成。</p>
+<h2 id="2-理解"><a href="#2-理解" class="headerlink" title="2.理解"></a>2.理解</h2><p>对于数据库，我们进行的操作无非就是CRUA，事务是工作的离散单位。在单用户、单数据库下执行事务比较简单，但在分布式环境下，维护多个数据库的完整性就比较复杂。一个事务再多个场地进行修改，那就需要管理机制来防止数据重写并提供同步。另外还需要具有返回失效事务的能力，提供安全保障和提供数据恢复能力。</p>
+<p>比如，我们去银行转账，操作可以分为下面两个环节：</p>
+<ol>
+<li><p>从第一个账户划出款项。</p>
+</li>
+<li><p>将款项存入第二个账户。 </p>
+</li>
+</ol>
+<p>在这个过程中，两个环节是关联的。第一个账户划出款项必须保证正确的存入第二个账户，如果第二个环节没有完成，整个的过程都应该取消，否则就会发生丢失款项的问题。整个交易过程，可以看作是一个事物，成功则全部成功，失败则需要全部撤消，这样可以避免当操作的中间环节出现问题时，产生数据不一致的问题。</p>
+<blockquote>
+<p>我们可以这样理解数据库事物:对数据库所做的一系列修改，在修改过程中，暂时不写入数据库，而是缓存起来，用户在自己的终端可以预览变化，直到全部修改完成，并经过检查确认无误后，一次性提交并写入数据库，在提交之前，必要的话所做的修改都可以取消。提交之后，就不能撤销，提交成功后其他用户才可以通过查询浏览数据的变化。</p>
+</blockquote>
+<h2 id="3-性质（ACID）"><a href="#3-性质（ACID）" class="headerlink" title="3.性质（ACID）"></a>3.性质（ACID）</h2><ol>
+<li><p>原子性(Atomicity)：事务中的全部操作在数据库中是不可分割的，要么全部完成，要么全部不执行。 </p>
+</li>
+<li><p>一致性(Consistency)：几个并行执行的事务，其执行结果必须与按某一顺序 串行执行的结果相一致。</p>
+</li>
+<li><p>夺隔离性(Isolation)：事务的执行不受其他事务的干扰，事务执行的中间结果对其他事务必须是透明的。</p>
+</li>
+<li><p>夺持久性(Durability):对于任意已提交事务，系统必须保证该事务对数据库的改变不被丢失，即使数据库出现故障。</p>
+</li>
+</ol>
+<p>百度给的这个一致性的解释看的我很懵逼啊，于是又查询了相关资料，数据库中一致性准确定义为：</p>
+<blockquote>
+<p>Consistency ensures that a transaction can only bring the database from one valid state to another, maintaining database invariants: any data written to the database must be valid according to all defined rules, including constraints,cascades,triggers, and any combination thereof.</p>
+<p>一致性确保事务只能把数据库从一个有效的状态带到另一个有效的状态，保持数据库的不变性:任何写入到数据库的数据都需要按照已经定义的规则为有效的，包括约束、级联、除法器及其任意组合。</p>
+</blockquote>
+<p>举一个例子，一个银行系统，内部在进行转账的过程中，金钱总量保持不变是其定义的规则。那么A转了100给B，就必须A-100,B+100，使其金钱总量不变，处于一个有效的状态。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/18/Linux学习笔记/" rel="next" title="Linux学习笔记">
+                <i class="fa fa-chevron-left"></i> Linux学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -329,6 +495,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -349,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -412,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-定义"><span class="nav-text">1.定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-理解"><span class="nav-text">2.理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-性质（ACID）"><span class="nav-text">3.性质（ACID）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -570,6 +765,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

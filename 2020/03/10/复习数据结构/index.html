@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Wireshark,计算机网络,">
+  <meta name="keywords" content="数据结构,">
 
 
 
@@ -79,25 +79,18 @@
 
 
 
-<meta name="description" content="掌握HTTP相关，实验内容比较简单，尝试学习中成长。">
-<meta name="keywords" content="Wireshark,计算机网络">
+<meta name="description" content="重温数据结构，开始刷题">
+<meta name="keywords" content="数据结构">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Wireshark实验：HTTP">
-<meta property="og:url" content="http://yoursite.com/2019/07/21/Wireshark实验：HTTP/index.html">
+<meta property="og:title" content="复习数据结构">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/复习数据结构/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
-<meta property="og:description" content="掌握HTTP相关，实验内容比较简单，尝试学习中成长。">
+<meta property="og:description" content="重温数据结构，开始刷题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/$_%7BXFA4$N6%60GQ@NY132%5D$%28I.png">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/HWI6%29%25CL~KO%299F%29U$EN8%2551.png">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/R%25BR%60@%7B2VD$LGKHAPZ%5D%5DLA0.png">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/@%7DQ%258JZX%28HYLWYR%7DETBRWXB.png">
-<meta property="og:image" content="http://puui5s2bo.bkt.clouddn.com/%28LO@E%5DQY%28LIWQ%28BMC7T_4LK.png">
-<meta property="og:updated_time" content="2019-07-22T08:28:21.043Z">
+<meta property="og:updated_time" content="2020-03-10T07:41:07.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wireshark实验：HTTP">
-<meta name="twitter:description" content="掌握HTTP相关，实验内容比较简单，尝试学习中成长。">
-<meta name="twitter:image" content="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png">
+<meta name="twitter:title" content="复习数据结构">
+<meta name="twitter:description" content="重温数据结构，开始刷题">
 
 
 
@@ -127,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/21/Wireshark实验：HTTP/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/10/复习数据结构/">
 
 
 
 
 
-  <title>Wireshark实验：HTTP | Yuan's Blog</title>
+  <title>复习数据结构 | Yuan's Blog</title>
   
 
 
@@ -302,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/21/Wireshark实验：HTTP/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/复习数据结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan Zhibo">
@@ -319,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Wireshark实验：HTTP</h1>
+          <h1 class="post-title" itemprop="name headline">复习数据结构</h1>
         
 
         <div class="post-meta">
@@ -331,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-21T16:57:40+08:00">
-                2019-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-10T15:39:02+08:00">
+                2020-03-10
               </time>
             
 
@@ -354,8 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实操纪录/" itemprop="url" rel="index">
-                    <span itemprop="name">实操纪录</span>
+                  <a href="/categories/面试复习/" itemprop="url" rel="index">
+                    <span itemprop="name">面试复习</span>
                   </a>
                 </span>
 
@@ -385,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  878
+                  804
                 </span>
               
 
@@ -401,7 +394,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -422,20 +415,116 @@
       
 
       
-        <center>掌握HTTP相关，实验内容比较简单，尝试学习中成长。</center>
-<a id="more"></a>  
+        <center>
+    重温数据结构，开始刷题
+</center>
 
-<h1 id="1-基本HTTP-GET-response交互"><a href="#1-基本HTTP-GET-response交互" class="headerlink" title="1.基本HTTP GET/response交互"></a>1.基本HTTP GET/response交互</h1><p>这个实验的本身很简单，就是让你访问一个仅含有一段简单的html代码的网站，然后根据http协议的请求头所包含的信息，来回答问题即可。但是在这个过程中我还遇到了挺多奇奇怪怪的问题。<br>最开始操作不熟练，每次筛选后的到的纪录依然很多，多次尝试后，终于得到了和任务书介绍的类似界面。<br><img src="http://puui5s2bo.bkt.clouddn.com/blog/19_7_219V4A_X%60X%60S~%2869EMMLJCBDQ.png" alt="实验一" title="实验一结果"><br>但是我发现自己的HTTP状态响应为304 Not Modified, 和任务书中的200 OK不同，就很奇怪为什么。当时在下面详情里面看到了If Modified Since, 以及Accept Language。因为不是很明白为什么会出现这种情况，于是就先跳过实验一，看实验二去了。看了实验二才知道，304响应是因为我之前就访问过这个界面，然后浏览器产生了这个网页的缓存，304是说这个界面没有改变的意思。</p>
-<h1 id="2-HTTP条件Get-response交互"><a href="#2-HTTP条件Get-response交互" class="headerlink" title="2.HTTP条件Get/response交互"></a>2.HTTP条件Get/response交互</h1><p>实验二中熟悉操作之后就得到了对应的结果。<br><img src="http://puui5s2bo.bkt.clouddn.com/$_%7BXFA4$N6%60GQ@NY132%5D$%28I.png" alt="实验二结果" title="实验二结果"><br>在检查If-Modified-Since时，发现状态304中出现了这个标识，而且在状态200中，对应的是Last Modified,而且二者时间是一致的。<br>探究If-Modified-Since是何物，网上给到的结果是  </p>
-<blockquote>
-<p>意思是我们在请求时会发送给服务器上次它修改这个文件最后一次时间，如果服务器发现仍然没有修改这个文件，就会返回304文件为改变的信息，调用本地caceh缓存，如果改变就会重新得到。</p>
-</blockquote>
-<h1 id="3-检索长文件"><a href="#3-检索长文件" class="headerlink" title="3.检索长文件"></a>3.检索长文件</h1><p>实验三顺利执行，结果如下图<br><img src="http://puui5s2bo.bkt.clouddn.com/HWI6%29%25CL~KO%299F%29U$EN8%2551.png" alt="实验三" title="实验三结果"><br>数据信息包含在HTTP响应体里面。由于html文本过长，所以TCP共分了4个帧来存放这些信息，分组情况如下图<br><img src="http://puui5s2bo.bkt.clouddn.com/R%25BR%60@%7B2VD$LGKHAPZ%5D%5DLA0.png" alt="TCP分组" title="TCP分组">  </p>
-<h1 id="4-具有嵌入对象的HTML文档"><a href="#4-具有嵌入对象的HTML文档" class="headerlink" title="4.具有嵌入对象的HTML文档"></a>4.具有嵌入对象的HTML文档</h1><p>实验四捕获结果如下<br><img src="http://puui5s2bo.bkt.clouddn.com/@%7DQ%258JZX%28HYLWYR%7DETBRWXB.png" alt="实验四结果" title="实验四结果"><br>一共有三个HTTP GET请求，访问的IP地址都是128.119.245.12，按顺序得到了三个内容，分别是：html文件、pearson的图片、以及教材第五版的封面图，由于请求的时间不同，所以判断应该不是并行获得，而是按顺序请求获得。  </p>
-<h1 id="5-HTTP认证"><a href="#5-HTTP认证" class="headerlink" title="5.HTTP认证"></a>5.HTTP认证</h1><p>实验五结果如下图<br><img src="http://puui5s2bo.bkt.clouddn.com/%28LO@E%5DQY%28LIWQ%28BMC7T_4LK.png" alt="实验5" title="实验五结果"><br>最开始登录之后得到的界面是404 Not Found，感觉很奇怪啊，这不应该啊。后来检查了一下仓库中的URL，发现是给的URL打漏了一个”-“，打开正确的URL即可得到正确的结果界面。然后就在issue里面提交了这个问题，觉得Github还是很有意思啊。任务中让我们尝试base64加密方式，在wireshark中会自动解码出来，具体结果如下所示  </p>
-<pre><code>Authorization: Basic d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=\r\n  
-  Credentials: wireshark-students:network</code></pre><p>上面是加密前，下面是解密后的结果。可见我们的密码并不是很安全，需要别的措施来防止别人窃取。</p>
-<h1 id="6-实验收获"><a href="#6-实验收获" class="headerlink" title="6.实验收获"></a>6.实验收获</h1><p>这个实验还是蛮简单的，具体步骤不知道怎么做或者是不知道要得到什么结果，参照一下Github上的pdf也就很容易解决。相比较第一个Wireshark，这个更加有实际操作的感觉，也锻炼了使用这个工具，继续努力~</p>
+<a id="more"></a>
+
+<h2 id="常用数据结构和技巧"><a href="#常用数据结构和技巧" class="headerlink" title="常用数据结构和技巧"></a>常用数据结构和技巧</h2><ul>
+<li>数组、字符串</li>
+<li>链表</li>
+<li>栈</li>
+<li>队列</li>
+<li>双端队列</li>
+<li>树</li>
+</ul>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>字符串的处理更多的是转换成字符数组对每一个字符进行处理。</p>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><p>单链表：链表中的每个元素实际上是一个单独的对象，而所有对象都通过每个元素中的引用字段链接在一起。</p>
+<p>双链表：单链表不同的是，双链表的每个结点中都含有两个引用字段。</p>
+<p>解题技巧：</p>
+<ul>
+<li>利用快慢指针。典型题目例如：链表的翻转，寻找倒数第 k 个元素，寻找链表中间位置的元素，判断链表是否有环等等。</li>
+<li>构建一个虚假的链表头</li>
+</ul>
+<p>训练技巧：在白板上画出节点之间的相互关系，画出修改的方法</p>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p>由于历史遗留问题，Java中没有Stack接口，通过Deque接口来模拟Stack。</p>
+<p>当我们把<code>Deque</code>作为<code>Stack</code>使用时，注意只调用<code>push()</code>/<code>pop()</code>/<code>peek()</code>方法，不要调用<code>addFirst()</code>/<code>removeFirst()</code>/<code>peekFirst()</code>方法，这样代码更加清晰。</p>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><ul>
+<li><code>int size()</code>：获取队列长度；</li>
+<li><code>boolean add(E)</code>/<code>boolean offer(E)</code>：添加元素到队尾；</li>
+<li><code>E remove()</code>/<code>E poll()</code>：获取队首元素并从队列中删除；</li>
+<li><code>E element()</code>/<code>E peek()</code>：获取队首元素但并不从队列中删除。</li>
+</ul>
+<p>添加、删除和获取队列元素总是有两个方法，这是因为在添加或获取元素失败时，这两个方法的行为是不同的。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>throw Exception</th>
+<th>返回false或null</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>添加元素到队尾</td>
+<td>add(E e)</td>
+<td>boolean offer(E e)</td>
+</tr>
+<tr>
+<td>取队首元素并删除</td>
+<td>E remove()</td>
+<td>E poll()</td>
+</tr>
+<tr>
+<td>取队首元素但不删除</td>
+<td>E element()</td>
+<td>E peek()</td>
+</tr>
+</tbody></table>
+<h3 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h3><p>特点：双端队列和普通队列最大的不同在于，它允许我们在队列的头尾两端都能在 O(1) 的时间内进行数据的查看、添加和删除。</p>
+<p>实现：与队列相似，我们可以利用一个双链表实现双端队列。</p>
+<p>应用场景：双端队列最常用的地方就是实现一个长度动态变化的窗口或者连续区间，而动态窗口这种数据结构在很多题目里都有运用。</p>
+<p>我们来比较一下<code>Queue</code>和<code>Deque</code>出队和入队的方法：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Queue</th>
+<th>Deque</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>添加元素到队尾</td>
+<td>add(E e) / offer(E e)</td>
+<td>addLast(E e) / offerLast(E e)</td>
+</tr>
+<tr>
+<td>取队首元素并删除</td>
+<td>E remove() / E poll()</td>
+<td>E removeFirst() / E pollFirst()</td>
+</tr>
+<tr>
+<td>取队首元素但不删除</td>
+<td>E element() / E peek()</td>
+<td>E getFirst() / E peekFirst()</td>
+</tr>
+<tr>
+<td>添加元素到队首</td>
+<td>无</td>
+<td>addFirst(E e) / offerFirst(E e)</td>
+</tr>
+<tr>
+<td>取队尾元素并删除</td>
+<td>无</td>
+<td>E removeLast() / E pollLast()</td>
+</tr>
+<tr>
+<td>取队尾元素但不删除</td>
+<td>无</td>
+<td>E getLast() / E peekLast()</td>
+</tr>
+</tbody></table>
+<p><code>Deque</code>是一个接口，它的实现类有<code>ArrayDeque</code>和<code>LinkedList</code>。</p>
+<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>在面试中常考的树的形状有：普通二叉树、平衡二叉树、完全二叉树、二叉搜索树、四叉树（Quadtree）、多叉树（N-ary Tree）。</p>
+<p>重点复习一下树的遍历问题。</p>
+<h2 id="高级数据结构"><a href="#高级数据结构" class="headerlink" title="高级数据结构"></a>高级数据结构</h2><ul>
+<li>优先队列</li>
+<li>图</li>
+<li>线段树</li>
+<li>前缀树</li>
+<li>树状数组</li>
+</ul>
+<p>高级数据结构的内容过于陌生，留到后面学习整理。先巩固基础的数据结构。</p>
 
       
     </div>
@@ -453,9 +542,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Wireshark/" rel="tag"># Wireshark</a>
-          
-            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
           
         </div>
       
@@ -468,8 +555,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/19/codesheep笔记-为什么推荐java而不是c/" rel="next" title="codesheep笔记:为什么推荐Java而不是C++">
-                <i class="fa fa-chevron-left"></i> codesheep笔记:为什么推荐Java而不是C++
+              <a href="/2020/03/03/Pravega项目初试/" rel="next" title="Pravega项目初试">
+                <i class="fa fa-chevron-left"></i> Pravega项目初试
               </a>
             
           </div>
@@ -477,10 +564,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/01/LeetCode-数组题(1)/" rel="prev" title="LeetCode:数组题(1)">
-                LeetCode:数组题(1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -614,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-基本HTTP-GET-response交互"><span class="nav-text">1.基本HTTP GET/response交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP条件Get-response交互"><span class="nav-text">2.HTTP条件Get/response交互</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-检索长文件"><span class="nav-text">3.检索长文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-具有嵌入对象的HTML文档"><span class="nav-text">4.具有嵌入对象的HTML文档</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-HTTP认证"><span class="nav-text">5.HTTP认证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-实验收获"><span class="nav-text">6.实验收获</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用数据结构和技巧"><span class="nav-text">常用数据结构和技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表"><span class="nav-text">链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈"><span class="nav-text">栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-text">队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双端队列"><span class="nav-text">双端队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-text">树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级数据结构"><span class="nav-text">高级数据结构</span></a></li></ol></div>
             
 
           </div>

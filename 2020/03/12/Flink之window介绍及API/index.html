@@ -87,16 +87,16 @@
 <meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="介绍window这个概念以及相关的API函数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="c:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312103458860.png">
-<meta property="og:image" content="c:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312104014144.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312103457.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104013.png">
 <meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104254.png">
-<meta property="og:image" content="c:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312104706222.png">
-<meta property="og:image" content="c:/Users/Dell/AppData/Roaming/Typora/typora-user-images/image-20200312111617339.png">
-<meta property="og:updated_time" content="2020-03-12T04:57:28.729Z">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104656.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111610.png">
+<meta property="og:updated_time" content="2020-03-12T05:02:08.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flink之window介绍及API">
 <meta name="twitter:description" content="介绍window这个概念以及相关的API函数">
-<meta name="twitter:image" content="c:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312103458860.png">
+<meta name="twitter:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312103457.png">
 
 
 
@@ -427,7 +427,7 @@
 
 <a id="more"></a>
 
-<h2 id="window概念"><a href="#window概念" class="headerlink" title="window概念"></a>window概念</h2><p><img src="C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312103458860.png" alt="image-20200312103458860"></p>
+<h2 id="window概念"><a href="#window概念" class="headerlink" title="window概念"></a>window概念</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312103457.png" alt></p>
 <ul>
 <li>真实的流为无界的流,如何进行处理?</li>
 <li>可以把无限的数据流进行划分,得到有限的数据集进行处理,也就是<strong>有界流</strong></li>
@@ -448,7 +448,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="滚动窗口-Tumbling-Window"><a href="#滚动窗口-Tumbling-Window" class="headerlink" title="滚动窗口(Tumbling Window)"></a>滚动窗口(Tumbling Window)</h3><p><img src="C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312104014144.png" alt="image-20200312104014144"></p>
+<h3 id="滚动窗口-Tumbling-Window"><a href="#滚动窗口-Tumbling-Window" class="headerlink" title="滚动窗口(Tumbling Window)"></a>滚动窗口(Tumbling Window)</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104013.png" alt></p>
 <ul>
 <li>将数据依据固定的窗口长度对数据进行切分</li>
 <li>时间对齐,窗口长度固定,无重叠部分</li>
@@ -459,13 +459,12 @@
 <li>滑动窗口是固定窗口的更广义的一种形式,由固定的窗口长度和滑动间隔组成</li>
 <li>窗口长度固定,可以有重叠</li>
 </ul>
-<h3 id="会话窗口-Session-Window"><a href="#会话窗口-Session-Window" class="headerlink" title="会话窗口(Session Window)"></a>会话窗口(Session Window)</h3><p><img src="C:%5CUsers%5CDell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200312104706222.png" alt="image-20200312104706222"></p>
+<h3 id="会话窗口-Session-Window"><a href="#会话窗口-Session-Window" class="headerlink" title="会话窗口(Session Window)"></a>会话窗口(Session Window)</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104656.png" alt></p>
 <ul>
 <li>由一系列事件组成一个指定时间长度的timeout间隙组成,也就是一段时间没有接收到新数据就会生成新的窗口</li>
 <li>特点:时间无对齐</li>
 </ul>
-<h2 id="window-API"><a href="#window-API" class="headerlink" title="window API"></a>window API</h2><img src="C:\Users\Dell\AppData\Roaming\Typora\typora-user-images\image-20200312111617339.png" alt="image-20200312111617339" style="zoom:50%;">
-
+<h2 id="window-API"><a href="#window-API" class="headerlink" title="window API"></a>window API</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111610.png" alt></p>
 <p>窗口分配器–window()方法.该方法必须在keyBy之后才能使用</p>
 <p>更简单调用为.timeWindow和.countWindow方法,用于定义时间窗口和计数窗口</p>
 <p><strong>window assigner</strong></p>

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决homebrew下载过慢]]></title>
+    <url>%2F2020%2F04%2F07%2F%E8%A7%A3%E5%86%B3homebrew%E4%B8%8B%E8%BD%BD%E8%BF%87%E6%85%A2%2F</url>
+    <content type="text"><![CDATA[homebrew原生镜像下载过慢，本博客给出解决方法 第一步：跟换镜像源 此处我是将homebrew的镜像源换成了清华镜像，相关操作如下 1234567cd &quot;$(brew --repo)&quot;git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.gitcd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.gitbrew update 第二步：更换homebred-bottles镜像 12echo &apos;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&apos; &gt;&gt; ~/.bash_profilesource ~/.bash_profile PS:如果使用的shell不是bash而是zsh的话，则把.bash_profile改成.zshrc]]></content>
+      <tags>
+        <tag>homebrew</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo迁移]]></title>
     <url>%2F2020%2F04%2F06%2Fhexo%E8%BF%81%E7%A7%BB%2F</url>
     <content type="text"><![CDATA[迁移hexo博客]]></content>

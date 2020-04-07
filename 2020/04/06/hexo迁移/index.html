@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Yuan&#39;s Blog">
 <meta property="og:description" content="迁移hexo博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-06T15:43:37.746Z">
+<meta property="og:updated_time" content="2020-04-07T12:31:32.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo迁移">
 <meta name="twitter:description" content="迁移hexo博客">
@@ -334,6 +334,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人博客/" itemprop="url" rel="index">
+                    <span itemprop="name">个人博客</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -355,7 +377,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5
+                  461
                 </span>
               
 
@@ -395,7 +417,31 @@
         <center>
   迁移hexo博客
 </center>
+<a id="more"></a>
 
+<p>最近换电脑了，需要把之前电脑上的hexo博客相关内容进行迁移。通过网上博客以及知乎上相关内容学习，最终迁移成功，写一下博客记录一下整个过程。</p>
+<p>参考资料：<a href="https://www.zhihu.com/question/21193762/answer/489124966" target="_blank" rel="noopener">使用hexo，如果换电脑了怎么办</a></p>
+<h2 id="GitHub同步"><a href="#GitHub同步" class="headerlink" title="GitHub同步"></a>GitHub同步</h2><p><code>hexo d</code>部署到GitHub上的内容都是hexo编译后的文件，不包含本地的源文件。所以可以利用GitHub的分支管理，将源文件上传到GitHub的另一个分支。</p>
+<h2 id="hexo分支"><a href="#hexo分支" class="headerlink" title="hexo分支"></a>hexo分支</h2><p>在自己的博客仓库创建一个hexo分支，如下图所示：</p>
+<p>:framed_picture:</p>
+<p>在仓库的设置settings中，选择默认分支为hexo分支，如下所示：</p>
+<p>:framed_picture:</p>
+<p>然后在本地的任意目录下，将自己的仓库clone下来</p>
+<p><code>git clone git@github.com:xxx/xxx.github.io.git</code></p>
+<p>(PS:将xxx换成自己对应的名称)</p>
+<p>打开该目录，保留.git文件，其余文件删除。把之前博客的源文件复制过来，除去.deploy_git文件。</p>
+<p>:warning:注意，如果之前主题文件是通过克隆下来的，应该把主题文件中.git文件删除。原因是git不能嵌套上传，不删除的话主题文件会无法上传。</p>
+<p>最后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo branch&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>上传完毕，可以去hexo分支检查一下内容是否与本地一致。注意，<code>node_modules</code>、<code>public</code>、<code>db.json</code>三个文件因为<code>.gitignore</code>忽略上传了，分支没有这三个内容是正常情况。</p>
+<h2 id="迁移至新电脑"><a href="#迁移至新电脑" class="headerlink" title="迁移至新电脑"></a>迁移至新电脑</h2><p>首先，安装并配置<code>git</code>、<code>npm</code>、<code>hexo</code></p>
+<p>然后在任意目录下<code>git clone</code>你的博客</p>
+<p>然后进入该文件夹，进行如下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>生成并部署hexo 博客：<code>hexo g -d</code></p>
+<p>然后就可以在该电脑继续写文章啦～:happy:</p>
 
       
     </div>
@@ -484,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -548,6 +603,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub同步"><span class="nav-text">GitHub同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo分支"><span class="nav-text">hexo分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迁移至新电脑"><span class="nav-text">迁移至新电脑</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -592,7 +663,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">42.5k</span> 字
+      博客全站共： <span class="post-count">43k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

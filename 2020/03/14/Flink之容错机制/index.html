@@ -390,7 +390,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  973
+                  1k
                 </span>
               
 
@@ -460,7 +460,7 @@
 <p>第三步：开始消费并处理检查点到发生故障之间的所有数据</p>
 <p>这种你差点的保存和恢复机制可以为应用程序状态提供exactly-once的一致性，因为所有算子都会保存检查点并恢复所有状态，这样一来，所有的输入流都会被充值到检查点完成时的位置</p>
 <h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><p>简单实现：暂停应用，保存状态到检查点，再重新恢复应用</p>
-<p>:arrow_down:</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b07.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b07.png?v8">⬇</span></p>
 <p>Flink的改进实现：</p>
 <ul>
 <li>基于Chandy-Lamport算法的分布式快照</li>
@@ -499,7 +499,25 @@
 <p>原则上，创建保存点使用的算法与检查点完全相同，因此保存点可以认为就是具有一些额外元数据的检查点</p>
 <p>Flink不会自动创建保存点，因此用户（或外部调度程序）必须明确地触发创建操作</p>
 <p>保存点是一个强大的功能。除了故障恢复外，保存点可以用于：有计划地手动备份，更新应用程序，版本迁移，暂停和重启应用等</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -720,7 +738,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">43k</span> 字
+      博客全站共： <span class="post-count">45.1k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

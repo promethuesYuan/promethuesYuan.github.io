@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  10
                 </span>
               
             </div>
@@ -472,7 +472,25 @@
 <p>2） http是明文传输，https是加密的安全传输；</p>
 <p>3） 连接的端口不一样，http是80，https是443；</p>
 <p>4）http连接很简单，没有状态；https是ssl加密的传输，身份认证的网络协议，相对http传输比较安全。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -699,7 +717,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">43k</span> 字
+      博客全站共： <span class="post-count">45.1k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

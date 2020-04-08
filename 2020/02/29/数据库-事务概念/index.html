@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.1k
                 </span>
               
 
@@ -429,7 +429,25 @@
 <p>一致性确保事务只能把数据库从一个有效的状态带到另一个有效的状态，保持数据库的不变性:任何写入到数据库的数据都需要按照已经定义的规则为有效的，包括约束、级联、除法器及其任意组合。</p>
 </blockquote>
 <p>举一个例子，一个银行系统，内部在进行转账的过程中，金钱总量保持不变是其定义的规则。那么A转了100给B，就必须A-100,B+100，使其金钱总量不变，处于一个有效的状态。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
     </div>
     
@@ -656,7 +674,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">43k</span> 字
+      博客全站共： <span class="post-count">45.1k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

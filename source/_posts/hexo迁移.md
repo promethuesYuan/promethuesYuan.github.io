@@ -67,4 +67,5 @@ npm install hexo-deployer-git --save
 
 生成并部署hexo 博客：`hexo g -d`
 
-然后就可以在该电脑继续写文章啦～:happy:
+然后就可以在该电脑继续写文章啦～:smile:
+

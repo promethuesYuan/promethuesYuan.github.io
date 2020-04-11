@@ -24,11 +24,11 @@ categories: 个人博客
 
 在自己的博客仓库创建一个hexo分支，如下图所示：
 
-:framed_picture:
+![](https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200410231457.png)
 
 在仓库的设置settings中，选择默认分支为hexo分支，如下所示：
 
-:framed_picture:
+![](https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200410231552.png)
 
 然后在本地的任意目录下，将自己的仓库clone下来
 

@@ -359,7 +359,7 @@ Date 对象由新的 Date() 构造函数创建。
 
   一月是 0。十二月是11。
 
-- new Date(milliseconds)
+- new Date(milliseconds)u
 
 - new Date(date string)
 

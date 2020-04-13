@@ -106,3 +106,153 @@ class Solution {
 }
 ```
 
+
+
+## 120
+
+```java
+//自顶向下，有O(n)的空间开销
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        if(n == 0) return 0;
+
+        int[] dp = new int[n];
+        dp[0] = triangle.get(0).get(0);
+        int min = dp[0];
+        for(int i = 2; i <= n; i++){
+            List<Integer> line = triangle.get(i-1);
+            for(int j = i-1; j >= 0; j--){
+                if(j == i-1){
+                    dp[j] = dp[j-1] + line.get(j);
+                    min = dp[j];
+                } else if(j == 0){
+                    dp[j] = dp[j] + line.get(j);
+                } else{
+                    dp[j] = Math.min(dp[j], dp[j-1]) + line.get(j);
+                }
+                if(i == n) min = min < dp[j] ? min : dp[j];
+            }
+        }
+
+        // int min = dp[0];
+        // for(int i = 1; i<n; i++) min = min < dp[i] ? min : dp[i];
+        return min;
+    }
+}
+```
+
+```java
+//自底向上求解
+class Solution {
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int n = triangle.size();
+        if(n == 0 || triangle == null) return 0;
+
+        int[] dp = new int[n+1];
+        for(int i = n-1; i >= 0; i--){
+            List<Integer> down = triangle.get(i);
+            for(int j = 0; j <= i; j++){
+                dp[j] = down.get(j) + Math.min(dp[j], dp[j+1]);
+            }
+        }
+        return dp[0];
+    }
+}
+```
+
+
+
+## 221.最大正方形
+
+1. 我们用 0 初始化另一个矩阵 dp，维数和原始矩阵维数相同；
+2. **dp(i,j) 表示的是由 1 组成的最大正方形的边长；**
+3. 从 (0,0)(0,0) 开始，对原始矩阵中的每一个 1，我们将当前元素的值更新为
+
+$$
+\text{dp}(i,\ j) = \min \big( \text{dp}(i-1,\ j),\ \text{dp}(i-1,\ j-1),\ \text{dp}(i,\ j-1) \big) + 1
+dp(i, j)=min(dp(i−1, j), dp(i−1, j−1), dp(i, j−1))+1
+$$
+
+4. 我们还用一个变量记录当前出现的最大边长，这样遍历一次，找到最大的正方形边长 maxsqlenmaxsqlen，那么结果就是 maxsqlen^2maxsqlen 
+
+作者：LeetCode
+链接：https://leetcode-cn.com/problems/maximal-square/solution/zui-da-zheng-fang-xing-by-leetcode/
+
+```java
+class Solution {
+    public int maximalSquare(char[][] matrix) {
+        int row = matrix.length;
+        if(row == 0 || matrix == null) return 0;
+        int col = matrix[0].length;
+        int[] dp = new int[col+1];
+        int max = 0, prev = 0;
+        for(int i = 1; i<= row; i++){
+            for(int j = 1; j <= col; j++){
+                int tmp = dp[j];
+                if(matrix[i-1][j-1] == '1'){
+                    dp[j] = Math.min(Math.min(dp[j-1], dp[j]), prev) + 1;
+                    max = Math.max(max, dp[j]);
+                } else {
+                    dp[j] = 0;
+                }
+                prev = tmp;
+            }
+        }    
+        return max * max;
+    }
+}
+```
+
+```java
+public class Solution {
+
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        boolean[][] dp = new boolean[len][len];
+
+        // 初始化
+        for (int i = 0; i < len; i++) {
+            dp[i][i] = true;
+        }
+
+        int maxLen = 1;
+        int start = 0;
+
+        for (int j = 1; j < len; j++) {
+            for (int i = 0; i < j; i++) {
+
+                if (s.charAt(i) == s.charAt(j)) {
+                    if (j - i < 3) {
+                        dp[i][j] = true;
+                    } else {
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                } else {
+                    dp[i][j] = false;
+                }
+
+                // 只要 dp[i][j] == true 成立，就表示子串 s[i, j] 是回文，此时记录回文长度和起始位置
+                if (dp[i][j]) {
+                    int curLen = j - i + 1;
+                    if (curLen > maxLen) {
+                        maxLen = curLen;
+                        start = i;
+                    }
+                }
+            }
+        }
+        return s.substring(start, start + maxLen);
+    }
+}
+
+作者：liweiwei1419
+链接：https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+

@@ -424,47 +424,53 @@
         <center>
     介绍window这个概念以及相关的API函数
 </center>
-
 <a id="more"></a>
-
-<h2 id="window概念"><a href="#window概念" class="headerlink" title="window概念"></a>window概念</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312103457.png" alt></p>
+<h2 id="window概念">window概念</h2>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312103457.png" alt></p>
 <ul>
 <li>真实的流为无界的流,如何进行处理?</li>
 <li>可以把无限的数据流进行划分,得到有限的数据集进行处理,也就是<strong>有界流</strong></li>
 <li>窗口,就是将无界流切割为有界流的一种方式,它会把流数据分发到有限大小的桶中进行分析</li>
 </ul>
-<h2 id="window类型"><a href="#window类型" class="headerlink" title="window类型"></a>window类型</h2><ul>
-<li><p>时间窗口(Time Window)</p>
+<h2 id="window类型">window类型</h2>
+<ul>
+<li>
+<p>时间窗口(Time Window)</p>
 <ul>
 <li>滚动时间窗口</li>
 <li>滑动时间窗口</li>
 <li>会话窗口</li>
 </ul>
 </li>
-<li><p>计数窗口(Count Window)</p>
+<li>
+<p>计数窗口(Count Window)</p>
 <ul>
 <li>滚动计数窗口</li>
 <li>滑动计数窗口</li>
 </ul>
 </li>
 </ul>
-<h3 id="滚动窗口-Tumbling-Window"><a href="#滚动窗口-Tumbling-Window" class="headerlink" title="滚动窗口(Tumbling Window)"></a>滚动窗口(Tumbling Window)</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104013.png" alt></p>
+<h3 id="滚动窗口-Tumbling-Window">滚动窗口(Tumbling Window)</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104013.png" alt></p>
 <ul>
 <li>将数据依据固定的窗口长度对数据进行切分</li>
 <li>时间对齐,窗口长度固定,无重叠部分</li>
 <li>一个数据只能划分到一个确定的窗口</li>
 </ul>
-<h3 id="滑动窗口-Sliding-Window"><a href="#滑动窗口-Sliding-Window" class="headerlink" title="滑动窗口(Sliding Window)"></a>滑动窗口(Sliding Window)</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104254.png" alt></p>
+<h3 id="滑动窗口-Sliding-Window">滑动窗口(Sliding Window)</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104254.png" alt></p>
 <ul>
 <li>滑动窗口是固定窗口的更广义的一种形式,由固定的窗口长度和滑动间隔组成</li>
 <li>窗口长度固定,可以有重叠</li>
 </ul>
-<h3 id="会话窗口-Session-Window"><a href="#会话窗口-Session-Window" class="headerlink" title="会话窗口(Session Window)"></a>会话窗口(Session Window)</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104656.png" alt></p>
+<h3 id="会话窗口-Session-Window">会话窗口(Session Window)</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312104656.png" alt></p>
 <ul>
 <li>由一系列事件组成一个指定时间长度的timeout间隙组成,也就是一段时间没有接收到新数据就会生成新的窗口</li>
 <li>特点:时间无对齐</li>
 </ul>
-<h2 id="window-API"><a href="#window-API" class="headerlink" title="window API"></a>window API</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111610.png" alt></p>
+<h2 id="window-API">window API</h2>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111610.png" alt></p>
 <p>窗口分配器–window()方法.该方法必须在keyBy之后才能使用</p>
 <p>更简单调用为.timeWindow和.countWindow方法,用于定义时间窗口和计数窗口</p>
 <p><strong>window assigner</strong></p>
@@ -476,44 +482,55 @@
 <li>会话窗口(session window)</li>
 <li>全局窗口(global window)</li>
 </ul>
-<h2 id="创建不同类型的窗口"><a href="#创建不同类型的窗口" class="headerlink" title="创建不同类型的窗口"></a>创建不同类型的窗口</h2><ul>
-<li><p>滚动时间窗口</p>
+<h2 id="创建不同类型的窗口">创建不同类型的窗口</h2>
+<ul>
+<li>
+<p>滚动时间窗口</p>
 <p><code>.timeWindow(Time.seconds(15))</code></p>
 </li>
-<li><p>滑动时间窗口</p>
+<li>
+<p>滑动时间窗口</p>
 <p><code>.timeWindow(Time.seconds(15), Time.seconds(5))</code></p>
 </li>
-<li><p>会话窗口</p>
+<li>
+<p>会话窗口</p>
 <p><code>.window(EventTimeSessionWindows.withGap(Time.minutes(10)))</code></p>
 </li>
-<li><p>滚动计数窗口</p>
+<li>
+<p>滚动计数窗口</p>
 <p><code>.countWindow(5)</code></p>
 </li>
-<li><p>滑动计数窗口</p>
+<li>
+<p>滑动计数窗口</p>
 <p><code>.countWindow(10, 2)</code></p>
 </li>
 </ul>
-<h2 id="窗口函数-window-function"><a href="#窗口函数-window-function" class="headerlink" title="窗口函数(window function)"></a>窗口函数(window function)</h2><p>定义要对窗口中收集的数据做计算操作</p>
+<h2 id="窗口函数-window-function">窗口函数(window function)</h2>
+<p>定义要对窗口中收集的数据做计算操作</p>
 <ul>
-<li>增量聚合函数<ul>
+<li>增量聚合函数
+<ul>
 <li>每条数据到来就进行计算,保持一个简单的状态</li>
 <li>reduce aggregate</li>
 </ul>
 </li>
-<li>全窗口函数<ul>
+<li>全窗口函数
+<ul>
 <li>先把窗口所有数据收集起来,等到计算的时候会遍历所有数据</li>
 <li>process</li>
 </ul>
 </li>
 </ul>
-<h2 id="其他可选API"><a href="#其他可选API" class="headerlink" title="其他可选API"></a>其他可选API</h2><table>
+<h2 id="其他可选API">其他可选API</h2>
+<table>
 <thead>
 <tr>
 <th>API</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>.triger()</td>
 <td>定义window什么时候关闭,触发计算并输出结果</td>
 </tr>
@@ -533,7 +550,8 @@
 <td>.getSideOutput()</td>
 <td>获取侧输出流</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -673,7 +691,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -779,7 +797,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">48.6k</span> 字
+      博客全站共： <span class="post-count">49.5k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

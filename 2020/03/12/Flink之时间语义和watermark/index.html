@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  567
+                  566
                 </span>
               
 
@@ -424,9 +424,10 @@
         <center>
     Flink中很重要的时间的概念以及一个跟时间有关的watermark
 </center>
+
 <a id="more"></a>
-<h2 id="时间语义">时间语义</h2>
-<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111923.png" alt></p>
+
+<h2 id="时间语义"><a href="#时间语义" class="headerlink" title="时间语义"></a>时间语义</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312111923.png" alt></p>
 <p><strong>事件时间和处理时间举例</strong></p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312112507.png" alt></p>
 <ul>
@@ -434,22 +435,19 @@
 <li>往往更关心事件时间</li>
 </ul>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312112818.png" alt></p>
-<h3 id="代码中设置Event-Time">代码中设置Event Time</h3>
-<ul>
+<h3 id="代码中设置Event-Time"><a href="#代码中设置Event-Time" class="headerlink" title="代码中设置Event Time"></a>代码中设置Event Time</h3><ul>
 <li>代码中,对执行环境调用setStreamTimeCharacteristic方法,设置流的时间特性</li>
 <li>具体的时间,需要从数据中提取时间戳(timestamp)</li>
 <li>默认时间为处理时间(processing time)</li>
 </ul>
 <p><code>env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)</code></p>
-<h3 id="乱序数据的影响">乱序数据的影响</h3>
-<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312113350.png" alt></p>
+<h3 id="乱序数据的影响"><a href="#乱序数据的影响" class="headerlink" title="乱序数据的影响"></a>乱序数据的影响</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312113350.png" alt></p>
 <ul>
 <li>以event time模式处理数据流时,会根据时间戳来处理基于时间的算子</li>
 <li>由于网络,分布式等原因,会导致乱序数据的产生</li>
 <li>乱序数据会让窗口计算不准确</li>
 </ul>
-<h2 id="水位线-Watermark">水位线 Watermark</h2>
-<blockquote>
+<h2 id="水位线-Watermark"><a href="#水位线-Watermark" class="headerlink" title="水位线 Watermark"></a>水位线 Watermark</h2><blockquote>
 <p>如何避免乱序数据带来计算不正确?</p>
 <p>遇到一个时间戳达到窗口关闭时间,不应该立刻触发窗口计算,而是等待一段时间,等迟到的数据来了再关闭窗口</p>
 </blockquote>
@@ -457,16 +455,12 @@
 <p>Watermark是用于处理乱序事件的,而正确的处理乱序事件,通常采用Watermark机制结合window实现</p>
 <p>数据流中的Watermark用于表示timestamp小于Watermark的数据都已经到达,因此,window的执行也是由Watermark触发的</p>
 <p>Watermark用来让程序自己平衡延迟和结果正确性</p>
-<h3 id="Watermark特点">Watermark特点</h3>
-<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312114502.png" alt></p>
+<h3 id="Watermark特点"><a href="#Watermark特点" class="headerlink" title="Watermark特点"></a>Watermark特点</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312114502.png" alt></p>
 <p>Watermark必须单调递增,以确保任务的事件时间时钟在向前推进,而不是后退</p>
 <p>Watermark与数据的timestamp相关</p>
-<h3 id="Watermark的传递">Watermark的传递</h3>
-<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312114708.png" alt></p>
-<h3 id="Watermark的引入">Watermark的引入</h3>
-<p>Event Time的使用一定要指定数据源中的时间戳</p>
-<h3 id="Watermark的设定">Watermark的设定</h3>
-<p>需要对处理的事件有一定了解</p>
+<h3 id="Watermark的传递"><a href="#Watermark的传递" class="headerlink" title="Watermark的传递"></a>Watermark的传递</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312114708.png" alt></p>
+<h3 id="Watermark的引入"><a href="#Watermark的引入" class="headerlink" title="Watermark的引入"></a>Watermark的引入</h3><p>Event Time的使用一定要指定数据源中的时间戳</p>
+<h3 id="Watermark的设定"><a href="#Watermark的设定" class="headerlink" title="Watermark的设定"></a>Watermark的设定</h3><p>需要对处理的事件有一定了解</p>
 <p>如果设置的延迟太久,收到结果的速度可能就会很慢,解决办法是在水位线到达之前输出一个近似结果</p>
 <p>如果到达太早,则可能收到错误结果,不过Flink处理迟到数据的机制可以解决这个问题</p>
 <script>
@@ -602,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

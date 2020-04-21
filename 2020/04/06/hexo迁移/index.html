@@ -380,7 +380,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  509
+                  507
                 </span>
               
 
@@ -421,12 +421,11 @@
   迁移hexo博客
 </center>
 <a id="more"></a>
+
 <p>最近换电脑了，需要把之前电脑上的hexo博客相关内容进行迁移。通过网上博客以及知乎上相关内容学习，最终迁移成功，写一下博客记录一下整个过程。</p>
 <p>参考资料：<a href="https://www.zhihu.com/question/21193762/answer/489124966" target="_blank" rel="noopener">使用hexo，如果换电脑了怎么办</a></p>
-<h2 id="GitHub同步">GitHub同步</h2>
-<p><code>hexo d</code>部署到GitHub上的内容都是hexo编译后的文件，不包含本地的源文件。所以可以利用GitHub的分支管理，将源文件上传到GitHub的另一个分支。</p>
-<h2 id="hexo分支">hexo分支</h2>
-<p>在自己的博客仓库创建一个hexo分支，如下图所示：</p>
+<h2 id="GitHub同步"><a href="#GitHub同步" class="headerlink" title="GitHub同步"></a>GitHub同步</h2><p><code>hexo d</code>部署到GitHub上的内容都是hexo编译后的文件，不包含本地的源文件。所以可以利用GitHub的分支管理，将源文件上传到GitHub的另一个分支。</p>
+<h2 id="hexo分支"><a href="#hexo分支" class="headerlink" title="hexo分支"></a>hexo分支</h2><p>在自己的博客仓库创建一个hexo分支，如下图所示：</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200410231457.png" alt></p>
 <p>在仓库的设置settings中，选择默认分支为hexo分支，如下所示：</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200410231552.png" alt></p>
@@ -434,17 +433,18 @@
 <p><code>git clone git@github.com:xxx/xxx.github.io.git</code></p>
 <p>(PS:将xxx换成自己对应的名称)</p>
 <p>打开该目录，保留.git文件，其余文件删除。把之前博客的源文件复制过来，除去.deploy_git文件。</p>
-<p>⚠️注意，如果之前主题文件是通过克隆下来的，应该把主题文件中.git文件删除。原因是git不能嵌套上传，不删除的话主题文件会无法上传。</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span>注意，如果之前主题文件是通过克隆下来的，应该把主题文件中.git文件删除。原因是git不能嵌套上传，不删除的话主题文件会无法上传。</p>
 <p>最后</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m "hexo branch"</span><br><span class="line">git push</span><br></pre></td></tr></tbody></table></figure>
+
 <p>上传完毕，可以去hexo分支检查一下内容是否与本地一致。注意，<code>node_modules</code>、<code>public</code>、<code>db.json</code>三个文件因为<code>.gitignore</code>忽略上传了，分支没有这三个内容是正常情况。</p>
-<h2 id="迁移至新电脑">迁移至新电脑</h2>
-<p>首先，安装并配置<code>git</code>、<code>npm</code>、<code>hexo</code></p>
+<h2 id="迁移至新电脑"><a href="#迁移至新电脑" class="headerlink" title="迁移至新电脑"></a>迁移至新电脑</h2><p>首先，安装并配置<code>git</code>、<code>npm</code>、<code>hexo</code></p>
 <p>然后在任意目录下<code>git clone</code>你的博客</p>
 <p>然后进入该文件夹，进行如下操作：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></tbody></table></figure>
+
 <p>生成并部署hexo 博客：<code>hexo g -d</code></p>
-<p>然后就可以在该电脑继续写文章啦～😄</p>
+<p>然后就可以在该电脑继续写文章啦～<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -578,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

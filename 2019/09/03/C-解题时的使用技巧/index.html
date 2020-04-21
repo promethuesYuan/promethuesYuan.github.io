@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  935
+                  934
                 </span>
               
 
@@ -417,69 +417,61 @@
       
         <center>记录使用C++做CSP题目时用到的一些C中没用过的数据结构和算法</center>
 <a id="more"></a>
-<h3 id="快排sort">快排sort</h3>
-<h4 id="用法">用法</h4>
-<blockquote>
-<p>头文件 #include<algorithm><br>
-sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
+
+<h3 id="快排sort"><a href="#快排sort" class="headerlink" title="快排sort"></a>快排sort</h3><h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><blockquote>
+<p>头文件 #include<algorithm><br>sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
 <ol>
 <li>排序数组起始位置</li>
 <li>排序数组结束为止</li>
 <li>排序的方法，确认是升序还是降序，默认缺省情况为升序排序</li>
 </ol>
 </blockquote>
-<h4 id="举例">举例</h4>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"> <span class="keyword">int</span> a[<span class="number">20</span>]={<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>},i;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> sort(a,a+<span class="number">20</span>);</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line"> <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"> <span class="keyword">int</span> a[<span class="number">20</span>]={<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>},i;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> sort(a,a+<span class="number">20</span>);</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line"> <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p>注意sort函数第二个参数的范围。</p>
 <p>下面主要举例讲解三个参数用来解决结构数组排序的问题。</p>
 <p>在CSP 17-3-2排队问题中，我用了一个结构体来表示每个同学，其中包含他的学号和位置。我需要sort函数来对他们的位置进行排序，这个时候就需要用到带有三个参数的sort函数了。</p>
 <p><strong>结构体声明如下</strong></p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">stu</span>{</span></span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">int</span> place;</span><br><span class="line">}stu;</span><br></pre></td></tr></tbody></table></figure>
+
 <p><strong>第三个参数函数声明如下</strong></p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(stu a, stu b)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> a.place &lt; b.place;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p>因为我是要对他们的位置进行排序，而且是升序排序。通过修改return 的内容，可以实现对其他方面的排序以及修改排序的升降。</p>
 <p><strong>使用方法</strong></p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(<span class="built_in">array</span>+<span class="number">1</span>, <span class="built_in">array</span>+<span class="number">1</span>+n, cmp);</span><br></pre></td></tr></tbody></table></figure>
+
 <p>这样就能对结构数组其中的位置信息进行排序了。</p>
-<h3 id="栈和队列">栈和队列</h3>
-<h4 id="stack">stack</h4>
-<p>模板类定义在#include<stack>中<br>
-定义示例代码：<code>stack&lt;int&gt; s</code><br>
-基本操作如下</stack></p>
+<h3 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3><h4 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h4><p>模板类定义在#include<stack>中<br>定义示例代码：<code>stack&lt;int&gt; s</code><br>基本操作如下</stack></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">操作</th>
+<th align="left">操作</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">s.push(x)</td>
+<tbody><tr>
+<td align="left">s.push(x)</td>
 <td>入栈</td>
 </tr>
 <tr>
-<td style="text-align:left">s.pop()</td>
+<td align="left">s.pop()</td>
 <td>出栈，注意该操作只删除元素，不返回元素</td>
 </tr>
 <tr>
-<td style="text-align:left">s.top()</td>
+<td align="left">s.top()</td>
 <td>访问栈顶</td>
 </tr>
 <tr>
-<td style="text-align:left">s.empty()</td>
+<td align="left">s.empty()</td>
 <td>栈是否为空，为空时返回true</td>
 </tr>
 <tr>
-<td style="text-align:left">s.size()</td>
+<td align="left">s.size()</td>
 <td>访问栈的元素个数</td>
 </tr>
-</tbody>
-</table>
-<h4 id="queue">queue</h4>
-<p>模板类定义在#include<queue>中<br>
-定义示例代码：<code>queue&lt;int&gt; q</code><br>
-基本操作如下</queue></p>
+</tbody></table>
+<h4 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h4><p>模板类定义在#include<queue>中<br>定义示例代码：<code>queue&lt;int&gt; q</code><br>基本操作如下</queue></p>
 <table>
 <thead>
 <tr>
@@ -487,8 +479,7 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
 <th>作用</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>q.push(x)</td>
 <td>入队</td>
 </tr>
@@ -512,12 +503,12 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
 <td>q.size()</td>
 <td>访问队元素个数</td>
 </tr>
-</tbody>
-</table>
-<h4 id="示例">示例</h4>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stackFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="comment">//入栈</span></span><br><span class="line">    s.push(<span class="number">1</span>);</span><br><span class="line">    s.push(<span class="number">2</span>);</span><br><span class="line">    s.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//栈元素个数</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of stack:"</span>&lt;&lt;s.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈顶元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"top of stack:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出栈</span></span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, top of stack is:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈空</span></span><br><span class="line">    <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    s.pop();</span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="keyword">if</span>(s.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queueFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="comment">//入队</span></span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    q.push(<span class="number">2</span>);</span><br><span class="line">    q.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//队首元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"front of queue:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队尾元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"back of queue:"</span>&lt;&lt;q.back()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队长度</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of queue:"</span>&lt;&lt;q.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出队</span></span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, front of queue is:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队空</span></span><br><span class="line">    <span class="keyword">if</span>(!q.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    q.pop();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span>(q.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    stackFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    queueFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</tbody></table>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stackFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="comment">//入栈</span></span><br><span class="line">    s.push(<span class="number">1</span>);</span><br><span class="line">    s.push(<span class="number">2</span>);</span><br><span class="line">    s.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//栈元素个数</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of stack:"</span>&lt;&lt;s.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈顶元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"top of stack:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出栈</span></span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, top of stack is:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈空</span></span><br><span class="line">    <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    s.pop();</span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="keyword">if</span>(s.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queueFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="comment">//入队</span></span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    q.push(<span class="number">2</span>);</span><br><span class="line">    q.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//队首元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"front of queue:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队尾元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"back of queue:"</span>&lt;&lt;q.back()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队长度</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of queue:"</span>&lt;&lt;q.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出队</span></span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, front of queue is:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队空</span></span><br><span class="line">    <span class="keyword">if</span>(!q.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    q.pop();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span>(q.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    stackFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    queueFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 <p>结果</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">size of stack:3</span><br><span class="line">top of stack:3</span><br><span class="line">after pop, top of stack is:2</span><br><span class="line">stack is not empty</span><br><span class="line">stack is empty now</span><br><span class="line"></span><br><span class="line">front of queue:1</span><br><span class="line">back of queue:3</span><br><span class="line">size of queue:3</span><br><span class="line">after pop, front of queue is:2</span><br><span class="line">queue is not empty</span><br><span class="line">queue is empty now</span><br></pre></td></tr></tbody></table></figure>
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -657,7 +648,7 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

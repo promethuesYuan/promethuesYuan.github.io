@@ -396,21 +396,17 @@
         <center>
     shell脚本输出结果重定向
 </center>
-
 <a id="more"></a>
-
 <p>课设里面，需要查看系统的相关信息。指导书上直接打开文件来获得，但我发现通过terminal中的一些命令更容易获得自己想要的信息，于是就研究如何把终端中输出的结果重定向过来。</p>
 <p><strong>使用popen</strong></p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">FILE *<span class="title">popen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *command, <span class="keyword">const</span> <span class="keyword">char</span> *type)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-
 <p>该函数的作用是创建一个管道，fork一个进程，然后执行shell，而shell的<strong>输出</strong>可以采用读取文件的方式获得。采用这种方法，既避免了创建临时文件，又不受<strong>输出</strong>字符数的限制。</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  //头文件</span></span></span><br><span class="line"><span class="function">FILE *<span class="title">popen</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *command, <span class="keyword">const</span> <span class="keyword">char</span> *type)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pclose</span><span class="params">(FILE *stream)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>popen 通过type是r还是w确定command的输入/<strong>输出</strong>方向，r和w是相对command的管道而言的。<br>r表示command从管道中读入，w表示 command通过管道<strong>输出</strong>到它的stdout，popen返回FIFO管道的文件流指针。pclose则用于使用结束后关闭这个指针。</p>
+<p>popen 通过type是r还是w确定command的输入/<strong>输出</strong>方向，r和w是相对command的管道而言的。<br>
+r表示command从管道中读入，w表示 command通过管道<strong>输出</strong>到它的stdout，popen返回FIFO管道的文件流指针。pclose则用于使用结束后关闭这个指针。</p>
 <hr>
 <p>下面看一个示例，将<code>free -m</code>命令输出情况重定向输出到buf中，方便处理。</p>
 <figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">( <span class="keyword">void</span> )</span> </span></span><br><span class="line"><span class="function"></span>{ </span><br><span class="line">   FILE   *stream; </span><br><span class="line">   <span class="keyword">char</span>   buf[<span class="number">1024</span>]; </span><br><span class="line">     </span><br><span class="line">   <span class="built_in">memset</span>( buf, <span class="string">'\0'</span>, <span class="keyword">sizeof</span>(buf) );</span><br><span class="line">   stream = popen( <span class="string">"free -m"</span>, <span class="string">"r"</span> ); </span><br><span class="line"></span><br><span class="line">   fread( buf, <span class="keyword">sizeof</span>(<span class="keyword">char</span>), <span class="keyword">sizeof</span>(buf), stream); </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, buf);</span><br><span class="line">   pclose( stream );  </span><br><span class="line">    </span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -541,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -631,7 +627,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">49.5k</span> 字
+      博客全站共： <span class="post-count">49.7k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

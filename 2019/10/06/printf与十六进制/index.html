@@ -418,15 +418,11 @@
         <center>
     如何用printf输出十六进制
 </center>
-
 <a id="more"></a>
-
 <p>CSP里面用到十六进制的地方还是挺多的，所以记录一下如何输出十六进制数据。</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">0xf</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%x\n"</span>, a); <span class="comment">//x为小写时，输出a~f</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%X\n"</span>, a); <span class="comment">//注意这里的X为大写，输出时A~F为大写</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%4x\n"</span>, a); <span class="comment">//补齐为4位，左边补空格</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%04x\n"</span>, a); <span class="comment">//补齐为4位，左边补0</span></span><br></pre></td></tr></tbody></table></figure>
-
 <p>结果</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f</span><br><span class="line">F</span><br><span class="line">   f</span><br><span class="line">000f</span><br></pre></td></tr></tbody></table></figure>
-
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -557,7 +553,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -647,7 +643,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">49.5k</span> 字
+      博客全站共： <span class="post-count">49.7k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  381
+                  379
                 </span>
               
 
@@ -418,12 +418,12 @@
         <center>
     记录C++中list的用法
 </center>
+
 <a id="more"></a>
-<h3 id="list的实现"><strong>list的实现</strong></h3>
-<p>list是 每个节点包含前继节点，后继节点，数据域三部分的双向循环链表。和普通链表性质一样，不提供随机访问，访问时间复杂度为0(n)，适合插入和删除。</p>
+
+<h3 id="list的实现"><a href="#list的实现" class="headerlink" title="list的实现"></a><strong>list的实现</strong></h3><p>list是 每个节点包含前继节点，后继节点，数据域三部分的双向循环链表。和普通链表性质一样，不提供随机访问，访问时间复杂度为0(n)，适合插入和删除。</p>
 <p>头文件<code>#include&lt;list&gt;</code></p>
-<h3 id="list包含的函数"><strong>list包含的函数</strong></h3>
-<p><strong>1.声明list</strong></p>
+<h3 id="list包含的函数"><a href="#list包含的函数" class="headerlink" title="list包含的函数"></a><strong>list包含的函数</strong></h3><p><strong>1.声明list</strong></p>
 <ol>
 <li>list list1; // 声明一个空的list1</li>
 <li>list list3 (list2.begin(), list2.end()); // 用list2的迭代器内容声明list3</li>
@@ -432,21 +432,17 @@
 </ol>
 <p><strong>2.访问元素</strong></p>
 <ol>
-<li>
-<p>list.front(); //返回第一个元素的值</p>
+<li><p>list.front(); //返回第一个元素的值</p>
 </li>
-<li>
-<p>list.back(); //返回最后一个元素的值</p>
+<li><p>list.back(); //返回最后一个元素的值</p>
 </li>
-<li>
-<p>list.begin(); //返回第一个元素的迭代器</p>
+<li><p>list.begin(); //返回第一个元素的迭代器</p>
 </li>
-<li>
-<p>list.end(); //返回最后一个元素的迭代器</p>
+<li><p>list.end(); //返回最后一个元素的迭代器</p>
 </li>
-<li>
-<p>遍历</p>
+<li><p>遍历</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; a;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator iter = a.begin();</span><br><span class="line"><span class="comment">//或者 auto iter = a.begin();</span></span><br><span class="line"><span class="keyword">while</span>(iter!=a.end()){</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt; *iter++ &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 </li>
 </ol>
 <p><strong>3.添加、删除元素</strong></p>
@@ -459,6 +455,7 @@
 </ol>
 <p>如何控制iter位置：</p>
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> iter = a.begin();</span><br><span class="line">srd::advance(iter, <span class="number">10</span>); <span class="comment">//将iter往后移10位</span></span><br><span class="line">a.erase(iter); <span class="comment">//此时删除的就是第十一个元素</span></span><br></pre></td></tr></tbody></table></figure>
+
 <p><strong>4.排序</strong></p>
 <ol>
 <li>list.sort(); //默认升序排序</li>
@@ -603,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +622,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -709,7 +706,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">49.7k</span> 字
+      博客全站共： <span class="post-count">50.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

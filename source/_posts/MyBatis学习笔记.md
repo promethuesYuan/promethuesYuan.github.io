@@ -19,7 +19,7 @@ tags: MyBatis
 - 它支持定制化SQL、存储过程以及高级映射
 - MyBatis避免了几乎所有的JDBC代码和手动设置参数以及获取届国际
 - MyBatis可以使用简单的XML或注解来配置和映射原声类型、借口和Java的POJO为数据库中的记录
-- MyBatis本是apache的一个开源项目iBatis,最后琴艺到了google code, 并改名为MyBatis
+- MyBatis本是apache的一个开源项目iBatis,最后移植到了google code, 并改名为MyBatis
 
 
 
@@ -398,3 +398,170 @@ public class User {
 
 # 5 解决属性名和字段名不一致的问题
 
+解决方法：
+
+- 起别名
+
+### 结果集映射
+
+`resultMap` 元素是 MyBatis 中最重要最强大的元素。ResultMap 的设计思想是，对简单的语句做到零配置，对于复杂一点的语句，只需要描述语句之间的关系就行了。
+
+```xml
+<resultMap id="userResultMap" type="User">
+  <id property="id" column="user_id" />
+  <result property="username" column="user_name"/>
+  <result property="password" column="hashed_password"/>
+</resultMap>
+```
+
+然后在引用它的语句中设置 `resultMap` 属性就行了（注意我们去掉了 `resultType` 属性）。比如:
+
+```xml
+<select id="selectUsers" resultMap="userResultMap">
+  select user_id, user_name, hashed_password
+  from some_table
+  where id = #{id}
+</select>
+```
+
+# 6 日志
+
+## 6.1 日志工厂
+
+如果一个数据库操作出现了异常，我们需要排错。日志就是最好的助手
+
+| 设置名  | 描述                                                  | 有效值                                                       | 默认值 |
+| :------ | :---------------------------------------------------- | :----------------------------------------------------------- | :----- |
+| logImpl | 指定 MyBatis 所用日志的具体实现，未指定时将自动查找。 | SLF4J \| LOG4J \| LOG4J2 \| JDK_LOGGING \| COMMONS_LOGGING \| STDOUT_LOGGING \| NO_LOGGING | 未设置 |
+
+具体设置：
+
+```xml
+<settings>
+  <setting name="logImpl" value="STDOUT_LOGGING"/>
+</settings>
+```
+
+
+
+## 6.2 Log4j
+
+什么事log4j:
+
+- Log4j是[Apache](https://baike.baidu.com/item/Apache/8512995)的一个开源项目，通过使用Log4j，我们可以控制日志信息输送的目的地是[控制台](https://baike.baidu.com/item/控制台/2438626)、文件、[GUI](https://baike.baidu.com/item/GUI)组件，甚至是套接口服务器
+- 我们也可以控制每一条日志的输出格式
+- 通过定义每一条日志信息的级别，我们能够更加细致地控制日志的生成过程
+- 通过一个[配置文件](https://baike.baidu.com/item/配置文件/286550)来灵活地进行配置，而不需要修改应用的代码。
+
+1. 倒入包
+
+   ```xml
+   <dependency>
+     <groupId>log4j</groupId>
+     <artifactId>log4j</artifactId>
+     <version>1.2.17</version>
+   </dependency>
+   ```
+
+2. log4j配置文件
+
+3. Mybatis-config中配置使用
+
+   ```xml
+   <settings>
+     <setting name="logImpl" value="LOG4J"/>
+   </settings>
+   ```
+
+4. 程序中使用log4j输出
+5. 测试，查看日志文件
+
+
+
+# 7 分页实现
+
+原始方法：使用limit进行分页
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 9 Lombok
+
+> Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.
+> Never write another getter or equals method again, with one annotation your class has a fully featured builder, Automate your logging variables, and much more.
+
+使用方法：
+
+1. idea中安装lombok插件
+
+2. 倒入maven仓库
+3. 在实体类上加注解
+
+```
+@Getter and @Setter
+@FieldNameConstants
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor, @RequiredArgsConstructor and @NoArgsConstructor
+@Log, @Log4j, @Log4j2, @Slf4j, @XSlf4j, @CommonsLog, @JBossLog, @Flogger, @CustomLog
+@Data
+@Builder
+@SuperBuilder
+@Singular
+@Delegate
+@Value
+@Accessors
+@Wither
+@With
+@SneakyThrows
+@val
+@var
+```
+
+说明：
+
+```
+@Data: 无参构造器，getter, setter, tostring, hashcode, equals
+@AllArgsConstructor:有参构造器
+@RequiredArgsConstructor
+@NoArgsConstructor：无参构造器
+@ToString
+@EqualsAndHashCode
+```
+
+
+
+
+
+# 8 注解开发
+
+## 8.1 面向接口编程
+
+
+
+## 8.2 使用注解

@@ -396,16 +396,12 @@
         <center>
   homebrew原生镜像下载过慢，本博客给出解决方法
 </center>
-
 <a id="more"></a>
-
 <p><strong>第一步：跟换镜像源</strong></p>
 <p>此处我是将homebrew的镜像源换成了清华镜像，相关操作如下</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd "$(brew --repo)"</span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line"></span><br><span class="line">cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"</span><br><span class="line">git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line">brew update</span><br></pre></td></tr></tbody></table></figure>
-
 <p><strong>第二步：更换homebred-bottles镜像</strong></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile</span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></tbody></table></figure>
-
 <p>PS:如果使用的shell不是bash而是zsh的话，则把.bash_profile改成.zshrc</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -537,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -627,7 +623,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">53k</span> 字
+      博客全站共： <span class="post-count">54.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

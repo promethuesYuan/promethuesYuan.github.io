@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  768
+                  769
                 </span>
               
 
@@ -418,10 +418,11 @@
         <center>
     记录Linux学习过程中学到的命令与用法
 </center>
-
 <a id="more"></a>
-
-<h1 id="Linux学习笔记"><a href="#Linux学习笔记" class="headerlink" title="Linux学习笔记"></a>Linux学习笔记</h1><h2 id="文件和目录管理"><a href="#文件和目录管理" class="headerlink" title="文件和目录管理"></a>文件和目录管理</h2><h3 id="文件类型"><a href="#文件类型" class="headerlink" title="文件类型"></a>文件类型</h3><ul>
+<h1>Linux学习笔记</h1>
+<h2 id="文件和目录管理">文件和目录管理</h2>
+<h3 id="文件类型">文件类型</h3>
+<ul>
 <li>- 普通文件</li>
 <li>d 目录</li>
 <li>b 块设备文件，保存大块数据的设备，如硬盘</li>
@@ -430,46 +431,59 @@
 <li>p 管道文件，作用是解决多个程序同时存取一个文件所造成的错误</li>
 <li>l 链接文件，软链接</li>
 </ul>
-<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><ul>
+<h3 id="cd-切换目录">cd 切换目录</h3>
+<ul>
 <li>~ 当前登录用户主目录</li>
 <li>~用户名 切换到指定用户的主目录</li>
-<li><ul>
+<li>
+<ul>
 <li>上次所在的目录</li>
 </ul>
 </li>
 <li>. 当前目录</li>
-<li>.. 上一级目录</li>
+<li>… 上一级目录</li>
 <li>/ 根目录</li>
 </ul>
-<h3 id="pwd-显示当前工作路径（常用）"><a href="#pwd-显示当前工作路径（常用）" class="headerlink" title="pwd 显示当前工作路径（常用）"></a>pwd 显示当前工作路径（常用）</h3><h3 id="ls-查看目录中的文件"><a href="#ls-查看目录中的文件" class="headerlink" title="ls 查看目录中的文件"></a>ls 查看目录中的文件</h3><ul>
-<li><p>ls [选项] 目录名称</p>
+<h3 id="pwd-显示当前工作路径（常用）">pwd 显示当前工作路径（常用）</h3>
+<h3 id="ls-查看目录中的文件">ls 查看目录中的文件</h3>
+<ul>
+<li>
+<p>ls [选项] 目录名称</p>
 </li>
-<li><p>常用选项</p>
+<li>
+<p>常用选项</p>
 <ul>
 <li>-a 显示全部的文件，包括隐藏文件（开头为 . 的文件）也一起罗列出来，这是最常用的选项之一。</li>
-<li>-A 显示全部的文件，连同隐藏文件，但不包括 . 与 .. 这两个目录。</li>
+<li>-A 显示全部的文件，连同隐藏文件，但不包括 . 与 … 这两个目录。</li>
 <li>-l 使用长格式列出文件和目录信息。</li>
 <li>-h 以人们易读的方式显示文件或目录大小，如 1KB、234MB、2GB 等。</li>
 <li>-R 连同子目录内容一起列出来，等於将该目录下的所有文件都显示出来。</li>
 </ul>
 </li>
 </ul>
-<h3 id="mkdir-创建目录"><a href="#mkdir-创建目录" class="headerlink" title="mkdir 创建目录"></a>mkdir 创建目录</h3><ul>
+<h3 id="mkdir-创建目录">mkdir 创建目录</h3>
+<ul>
 <li>-p 选项递归建立目录。 如：mkdir -p lm/movie/jp/cangls</li>
 <li>-m 选项自定义目录权限。 如：mkdir -m 711 test2</li>
 </ul>
-<h3 id="rmdir-删除目录"><a href="#rmdir-删除目录" class="headerlink" title="rmdir 删除目录"></a>rmdir 删除目录</h3><ul>
+<h3 id="rmdir-删除目录">rmdir 删除目录</h3>
+<ul>
 <li>也可以用-p选项递归删除，但是只能删除空目录，作用非常小，顾不常用</li>
 </ul>
-<h3 id="touch-创建文件"><a href="#touch-创建文件" class="headerlink" title="touch 创建文件"></a>touch 创建文件</h3><h3 id="ln-文件之间建立软-硬链接"><a href="#ln-文件之间建立软-硬链接" class="headerlink" title="ln 文件之间建立软/硬链接"></a>ln 文件之间建立软/硬链接</h3><ul>
+<h3 id="touch-创建文件">touch 创建文件</h3>
+<h3 id="ln-文件之间建立软-硬链接">ln 文件之间建立软/硬链接</h3>
+<ul>
 <li>ln [选项] 源文件 目标文件</li>
 <li>-s：建立软链接文件。如果不加 “-s” 选项，则建立硬链接文件；</li>
 <li>-f：强制。如果目标文件已经存在，则删除目标文件后再建立链接文件；</li>
 </ul>
-<h3 id="cp-复制文件和目录"><a href="#cp-复制文件和目录" class="headerlink" title="cp 复制文件和目录"></a>cp 复制文件和目录</h3><ul>
-<li><p>cp [选项] 源文件 目标文件</p>
+<h3 id="cp-复制文件和目录">cp 复制文件和目录</h3>
+<ul>
+<li>
+<p>cp [选项] 源文件 目标文件</p>
 </li>
-<li><p>常用选项</p>
+<li>
+<p>常用选项</p>
 <ul>
 <li>-r：递归复制，用于复制目录；</li>
 <li>-a：相当于 -d、-p、-r 选项的集合，这几个选项我们一一介绍；</li>
@@ -481,7 +495,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="分支主题-2"><a href="#分支主题-2" class="headerlink" title="分支主题 2"></a>分支主题 2</h2><h2 id="分支主题-3"><a href="#分支主题-3" class="headerlink" title="分支主题 3"></a>分支主题 3</h2><p><em>XMind: ZEN - Trial Version</em></p>
+<h2 id="分支主题-2">分支主题 2</h2>
+<h2 id="分支主题-3">分支主题 3</h2>
+<p><em>XMind: ZEN - Trial Version</em></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -621,7 +637,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -643,7 +659,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -676,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux学习笔记"><span class="nav-text">Linux学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录管理"><span class="nav-text">文件和目录管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件类型"><span class="nav-text">文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-切换目录"><span class="nav-text">cd 切换目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-显示当前工作路径（常用）"><span class="nav-text">pwd 显示当前工作路径（常用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-查看目录中的文件"><span class="nav-text">ls 查看目录中的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-创建目录"><span class="nav-text">mkdir 创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmdir-删除目录"><span class="nav-text">rmdir 删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch-创建文件"><span class="nav-text">touch 创建文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ln-文件之间建立软-硬链接"><span class="nav-text">ln 文件之间建立软/硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制文件和目录"><span class="nav-text">cp 复制文件和目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支主题-2"><span class="nav-text">分支主题 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支主题-3"><span class="nav-text">分支主题 3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">Linux学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录管理"><span class="nav-text">文件和目录管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件类型"><span class="nav-text">文件类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cd-切换目录"><span class="nav-text">cd 切换目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwd-显示当前工作路径（常用）"><span class="nav-text">pwd 显示当前工作路径（常用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-查看目录中的文件"><span class="nav-text">ls 查看目录中的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir-创建目录"><span class="nav-text">mkdir 创建目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rmdir-删除目录"><span class="nav-text">rmdir 删除目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#touch-创建文件"><span class="nav-text">touch 创建文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ln-文件之间建立软-硬链接"><span class="nav-text">ln 文件之间建立软/硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp-复制文件和目录"><span class="nav-text">cp 复制文件和目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支主题-2"><span class="nav-text">分支主题 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支主题-3"><span class="nav-text">分支主题 3</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -727,7 +743,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">53k</span> 字
+      博客全站共： <span class="post-count">54.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

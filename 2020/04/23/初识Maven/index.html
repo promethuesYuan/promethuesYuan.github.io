@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  587
+                  588
                 </span>
               
 
@@ -396,41 +396,40 @@
         <center>
   Maven介绍以及安装，换源
 </center>
-
 <a id="more"></a>
-
-<h2 id="什么是Maven"><a href="#什么是Maven" class="headerlink" title="什么是Maven"></a>什么是Maven</h2><p>Maven 翻译为”专家”、”内行”，是 Apache 下的一个纯 Java 开发的开源项目。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。</p>
+<h2 id="什么是Maven">什么是Maven</h2>
+<p>Maven 翻译为"专家"、“内行”，是 Apache 下的一个纯 Java 开发的开源项目。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。</p>
 <p>Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。</p>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><table>
+<h2 id="环境配置">环境配置</h2>
+<table>
 <thead>
 <tr>
-<th align="center">项目</th>
-<th align="center">要求</th>
+<th style="text-align:center">项目</th>
+<th style="text-align:center">要求</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">JDK</td>
-<td align="center">Maven 3.3 要求 JDK 1.7 或以上<br> Maven 3.2 要求 JDK 1.6 或以上 <br>Maven 3.0/3.1 要求 JDK 1.5 或以上</td>
+<tbody>
+<tr>
+<td style="text-align:center">JDK</td>
+<td style="text-align:center">Maven 3.3 要求 JDK 1.7 或以上<br> Maven 3.2 要求 JDK 1.6 或以上 <br>Maven 3.0/3.1 要求 JDK 1.5 或以上</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>Mac通过brew安装Maven</strong></p>
 <p>首先<code>brew search maven</code>得到以下结果：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">==&gt; Formulae</span><br><span class="line">maven                         maven-shell                   maven@3.3</span><br><span class="line">maven-completion              maven@3.2                     maven@3.5 ✔</span><br><span class="line">==&gt; Casks</span><br><span class="line">mavensmate                                    homebrew/cask-fonts/font-maven-pro</span><br></pre></td></tr></tbody></table></figure>
-
 <p>可以选择直接下载maven，这个是最新版的，我下的是3.5这个版本。</p>
 <p>下载命令：<code>brew install maven</code>或者<code>brew install maven@你想要的版本</code></p>
 <p>下载完成之后，我们还需要配置maven的环境变量。zsh环境变量在<code>~/.zshrc</code>中，我们加入下面的内容。（⚠️：每个操作系统环境变量可能不一样，以自己本机进行设置）</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/usr/local/Cellar/maven@3.5/3.5.4_1/libexec</span><br><span class="line">export PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></tbody></table></figure>
-
 <p>添加后使文件生效：<code>source ~/.zshrc</code></p>
 <p><strong>测试是否安装成功</strong></p>
 <p>利用<code>mvn -v</code>命令进行检测，得到下面的结果基本就没问题啦～</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-18T02:33:14+08:00)</span><br><span class="line">Maven home: /usr/local/Cellar/maven@3.5/3.5.4_1/libexec</span><br><span class="line">Java version: 11.0.2, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home</span><br><span class="line">Default locale: zh_CN_#Hans, platform encoding: UTF-8</span><br><span class="line">OS name: "mac os x", version: "10.15.3", arch: "x86_64", family: "mac"</span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="阿里镜像"><a href="#阿里镜像" class="headerlink" title="阿里镜像"></a>阿里镜像</h2><p>Maven仓库默认的是国外的仓库，下载速度感人，切换成国内的镜像下载就很快了，这里我换成了阿里的镜像源。</p>
+<h2 id="阿里镜像">阿里镜像</h2>
+<p>Maven仓库默认的是国外的仓库，下载速度感人，切换成国内的镜像下载就很快了，这里我换成了阿里的镜像源。</p>
 <p>进入你刚下载maven的目录，然后打开conf目录下的settings.xml，找到mirrors健值对，在中间加上：</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>alimaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">name</span>&gt;</span>aliyun maven<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  　　<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -570,7 +569,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -592,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -676,7 +675,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">53k</span> 字
+      博客全站共： <span class="post-count">54.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

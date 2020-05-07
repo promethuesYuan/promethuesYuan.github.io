@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  600
+                  603
                 </span>
               
 
@@ -395,31 +395,28 @@
       
         <p>最近重装好几次Ubuntu了，每次重装后都有些准备工作要做，老是得上网查，这里记录一下所有步骤。</p>
 <a id="more"></a>
-
-<h3 id="1-安装openssh-service"><a href="#1-安装openssh-service" class="headerlink" title="1. 安装openssh-service"></a>1. 安装openssh-service</h3><p>安装这个是为了用Xshell等连接工具连接到我们的虚拟机，使用终端界面。因为VM虚拟机里无法把主机的内容复制粘贴进去，装了VM Tools才行，所以现在用连接工具比较多。<br>使用下面的命令安装openssh-service：</p>
+<h3 id="1-安装openssh-service">1. 安装openssh-service</h3>
+<p>安装这个是为了用Xshell等连接工具连接到我们的虚拟机，使用终端界面。因为VM虚拟机里无法把主机的内容复制粘贴进去，装了VM Tools才行，所以现在用连接工具比较多。<br>
+使用下面的命令安装openssh-service：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></tbody></table></figure>
-
 <p>安装完毕后，查看本机的ip，之后就可以通过连接工具登录啦。</p>
-<h3 id="2-修改镜像源"><a href="#2-修改镜像源" class="headerlink" title="2. 修改镜像源"></a>2. 修改镜像源</h3><p>ubuntu默认使用的是外国的镜像源，下载速度巨慢无比，务必换成国内镜像源。我通常使用的是阿里的镜像源，使用其他的也可。</p>
+<h3 id="2-修改镜像源">2. 修改镜像源</h3>
+<p>ubuntu默认使用的是外国的镜像源，下载速度巨慢无比，务必换成国内镜像源。我通常使用的是阿里的镜像源，使用其他的也可。</p>
 <p>首先先备份本地的源文件，位置在<code>/etc/apt/sources.list</code></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bk</span><br></pre></td></tr></tbody></table></figure>
-
 <p>然后用vim打开，源文件，将国内镜像粘贴进去。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/apt/sources.list</span><br></pre></td></tr></tbody></table></figure>
-
 <p><strong>Ubuntu 18.04 LTS 阿里云镜像</strong></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"># https://opsx.alibaba.com/mirror</span><br><span class="line">deb https://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse </span><br><span class="line">deb https://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse </span><br><span class="line">deb https://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse </span><br><span class="line">deb https://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse </span><br><span class="line">deb https://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse </span><br><span class="line"></span><br><span class="line"># 仿照清华镜像源，注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line"># deb-src https://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse </span><br><span class="line"># deb-src https://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse </span><br><span class="line"># deb-src https://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse </span><br><span class="line"># deb-src https://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse </span><br><span class="line"># deb-src https://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse</span><br></pre></td></tr></tbody></table></figure>
-
 <p>最后更新列表</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="3-安装vim"><a href="#3-安装vim" class="headerlink" title="3. 安装vim"></a>3. 安装vim</h3><p>Ubuntu不知道为什么，默认安装的vim是个残次品，用起来相当难受，所以安装一下完整版的vim。</p>
+<h3 id="3-安装vim">3. 安装vim</h3>
+<p>Ubuntu不知道为什么，默认安装的vim是个残次品，用起来相当难受，所以安装一下完整版的vim。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="4-息屏"><a href="#4-息屏" class="headerlink" title="4. 息屏"></a>4. 息屏</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">关闭息屏，最后0是代表关闭锁屏，将0替换为60代表60s后自动息屏，以此类推。</span><br><span class="line">gsettings set org.gnome.desktop.session idle-delay 0</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">关闭锁屏</span><br><span class="line">gsettings set org.gnome.desktop.screensaver lock-enabled false</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="5-gcc"><a href="#5-gcc" class="headerlink" title="5. gcc"></a>5. gcc</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc</span><br></pre></td></tr></tbody></table></figure>
-
+<h3 id="4-息屏">4. 息屏</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">关闭息屏，最后0是代表关闭锁屏，将0替换为60代表60s后自动息屏，以此类推。</span><br><span class="line">gsettings set org.gnome.desktop.session idle-delay 0</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">关闭锁屏</span><br><span class="line">gsettings set org.gnome.desktop.screensaver lock-enabled false</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="5-gcc">5. gcc</h3>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -559,7 +556,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -581,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -665,7 +662,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">53k</span> 字
+      博客全站共： <span class="post-count">54.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

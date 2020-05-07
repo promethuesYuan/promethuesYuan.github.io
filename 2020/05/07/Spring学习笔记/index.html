@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++, CSP, 数据结构与算法,">
+  <meta name="keywords" content="Spring,">
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="记录使用C++做CSP题目时用到的一些C中没用过的数据结构和算法">
-<meta name="keywords" content="C++, CSP, 数据结构与算法">
+<meta name="description" content="跟着官方文档学习Spring">
+<meta name="keywords" content="Spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++解题时的使用技巧">
-<meta property="og:url" content="http://yoursite.com/2019/09/03/C-解题时的使用技巧/index.html">
+<meta property="og:title" content="Spring学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/Spring学习笔记/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
-<meta property="og:description" content="记录使用C++做CSP题目时用到的一些C中没用过的数据结构和算法">
+<meta property="og:description" content="跟着官方文档学习Spring">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-15T03:57:36.000Z">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506224734785.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506231303413.png">
+<meta property="og:updated_time" content="2020-05-07T15:38:20.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++解题时的使用技巧">
-<meta name="twitter:description" content="记录使用C++做CSP题目时用到的一些C中没用过的数据结构和算法">
+<meta name="twitter:title" content="Spring学习笔记">
+<meta name="twitter:description" content="跟着官方文档学习Spring">
+<meta name="twitter:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506224734785.png">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/03/C-解题时的使用技巧/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/07/Spring学习笔记/">
 
 
 
 
 
-  <title>C++解题时的使用技巧 | Yuan's Blog</title>
+  <title>Spring学习笔记 | Yuan's Blog</title>
   
 
 
@@ -295,7 +298,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/03/C-解题时的使用技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/07/Spring学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan Zhibo">
@@ -312,7 +315,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++解题时的使用技巧</h1>
+          <h1 class="post-title" itemprop="name headline">Spring学习笔记</h1>
         
 
         <div class="post-meta">
@@ -324,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-03T10:41:01+08:00">
-                2019-09-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-07T23:37:55+08:00">
+                2020-05-07
               </time>
             
 
@@ -334,28 +337,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -378,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  935
+                  1.3k
                 </span>
               
 
@@ -394,7 +375,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -415,109 +396,227 @@
       
 
       
-        <center>记录使用C++做CSP题目时用到的一些C中没用过的数据结构和算法</center>
+        <center>
+  跟着官方文档学习Spring
+</center>
 <a id="more"></a>
-<h3 id="快排sort">快排sort</h3>
-<h4 id="用法">用法</h4>
-<blockquote>
-<p>头文件 #include<algorithm><br>
-sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
+<h1>IOC容器</h1>
+<h1>依赖注入</h1>
 <ol>
-<li>排序数组起始位置</li>
-<li>排序数组结束为止</li>
-<li>排序的方法，确认是升序还是降序，默认缺省情况为升序排序</li>
+<li>
+<p>构造器注入</p>
+</li>
+<li>
+<p>set方式注入⭐️</p>
+<ul>
+<li>依赖：bean对象的创建依赖于容器</li>
+<li>注入：bean中的所有属性，由容器注入</li>
+</ul>
+</li>
+<li>
+<p>拓展方式注入</p>
+<ul>
+<li>
+<p>p命名</p>
+</li>
+<li>
+<p>c命名</p>
+</li>
+<li>
+<p>注意点⚠️：需要去官网引入xml约束</p>
+</li>
+</ul>
+</li>
 </ol>
+<h2 id="bean的作用域">bean的作用域</h2>
+<p>官方介绍</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Scope</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-singleton" target="_blank" rel="noopener">singleton</a> 单例模式</td>
+<td style="text-align:left">(Default) Scopes a single bean definition to a single object instance for each Spring IoC container.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-prototype" target="_blank" rel="noopener">prototype</a></td>
+<td style="text-align:left">Scopes a single bean definition to any number of object instances.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-request" target="_blank" rel="noopener">request</a></td>
+<td style="text-align:left">Scopes a single bean definition to the lifecycle of a single HTTP request. That is, each HTTP request has its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-session" target="_blank" rel="noopener">session</a></td>
+<td style="text-align:left">Scopes a single bean definition to the lifecycle of an HTTP <code>Session</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-application" target="_blank" rel="noopener">application</a></td>
+<td style="text-align:left">Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/web.html#websocket-stomp-websocket-scope" target="_blank" rel="noopener">websocket</a></td>
+<td style="text-align:left">Scopes a single bean definition to the lifecycle of a <code>WebSocket</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>单例模式（Spring默认实现）</p>
+</li>
+<li>
+<p>原型模式</p>
+<p>每次从容器中get时，都会产生一个新的对象</p>
+</li>
+<li>
+<p>其余几个在web开发中使用</p>
+</li>
+</ol>
+<h1>bean的自动装配</h1>
+<ul>
+<li>自动装配是spring满足bean依赖的一种实现</li>
+<li>Spring会在上下文中寻找，并且给bean装配属性</li>
+</ul>
+<p>三种装配方式：</p>
+<ol>
+<li>xml中配置</li>
+<li>在java中显式配置</li>
+<li>隐式自动装配⭐️</li>
+</ol>
+<p>autowire:</p>
+<ul>
+<li>byName</li>
+<li>byType</li>
+</ul>
+<p>小结：</p>
+<ul>
+<li>byName时需要保证所用bean的id唯一，并且这个bean需要和自动注入的属性的set方法的值一致</li>
+<li>byType时需要保证所用bean的type唯一，并且这个bean需要和自动注入的属性类型一致</li>
+</ul>
+<p><strong>使用注解</strong></p>
+<blockquote>
+<p>The introduction of annotation-based configuration raised the question of whether this approach is “better” than XML. The short answer is “it depends.”</p>
 </blockquote>
-<h4 id="举例">举例</h4>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line"> <span class="keyword">int</span> a[<span class="number">20</span>]={<span class="number">2</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">23</span>,<span class="number">5</span>,<span class="number">76</span>,<span class="number">0</span>,<span class="number">43</span>,<span class="number">24</span>,<span class="number">65</span>},i;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> sort(a,a+<span class="number">20</span>);</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)</span><br><span class="line"> <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>注意sort函数第二个参数的范围。</p>
-<p>下面主要举例讲解三个参数用来解决结构数组排序的问题。</p>
-<p>在CSP 17-3-2排队问题中，我用了一个结构体来表示每个同学，其中包含他的学号和位置。我需要sort函数来对他们的位置进行排序，这个时候就需要用到带有三个参数的sort函数了。</p>
-<p><strong>结构体声明如下</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">stu</span>{</span></span><br><span class="line">    <span class="keyword">int</span> id;</span><br><span class="line">    <span class="keyword">int</span> place;</span><br><span class="line">}stu;</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>第三个参数函数声明如下</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(stu a, stu b)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> a.place &lt; b.place;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>因为我是要对他们的位置进行排序，而且是升序排序。通过修改return 的内容，可以实现对其他方面的排序以及修改排序的升降。</p>
-<p><strong>使用方法</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(<span class="built_in">array</span>+<span class="number">1</span>, <span class="built_in">array</span>+<span class="number">1</span>+n, cmp);</span><br></pre></td></tr></tbody></table></figure>
-<p>这样就能对结构数组其中的位置信息进行排序了。</p>
-<h3 id="栈和队列">栈和队列</h3>
-<h4 id="stack">stack</h4>
-<p>模板类定义在#include<stack>中<br>
-定义示例代码：<code>stack&lt;int&gt; s</code><br>
-基本操作如下</stack></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">操作</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">s.push(x)</td>
-<td>入栈</td>
-</tr>
-<tr>
-<td style="text-align:left">s.pop()</td>
-<td>出栈，注意该操作只删除元素，不返回元素</td>
-</tr>
-<tr>
-<td style="text-align:left">s.top()</td>
-<td>访问栈顶</td>
-</tr>
-<tr>
-<td style="text-align:left">s.empty()</td>
-<td>栈是否为空，为空时返回true</td>
-</tr>
-<tr>
-<td style="text-align:left">s.size()</td>
-<td>访问栈的元素个数</td>
-</tr>
-</tbody>
-</table>
-<h4 id="queue">queue</h4>
-<p>模板类定义在#include<queue>中<br>
-定义示例代码：<code>queue&lt;int&gt; q</code><br>
-基本操作如下</queue></p>
-<table>
-<thead>
-<tr>
-<th>操作</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>q.push(x)</td>
-<td>入队</td>
-</tr>
-<tr>
-<td>q.pop()</td>
-<td>出队，弹出队列第一个元素，但不会返回其值</td>
-</tr>
-<tr>
-<td>q.front()</td>
-<td>访问队首元素，即第一个入队的</td>
-</tr>
-<tr>
-<td>q.back()</td>
-<td>访问队尾元素，即最后一个入队的</td>
-</tr>
-<tr>
-<td>q.empty()</td>
-<td>判断队空，若为空返回true</td>
-</tr>
-<tr>
-<td>q.size()</td>
-<td>访问队元素个数</td>
-</tr>
-</tbody>
-</table>
-<h4 id="示例">示例</h4>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stackFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="comment">//入栈</span></span><br><span class="line">    s.push(<span class="number">1</span>);</span><br><span class="line">    s.push(<span class="number">2</span>);</span><br><span class="line">    s.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//栈元素个数</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of stack:"</span>&lt;&lt;s.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈顶元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"top of stack:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出栈</span></span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, top of stack is:"</span>&lt;&lt;s.top()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//栈空</span></span><br><span class="line">    <span class="keyword">if</span>(!s.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    s.pop();</span><br><span class="line">    s.pop();</span><br><span class="line">    <span class="keyword">if</span>(s.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queueFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">    <span class="comment">//入队</span></span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    q.push(<span class="number">2</span>);</span><br><span class="line">    q.push(<span class="number">3</span>);</span><br><span class="line">    <span class="comment">//队首元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"front of queue:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队尾元素</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"back of queue:"</span>&lt;&lt;q.back()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队长度</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"size of queue:"</span>&lt;&lt;q.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//出队</span></span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"after pop, front of queue is:"</span>&lt;&lt;q.front()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="comment">//队空</span></span><br><span class="line">    <span class="keyword">if</span>(!q.empty()) <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is not empty"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    q.pop();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span>(q.empty() )  <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue is empty now"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">} </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    stackFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    queueFunction();</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">size of stack:3</span><br><span class="line">top of stack:3</span><br><span class="line">after pop, top of stack is:2</span><br><span class="line">stack is not empty</span><br><span class="line">stack is empty now</span><br><span class="line"></span><br><span class="line">front of queue:1</span><br><span class="line">back of queue:3</span><br><span class="line">size of queue:3</span><br><span class="line">after pop, front of queue is:2</span><br><span class="line">queue is not empty</span><br><span class="line">queue is empty now</span><br></pre></td></tr></tbody></table></figure>
+<p>使用注解的xml支持</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        https://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        https://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>
+<p>@Autowired：自动装配，通过类型，名字</p>
+<p>如果Autowired不能唯一自动装配上属性，则需要通过@Qualifier(value = “xxx”)</p>
+</li>
+<li>
+<p>@Nullable：字段标记了这个注解，说明这个字段可以为null</p>
+</li>
+<li>
+<p>@Resource：自动装配，通过名字，类型</p>
+</li>
+</ul>
+<p>@Autowired和@Resource的区别：</p>
+<ul>
+<li>
+<p>同</p>
+<ul>
+<li>都是用来自动装配的，都可以放在属性字段上</li>
+</ul>
+</li>
+<li>
+<p>异</p>
+<ul>
+<li>@Autowired通过bytype方式实现，而且必须要求该对象存在</li>
+<li>@Resource默认通过byname方式实现，如果找不到名字，则通过bytype方式实现，如果都找不到，则会报错</li>
+</ul>
+</li>
+</ul>
+<h1>使用注解开发</h1>
+<ol>
+<li>
+<p>bean</p>
+</li>
+<li>
+<p>属性如何注入</p>
+</li>
+<li>
+<p>衍生的注解</p>
+<p>@Component有几个衍生注解，在web开发中，会采用mvc三层架构</p>
+<ul>
+<li>dao【@Repository】</li>
+<li>service【@Service】</li>
+<li>controller【@Controller】</li>
+</ul>
+<p>这四个注解功能都是一样的，都代表着将某个类注册到Spring中，装配Bean</p>
+</li>
+<li>
+<p>自动装配</p>
+</li>
+<li>
+<p>作用域</p>
+</li>
+</ol>
+<ul>
+<li>@Component：组件，说明该类被Spring管理了</li>
+</ul>
+<h1>使用Java的方式配置Spring</h1>
+<p><code>Spring xml --&gt; Java</code></p>
+<p>纯Java配置方式，在Springboot中随处可见</p>
+<h1>10、代理模式</h1>
+<p>为什么要学习代理模式？因为这就是Spring AOP的底层实现</p>
+<p>代理模式的分类：</p>
+<ul>
+<li>静态代理</li>
+<li>动态代理</li>
+</ul>
+<p>代理模式示意图</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506224734785.png" alt="image-20200506224734785"></p>
+<h2 id="10-1、静态代理">10.1、静态代理</h2>
+<p>角色分析：</p>
+<ul>
+<li>抽象角色：一般会使用接口或者抽象类来解决</li>
+<li>真实角色：被代理的角色</li>
+<li>代理角色：代理真实觉得，代理真实角色后，我们一般会做一些附属操作</li>
+<li>客户：访问代理角色的对象</li>
+</ul>
+<p>代码步骤：</p>
+<ol>
+<li>接口</li>
+<li>真实角色</li>
+<li>代理角色</li>
+<li>客户端访问</li>
+</ol>
+<p>代理模式的好处：</p>
+<ul>
+<li>可以使真实角色的操作更加纯粹，不用去关注一些公共的业务</li>
+<li>公共业务交给代理角色，实现了业务的分工</li>
+<li>公共业务发生扩展时，方便集中管理</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>一个真实角色，就会产生一个代理角色；代码量会翻倍，开发效率降低</li>
+</ul>
+<h2 id="10-2、加深理解">10.2、加深理解</h2>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506231303413.png" alt="image-20200506231303413"></p>
+<h2 id="10-3、动态代理">10.3、动态代理</h2>
+<ul>
+<li>动态代理和静态代理角色一样</li>
+<li>动态代理的代理类时动态生成的，不是我们直接写好的</li>
+<li>动态代理分为两大类：
+<ul>
+<li>基于接口的动态代理—JDK动态代理</li>
+<li>基于类的动态代理—cglib</li>
+<li>java字节码实现；javasist</li>
+</ul>
+</li>
+</ul>
+<p>需要了解两个类：proxy:代理，InvocationHandler:调用处理程序</p>
+<p>动态代理的好处：</p>
+<ul>
+<li>（静态代理的好处全都有）</li>
+<li>一个动态代理类代理的是一个接口，一般就是对应的一类业务</li>
+<li>一个动态代理类可以代理多个类，只要是实现了同一个接口即可</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -553,7 +652,7 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
       
         <div class="post-tags">
           
-            <a href="/tags/C-CSP-数据结构与算法/" rel="tag"># C++, CSP, 数据结构与算法</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
           
         </div>
       
@@ -566,8 +665,8 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/01/Git学习笔记/" rel="next" title="Git学习笔记">
-                <i class="fa fa-chevron-left"></i> Git学习笔记
+              <a href="/2020/05/04/SpringBoot学习笔记/" rel="next" title="SpringBoot学习笔记">
+                <i class="fa fa-chevron-left"></i> SpringBoot学习笔记
               </a>
             
           </div>
@@ -575,10 +674,6 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/07/mysql学习笔记/" rel="prev" title="MySQL学习笔记">
-                MySQL学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -712,7 +807,7 @@ sort函数可以有两个参数，也可以有三个参数：</algorithm></p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快排sort"><span class="nav-text">快排sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用法"><span class="nav-text">用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈和队列"><span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#stack"><span class="nav-text">stack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#queue"><span class="nav-text">queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-text">示例</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">IOC容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bean的作用域"><span class="nav-text">bean的作用域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">bean的自动装配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">使用注解开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">使用Java的方式配置Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">10、代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1、静态代理"><span class="nav-text">10.1、静态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2、加深理解"><span class="nav-text">10.2、加深理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3、动态代理"><span class="nav-text">10.3、动态代理</span></a></li></ol></li></ol></div>
             
 
           </div>

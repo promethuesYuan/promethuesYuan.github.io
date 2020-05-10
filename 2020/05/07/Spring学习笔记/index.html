@@ -359,7 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.3k
+                  1.2k
                 </span>
               
 
@@ -399,85 +399,73 @@
         <center>
   跟着官方文档学习Spring
 </center>
+
+
 <a id="more"></a>
-<h1>IOC容器</h1>
-<h1>依赖注入</h1>
-<ol>
-<li>
-<p>构造器注入</p>
+
+<h1 id="IOC容器"><a href="#IOC容器" class="headerlink" title="IOC容器"></a>IOC容器</h1><h1 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h1><ol>
+<li><p>构造器注入</p>
 </li>
-<li>
-<p>set方式注入⭐️</p>
+<li><p>set方式注入<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span></p>
 <ul>
 <li>依赖：bean对象的创建依赖于容器</li>
 <li>注入：bean中的所有属性，由容器注入</li>
 </ul>
 </li>
-<li>
-<p>拓展方式注入</p>
+<li><p>拓展方式注入</p>
 <ul>
-<li>
-<p>p命名</p>
+<li><p>p命名</p>
 </li>
-<li>
-<p>c命名</p>
+<li><p>c命名</p>
 </li>
-<li>
-<p>注意点⚠️：需要去官网引入xml约束</p>
+<li><p>注意点⚠️：需要去官网引入xml约束</p>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="bean的作用域">bean的作用域</h2>
-<p>官方介绍</p>
+<h2 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h2><p>官方介绍</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Scope</th>
-<th style="text-align:left">Description</th>
+<th align="left">Scope</th>
+<th align="left">Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-singleton" target="_blank" rel="noopener">singleton</a> 单例模式</td>
-<td style="text-align:left">(Default) Scopes a single bean definition to a single object instance for each Spring IoC container.</td>
+<tbody><tr>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-singleton" target="_blank" rel="noopener">singleton</a> 单例模式</td>
+<td align="left">(Default) Scopes a single bean definition to a single object instance for each Spring IoC container.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-prototype" target="_blank" rel="noopener">prototype</a></td>
-<td style="text-align:left">Scopes a single bean definition to any number of object instances.</td>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-prototype" target="_blank" rel="noopener">prototype</a></td>
+<td align="left">Scopes a single bean definition to any number of object instances.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-request" target="_blank" rel="noopener">request</a></td>
-<td style="text-align:left">Scopes a single bean definition to the lifecycle of a single HTTP request. That is, each HTTP request has its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-request" target="_blank" rel="noopener">request</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of a single HTTP request. That is, each HTTP request has its own instance of a bean created off the back of a single bean definition. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-session" target="_blank" rel="noopener">session</a></td>
-<td style="text-align:left">Scopes a single bean definition to the lifecycle of an HTTP <code>Session</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-session" target="_blank" rel="noopener">session</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of an HTTP <code>Session</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-application" target="_blank" rel="noopener">application</a></td>
-<td style="text-align:left">Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/core.html#beans-factory-scopes-application" target="_blank" rel="noopener">application</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of a <code>ServletContext</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
 </tr>
 <tr>
-<td style="text-align:left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/web.html#websocket-stomp-websocket-scope" target="_blank" rel="noopener">websocket</a></td>
-<td style="text-align:left">Scopes a single bean definition to the lifecycle of a <code>WebSocket</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
+<td align="left"><a href="https://docs.spring.io/spring/docs/5.2.6.RELEASE/spring-framework-reference/web.html#websocket-stomp-websocket-scope" target="_blank" rel="noopener">websocket</a></td>
+<td align="left">Scopes a single bean definition to the lifecycle of a <code>WebSocket</code>. Only valid in the context of a web-aware Spring <code>ApplicationContext</code>.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <ol>
-<li>
-<p>单例模式（Spring默认实现）</p>
+<li><p>单例模式（Spring默认实现）</p>
 </li>
-<li>
-<p>原型模式</p>
+<li><p>原型模式</p>
 <p>每次从容器中get时，都会产生一个新的对象</p>
 </li>
-<li>
-<p>其余几个在web开发中使用</p>
+<li><p>其余几个在web开发中使用</p>
 </li>
 </ol>
-<h1>bean的自动装配</h1>
-<ul>
+<h1 id="bean的自动装配"><a href="#bean的自动装配" class="headerlink" title="bean的自动装配"></a>bean的自动装配</h1><ul>
 <li>自动装配是spring满足bean依赖的一种实现</li>
 <li>Spring会在上下文中寻找，并且给bean装配属性</li>
 </ul>
@@ -485,7 +473,7 @@
 <ol>
 <li>xml中配置</li>
 <li>在java中显式配置</li>
-<li>隐式自动装配⭐️</li>
+<li>隐式自动装配<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2b50.png?v8">⭐</span></li>
 </ol>
 <p>autowire:</p>
 <ul>
@@ -499,48 +487,40 @@
 </ul>
 <p><strong>使用注解</strong></p>
 <blockquote>
-<p>The introduction of annotation-based configuration raised the question of whether this approach is “better” than XML. The short answer is “it depends.”</p>
+<p>The introduction of annotation-based configuration raised the question of whether this approach is “better” than XML. The short answer is “it depends.” </p>
 </blockquote>
 <p>使用注解的xml支持</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">        https://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">        http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="tag"><span class="string">        https://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
 <ul>
-<li>
-<p>@Autowired：自动装配，通过类型，名字</p>
+<li><p>@Autowired：自动装配，通过类型，名字</p>
 <p>如果Autowired不能唯一自动装配上属性，则需要通过@Qualifier(value = “xxx”)</p>
 </li>
-<li>
-<p>@Nullable：字段标记了这个注解，说明这个字段可以为null</p>
+<li><p>@Nullable：字段标记了这个注解，说明这个字段可以为null</p>
 </li>
-<li>
-<p>@Resource：自动装配，通过名字，类型</p>
+<li><p>@Resource：自动装配，通过名字，类型</p>
 </li>
 </ul>
 <p>@Autowired和@Resource的区别：</p>
 <ul>
-<li>
-<p>同</p>
+<li><p>同</p>
 <ul>
 <li>都是用来自动装配的，都可以放在属性字段上</li>
 </ul>
 </li>
-<li>
-<p>异</p>
+<li><p>异</p>
 <ul>
 <li>@Autowired通过bytype方式实现，而且必须要求该对象存在</li>
 <li>@Resource默认通过byname方式实现，如果找不到名字，则通过bytype方式实现，如果都找不到，则会报错</li>
 </ul>
 </li>
 </ul>
-<h1>使用注解开发</h1>
-<ol>
-<li>
-<p>bean</p>
+<h1 id="使用注解开发"><a href="#使用注解开发" class="headerlink" title="使用注解开发"></a>使用注解开发</h1><ol>
+<li><p>bean</p>
 </li>
-<li>
-<p>属性如何注入</p>
+<li><p>属性如何注入</p>
 </li>
-<li>
-<p>衍生的注解</p>
+<li><p>衍生的注解</p>
 <p>@Component有几个衍生注解，在web开发中，会采用mvc三层架构</p>
 <ul>
 <li>dao【@Repository】</li>
@@ -549,21 +529,17 @@
 </ul>
 <p>这四个注解功能都是一样的，都代表着将某个类注册到Spring中，装配Bean</p>
 </li>
-<li>
-<p>自动装配</p>
+<li><p>自动装配</p>
 </li>
-<li>
-<p>作用域</p>
+<li><p>作用域</p>
 </li>
 </ol>
 <ul>
 <li>@Component：组件，说明该类被Spring管理了</li>
 </ul>
-<h1>使用Java的方式配置Spring</h1>
-<p><code>Spring xml --&gt; Java</code></p>
+<h1 id="使用Java的方式配置Spring"><a href="#使用Java的方式配置Spring" class="headerlink" title="使用Java的方式配置Spring"></a>使用Java的方式配置Spring</h1><p><code>Spring xml --&gt; Java</code></p>
 <p>纯Java配置方式，在Springboot中随处可见</p>
-<h1>10、代理模式</h1>
-<p>为什么要学习代理模式？因为这就是Spring AOP的底层实现</p>
+<h1 id="10、代理模式"><a href="#10、代理模式" class="headerlink" title="10、代理模式"></a>10、代理模式</h1><p>为什么要学习代理模式？因为这就是Spring AOP的底层实现</p>
 <p>代理模式的分类：</p>
 <ul>
 <li>静态代理</li>
@@ -571,8 +547,7 @@
 </ul>
 <p>代理模式示意图</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506224734785.png" alt="image-20200506224734785"></p>
-<h2 id="10-1、静态代理">10.1、静态代理</h2>
-<p>角色分析：</p>
+<h2 id="10-1、静态代理"><a href="#10-1、静态代理" class="headerlink" title="10.1、静态代理"></a>10.1、静态代理</h2><p>角色分析：</p>
 <ul>
 <li>抽象角色：一般会使用接口或者抽象类来解决</li>
 <li>真实角色：被代理的角色</li>
@@ -596,14 +571,11 @@
 <ul>
 <li>一个真实角色，就会产生一个代理角色；代码量会翻倍，开发效率降低</li>
 </ul>
-<h2 id="10-2、加深理解">10.2、加深理解</h2>
-<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506231303413.png" alt="image-20200506231303413"></p>
-<h2 id="10-3、动态代理">10.3、动态代理</h2>
-<ul>
+<h2 id="10-2、加深理解"><a href="#10-2、加深理解" class="headerlink" title="10.2、加深理解"></a>10.2、加深理解</h2><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200506231303413.png" alt="image-20200506231303413"></p>
+<h2 id="10-3、动态代理"><a href="#10-3、动态代理" class="headerlink" title="10.3、动态代理"></a>10.3、动态代理</h2><ul>
 <li>动态代理和静态代理角色一样</li>
 <li>动态代理的代理类时动态生成的，不是我们直接写好的</li>
-<li>动态代理分为两大类：
-<ul>
+<li>动态代理分为两大类：<ul>
 <li>基于接口的动态代理—JDK动态代理</li>
 <li>基于类的动态代理—cglib</li>
 <li>java字节码实现；javasist</li>
@@ -674,6 +646,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/10/SSM整合踩坑/" rel="prev" title="SSM整合踩坑">
+                SSM整合踩坑 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -752,7 +728,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -807,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">IOC容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bean的作用域"><span class="nav-text">bean的作用域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">bean的自动装配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">使用注解开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">使用Java的方式配置Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">10、代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1、静态代理"><span class="nav-text">10.1、静态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2、加深理解"><span class="nav-text">10.2、加深理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3、动态代理"><span class="nav-text">10.3、动态代理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#IOC容器"><span class="nav-text">IOC容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#依赖注入"><span class="nav-text">依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bean的作用域"><span class="nav-text">bean的作用域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bean的自动装配"><span class="nav-text">bean的自动装配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用注解开发"><span class="nav-text">使用注解开发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Java的方式配置Spring"><span class="nav-text">使用Java的方式配置Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10、代理模式"><span class="nav-text">10、代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1、静态代理"><span class="nav-text">10.1、静态代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2、加深理解"><span class="nav-text">10.2、加深理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-3、动态代理"><span class="nav-text">10.3、动态代理</span></a></li></ol></li></ol></div>
             
 
           </div>

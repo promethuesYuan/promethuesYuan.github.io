@@ -396,21 +396,26 @@
         <center>
   原生hexo对emoji的支持不是很好，很多表情都没有办法显示，本文记录如何解决这种问题。
 </center>
+
 <a id="more"></a>
+
 <br>
+
 <p>hexo默认的markdown渲染引擎hexo-renderer-marked不支持对emoji的渲染，解决方法就是换一个引擎，以及增加一个emoji插件。</p>
 <p><strong>安装</strong></p>
 <p>命令行如下：</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm un hexo-renderer-marked --save</span><br><span class="line">npm i hexo-renderer-markdown-it --save</span><br><span class="line">npm install markdown-it-emoji --save</span><br></pre></td></tr></tbody></table></figure>
+
 <p>第一行是移除hexo默认的引擎，第二行是新安装的引擎，第三行是安装emoji插件。</p>
-<p>⚠️PS:执行命令行时，在hexo博客所在的命令行进行，才会产生效果。</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/26a0.png?v8">⚠</span>PS:执行命令行时，在hexo博客所在的命令行进行，才会产生效果。</p>
 <p><strong>配置</strong></p>
 <p>在hexo博客所在目录下，配置站点信息_config.yml文件，配置情况如下。</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">## markdown 渲染引擎配置，默认是hexo-renderer-marked，这个插件渲染速度更快，且有新特性</span><br><span class="line">markdown:</span><br><span class="line">  render:</span><br><span class="line">    html: true</span><br><span class="line">    xhtmlOut: false</span><br><span class="line">    breaks: true</span><br><span class="line">    linkify: true</span><br><span class="line">    typographer: true</span><br><span class="line">    quotes: '“”‘’'</span><br><span class="line">  plugins:</span><br><span class="line">    - markdown-it-footnote</span><br><span class="line">    - markdown-it-sup</span><br><span class="line">    - markdown-it-sub</span><br><span class="line">    - markdown-it-abbr</span><br><span class="line">    - markdown-it-emoji</span><br></pre></td></tr></tbody></table></figure>
+
 <p><strong>使用</strong></p>
 <ol>
 <li>复制你想要的emoji表情，粘贴到博文中</li>
-<li>输入emoji表情编码，比如<code>:smile:</code>就是😄的编码～</li>
+<li>输入emoji表情编码，比如<code>:smile:</code>就是<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">😄</span>的编码～</li>
 </ol>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -542,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

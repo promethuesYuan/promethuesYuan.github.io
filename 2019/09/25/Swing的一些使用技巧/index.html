@@ -418,15 +418,17 @@
         <center>
 记录一些Swing做GUI时候的一些技巧
 </center>
+
 <a id="more"></a>
+
 <p><strong>窗体居中设置</strong></p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setLocationRelativeTo(<span class="keyword">null</span>);<span class="comment">//窗体居中显示</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>窗口自适应大小</strong><br>
-用Java代码先获得屏幕大小，然后在设置宽高。获得屏幕大小代码如下</p>
+
+<p><strong>窗口自适应大小</strong><br>用Java代码先获得屏幕大小，然后在设置宽高。获得屏幕大小代码如下</p>
 <figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();<span class="comment">//得到屏幕的大小</span></span><br><span class="line">System.out.println (screen.getWidth());<span class="comment">//输出屏幕的宽度</span></span><br><span class="line">System.out.println (screen.getHeight());<span class="comment">//输出屏幕的高度</span></span><br></pre></td></tr></tbody></table></figure>
+
 <p>然后可以设置相应的bounds的比例</p>
-<p><strong>String使用的一个小经验</strong><br>
-下午在做判断两个字符串是否相等的时候，我用了==来进行判断，但一直会出错，当时一直不明白为什么。旁边的同学提醒我看idea的提示，让我改用equals()来判断，改完后就正确了。我就突然明白，两个字符串常量比较时候可以用==，因为他们判断时是判断他们是否指向同一个字符串。equals()是来判断两个字符串是否相等。</p>
+<p><strong>String使用的一个小经验</strong><br>下午在做判断两个字符串是否相等的时候，我用了==来进行判断，但一直会出错，当时一直不明白为什么。旁边的同学提醒我看idea的提示，让我改用equals()来判断，改完后就正确了。我就突然明白，两个字符串常量比较时候可以用==，因为他们判断时是判断他们是否指向同一个字符串。equals()是来判断两个字符串是否相等。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -557,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

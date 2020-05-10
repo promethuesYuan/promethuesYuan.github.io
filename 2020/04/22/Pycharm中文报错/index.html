@@ -395,9 +395,12 @@
         <center>
   解决Pycharm中中文注释报错的问题
 </center>
+
 <a id="more"></a>
+
 <p>尝试用python来生成数据库实验的数据源时，运行程序出现了以下错误</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character '\xe6' in file test/t.py on line 19, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details</span><br></pre></td></tr></tbody></table></figure>
+
 <p>从错误信息中大概能猜测出跟字符集有关，应该是程序中有中文的缘故，不知道为什么注释中有中文也会报错= =</p>
 <p>解决方法是在当前文件的文件头加上<code># -*- coding:utf8 -*-</code> 表明使用utf-8的字符集，即可正常运行</p>
 <script>
@@ -524,7 +527,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

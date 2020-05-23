@@ -3,7 +3,13 @@
   <entry>
     <title><![CDATA[《深入理解Java虚拟机》读书笔记(2)——Java内存区域与OOM异常]]></title>
     <url>%2F2020%2F05%2F22%2F%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2-%E2%80%94%E2%80%94Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8EOOM%E5%BC%82%E5%B8%B8%2F</url>
-    <content type="text"><![CDATA[document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[JVM内存的划分，以及介绍OOM异常～ 本章的内容总览，个人认为比较重要的是明白JVM的分区机制，也就是有哪些分区，各个分区是什么作用 运行时数据区域JVM在运行时，会把管理的内存划分成几个区域，各自有各自的用途，创建与销毁时间也各异。总体上分成5个区，架构图如下（图片源自《深入理解Java虚拟机》，以下简称《JVM》） 方法区 堆 虚拟机栈 本地方法栈 程序计数器 JVM内存主要被分为五大区域，但是从思维导图上可见本书介绍一共有七个部分，运行时常量池和直接内存未被提及，是因为有一些区域存在包含关系，而《JVM》这本书中画出的模型抽象级别比较高，下面是源自一个博客的插图（侵删），细度稍微高一些，能更全面地展示这七个部分。 从第一张图可见，区域是分是否线程共享的，所以以这个标准，来分开介绍这几大区域的作用。 线程私有1. 程序计数器 功能：一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器，是程序控制流程的指示器。 线程：每条线程都有一个独立的程序计数器，互不影响，独立存储。 异常：唯一一个没有规定任何OOM情况的区域。 备注：如果正在执行本地方法，则计数器值置空 2. 虚拟机栈 功能：每个方法被执行的时候，JVM都会同步创建一个栈帧用于存储局部变量表、操作数栈、动态连接、方法出口信息等。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在JVM栈中从入栈到出栈的过程。JVM谈论“栈”，通常就是指虚拟机栈，或更多情况下指的是虚拟机栈中的局部变量表部分。 局部变量表：基本数据类型、对象引用和returnAddress(指向了一条字节码指令的地址) 线程：生命周期与线程相同 异常：SOF（线程请求的栈深度大于虚拟机所允许的深度）和OOM（栈无法申请到足够的内存） 3. 本地方法栈 功能：作用与虚拟机栈类似，区别在于本地方法栈是为虚拟机使用的本地方法服务 备注：HotSpot将这两者栈合二为一 线程共享4. 堆 功能：唯一目的就是存放对象实例，几乎所有对象实例都在此分配内存。是GC管理的内存区域，该区域又可以细分成“新生代”“老年代”等，是为了分代收集。堆可以处于物理上不连续的内存空间，但逻辑上应被视为连续的。 线程：虚拟机启动时创建 异常：堆中没有内存完成实例分配，且堆也无法再扩展时，会抛出OOM异常 5. 方法区 功能：存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。 线程：同堆 异常：同堆 6. 运行时常量池 功能：是方法区的一部分，用于存放编译期间生成的各种字面量和符号引用 异常：常量池无法再申请到内存时会抛出OOM异常 7. 直接内存该区域不是虚拟机运行时数据区的一部分，但是这部分内存被频繁使用，也可能导致OOM异常 对象初始化Java程序中new一个对象时，Hotspot虚拟机创建对象包括如下5个步骤： document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>JVM</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[《深入理解Java虚拟机》读书笔记(1)——走进Java]]></title>

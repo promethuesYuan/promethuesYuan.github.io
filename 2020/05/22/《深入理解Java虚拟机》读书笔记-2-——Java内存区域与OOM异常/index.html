@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JVM,">
 
 
 
@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
+<meta name="description" content="JVM内存的划分，以及介绍OOM异常～">
+<meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《深入理解Java虚拟机》读书笔记(2)——Java内存区域与OOM异常">
 <meta property="og:url" content="http://yoursite.com/2020/05/22/《深入理解Java虚拟机》读书笔记-2-——Java内存区域与OOM异常/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
-<meta property="og:description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
+<meta property="og:description" content="JVM内存的划分，以及介绍OOM异常～">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-22T07:46:06.839Z">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523223628059.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523211357650.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/784325-20190813131426472-1295814714.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523223519831.png">
+<meta property="og:updated_time" content="2020-05-23T14:38:19.040Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解Java虚拟机》读书笔记(2)——Java内存区域与OOM异常">
-<meta name="twitter:description" content="document.querySelectorAll(&apos;.github-emoji&apos;)           .forEach(el =&amp;gt; {             if (!el.dataset.src) { return; }             const img = document.createElement(&apos;img&apos;);             img.style">
+<meta name="twitter:description" content="JVM内存的划分，以及介绍OOM异常～">
+<meta name="twitter:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523223628059.png">
 
 
 
@@ -334,6 +340,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -355,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  52
+                  1k
                 </span>
               
 
@@ -371,7 +399,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -392,7 +420,64 @@
       
 
       
-        <script>
+        <center>
+  JVM内存的划分，以及介绍OOM异常～
+</center>
+
+<a id="more"></a>
+
+<hr>
+<p>本章的内容总览，个人认为比较重要的是明白JVM的分区机制，也就是有哪些分区，各个分区是什么作用</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523223628059.png" alt="image-20200523223628059"></p>
+<h1 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h1><p>JVM在运行时，会把管理的内存划分成几个区域，各自有各自的用途，创建与销毁时间也各异。总体上分成5个区，架构图如下（图片源自《深入理解Java虚拟机》，以下简称《JVM》）</p>
+<ol>
+<li>方法区</li>
+<li>堆</li>
+<li>虚拟机栈</li>
+<li>本地方法栈</li>
+<li>程序计数器</li>
+</ol>
+<img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523211357650.png" alt="image-20200523211357650" style="zoom:25%;">
+
+<p>JVM内存主要被分为五大区域，但是从思维导图上可见本书介绍一共有七个部分，运行时常量池和直接内存未被提及，是因为有一些区域存在包含关系，而《JVM》这本书中画出的模型抽象级别比较高，下面是源自一个<a href="https://www.cnblogs.com/simpleDi/p/11345784.html" target="_blank" rel="noopener">博客</a>的插图（侵删），细度稍微高一些，能更全面地展示这七个部分。</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/784325-20190813131426472-1295814714.png" alt="img"></p>
+<p>从第一张图可见，区域是分是否线程共享的，所以以这个标准，来分开介绍这几大区域的作用。</p>
+<h2 id="线程私有"><a href="#线程私有" class="headerlink" title="线程私有"></a>线程私有</h2><h3 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1. 程序计数器"></a>1. 程序计数器</h3><ul>
+<li>功能：一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指示器，是程序控制流程的指示器。</li>
+<li>线程：每条线程都有一个独立的程序计数器，互不影响，独立存储。</li>
+<li>异常：唯一一个没有规定任何OOM情况的区域。</li>
+<li>备注：如果正在执行本地方法，则计数器值置空</li>
+</ul>
+<h3 id="2-虚拟机栈"><a href="#2-虚拟机栈" class="headerlink" title="2. 虚拟机栈"></a>2. 虚拟机栈</h3><ul>
+<li>功能：每个方法被执行的时候，JVM都会同步创建一个栈帧用于存储局部变量表、操作数栈、动态连接、方法出口信息等。每一个方法被调用直至执行完毕的过程，就对应着一个栈帧在JVM栈中从入栈到出栈的过程。JVM谈论“栈”，通常就是指虚拟机栈，或更多情况下指的是虚拟机栈中的局部变量表部分。<ul>
+<li>局部变量表：基本数据类型、对象引用和returnAddress(指向了一条字节码指令的地址)</li>
+</ul>
+</li>
+<li>线程：生命周期与线程相同</li>
+<li>异常：SOF（线程请求的栈深度大于虚拟机所允许的深度）和OOM（栈无法申请到足够的内存）</li>
+</ul>
+<h3 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3. 本地方法栈"></a>3. 本地方法栈</h3><ul>
+<li>功能：作用与虚拟机栈类似，区别在于本地方法栈是为虚拟机使用的本地方法服务</li>
+<li>备注：HotSpot将这两者栈<strong>合二为一</strong></li>
+</ul>
+<h2 id="线程共享"><a href="#线程共享" class="headerlink" title="线程共享"></a>线程共享</h2><h3 id="4-堆"><a href="#4-堆" class="headerlink" title="4. 堆"></a>4. 堆</h3><ul>
+<li>功能：唯一目的就是存放<strong>对象实例</strong>，几乎所有对象实例都在此分配内存。是GC管理的内存区域，该区域又可以细分成“新生代”“老年代”等，是为了分代收集。堆可以处于物理上不连续的内存空间，但逻辑上应被视为连续的。</li>
+<li>线程：虚拟机启动时创建</li>
+<li>异常：堆中没有内存完成实例分配，且堆也无法再扩展时，会抛出OOM异常</li>
+</ul>
+<h3 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5. 方法区"></a>5. 方法区</h3><ul>
+<li>功能：存储已被虚拟机加载的类型信息、常量、静态变量、即时编译器编译后的代码缓存等数据。</li>
+<li>线程：同堆</li>
+<li>异常：同堆</li>
+</ul>
+<h3 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6. 运行时常量池"></a>6. 运行时常量池</h3><ul>
+<li>功能：是方法区的一部分，用于存放编译期间生成的各种<strong>字面量</strong>和<strong>符号引用</strong></li>
+<li>异常：常量池无法再申请到内存时会抛出OOM异常</li>
+</ul>
+<h3 id="7-直接内存"><a href="#7-直接内存" class="headerlink" title="7. 直接内存"></a>7. 直接内存</h3><p>该区域不是虚拟机运行时数据区的一部分，但是这部分内存被频繁使用，也可能导致OOM异常</p>
+<h1 id="对象初始化"><a href="#对象初始化" class="headerlink" title="对象初始化"></a>对象初始化</h1><p>Java程序中new一个对象时，Hotspot虚拟机创建对象包括如下5个步骤：</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200523223519831.png" alt="image-20200523223519831"></p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -424,6 +509,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
       
 
       
@@ -494,8 +585,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -558,6 +658,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#运行时数据区域"><span class="nav-text">运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程私有"><span class="nav-text">线程私有</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-程序计数器"><span class="nav-text">1. 程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-虚拟机栈"><span class="nav-text">2. 虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-本地方法栈"><span class="nav-text">3. 本地方法栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程共享"><span class="nav-text">线程共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-堆"><span class="nav-text">4. 堆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-方法区"><span class="nav-text">5. 方法区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-运行时常量池"><span class="nav-text">6. 运行时常量池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-直接内存"><span class="nav-text">7. 直接内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象初始化"><span class="nav-text">对象初始化</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -602,7 +718,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">56.4k</span> 字
+      博客全站共： <span class="post-count">57.3k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

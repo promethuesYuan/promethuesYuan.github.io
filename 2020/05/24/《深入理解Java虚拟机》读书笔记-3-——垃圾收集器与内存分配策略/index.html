@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JVM,">
 
 
 
@@ -79,13 +79,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yuan&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+<meta name="description" content="JVM灵魂部分，面试题遇到不知道多少次，重点中的重点   ​">
+<meta name="keywords" content="JVM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解Java虚拟机》读书笔记(3)——垃圾收集器与内存分配策略">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/《深入理解Java虚拟机》读书笔记-3-——垃圾收集器与内存分配策略/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
+<meta property="og:description" content="JVM灵魂部分，面试题遇到不知道多少次，重点中的重点   ​">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200524205415575.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200524210854179.png">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406161514082-1220415753.jpg">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406162053957-592638524.jpg">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406170311707-1412704605.jpg">
+<meta property="og:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406162848519-1635773526.jpg">
+<meta property="og:updated_time" content="2020-05-24T13:58:02.020Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yuan&#39;s Blog">
+<meta name="twitter:title" content="《深入理解Java虚拟机》读书笔记(3)——垃圾收集器与内存分配策略">
+<meta name="twitter:description" content="JVM灵魂部分，面试题遇到不知道多少次，重点中的重点   ​">
+<meta name="twitter:image" content="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200524205415575.png">
 
 
 
@@ -115,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/3/">
+  <link rel="canonical" href="http://yoursite.com/2020/05/24/《深入理解Java虚拟机》读书笔记-3-——垃圾收集器与内存分配策略/">
 
 
 
 
 
-  <title>归档 | Yuan's Blog</title>
+  <title>《深入理解Java虚拟机》读书笔记(3)——垃圾收集器与内存分配策略 | Yuan's Blog</title>
   
 
 
@@ -140,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,390 +288,280 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/《深入理解Java虚拟机》读书笔记-3-——垃圾收集器与内存分配策略/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan Zhibo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">《深入理解Java虚拟机》读书笔记(3)——垃圾收集器与内存分配策略</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-24T20:52:33+08:00">
+                2020-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        好! 目前共计 66 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/26/暑期实习-面经/" itemprop="url">
+          
+          
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">暑期实习 面经</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-26T23:22:20+08:00" content="2020-03-26">
-          03-26
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/23/排序算法-Java实现/" itemprop="url">
-              
-                <span itemprop="name">排序算法 Java实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-23T09:46:25+08:00" content="2020-03-23">
-          03-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/22/操作系统复习/" itemprop="url">
-              
-                <span itemprop="name">操作系统复习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-22T15:56:07+08:00" content="2020-03-22">
-          03-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
+        <center>
+  JVM灵魂部分，面试题遇到不知道多少次，重点中的重点
+</center>
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/22/计算机网络复习/" itemprop="url">
-              
-                <span itemprop="name">计算机网络复习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-22T15:54:59+08:00" content="2020-03-22">
-          03-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+<p>​    <a id="more"></a></p>
+<hr>
+<p>本章思维导图～重点在于GC算法以及各种GC的实现策略</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200524205415575.png" alt="image-20200524205415575"></p>
+<h1 id="对象死活确认"><a href="#对象死活确认" class="headerlink" title="对象死活确认"></a>对象死活确认</h1><p>垃圾收集器在对堆中内存进行回收前，需要确定哪些对象还在“存活”，哪些已经“死亡”</p>
+<h2 id="❌引用计数算法"><a href="#❌引用计数算法" class="headerlink" title="❌引用计数算法"></a>❌引用计数算法</h2><p>实现：在对象中添加一个引用计数器，每当有一个地方引用它，计数器值就加一；当引用失效时，计数器值就减一；任何时刻计数器值为零的对象就是不可能再被使用的。</p>
+<ul>
+<li>优点：原理简单，判定高效</li>
+<li>缺点：有很多额外情况需要考虑，无法解决<strong>循环引用</strong>的问题。JVM不采用这种方法确认对象是否存活。</li>
+</ul>
+<h2 id="✅可达性计数算法"><a href="#✅可达性计数算法" class="headerlink" title="✅可达性计数算法"></a>✅可达性计数算法</h2><p>实现：通过一系列称为“GC Roots”的根对象作为起始节点集，从这些节点开始，根据引用关系向下搜索，搜索过程所走过的路径称为“引用链”，如果这个对象到GC Roots间没有任何引用链相连，或者说从GC Roots到这个对象不可达时，则证明此对象是不可能再被使用的。</p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200524210854179.png" alt="image-20200524210854179"></p>
+<p>固定可作为GC Roots的对象包括一下子几种：</p>
+<ul>
+<li><p>在虚拟机栈(栈帧中的本地变量表)中引用的对象，譬如各个线程被调用的方法堆栈中使用到的参数、局部变量、临时变量等。</p>
+</li>
+<li><p>在方法区中类静态属性引用的对象，譬如Java类的引用类型静态变量。</p>
+</li>
+<li><p>在方法区中常量引用的对象，譬如字符串常量池(String Table)里的引用。</p>
+</li>
+<li><p>在本地方法栈中JNI (即通常所说的Native方法)引用的对象。</p>
+</li>
+<li><p>Java虚拟机内部的引用，如基本数据类型对应的Class对象，一些常驻的异常对象(比如NullPointExcepiton、OutOfMemoryError)等，还有系统类加载器。</p>
+</li>
+<li><p>所有被同步锁（sychronized关键字）持有的对象。</p>
+</li>
+<li><p>反应JVM内部情况的JMVBean、JVMTI中注册的回调、本地代码缓存等。</p>
+</li>
+</ul>
+<p>除了这些固定的集合外，根据用户所选用的GC以及当前回收的内存区域不同，还可以有其他对象“临时性”加入，共同构成完成的GC Roots集合。</p>
+<h1 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h1><h2 id="分代收集理论"><a href="#分代收集理论" class="headerlink" title="分代收集理论"></a>分代收集理论</h2><p>两条分代假说：</p>
+<ol>
+<li>弱分代假说：绝大多数对象都是朝生夕灭的</li>
+<li>强分代假说：熬过越多次垃圾收集过程的对象就越难以消亡</li>
+</ol>
+<p>GC的一致设计原则：GC应该将Java堆划分出不同的区域，然后将回收对象依据其年龄（年龄即对象熬过垃圾收集过程的次数）分配到不同的区域之中存储。设计者一般至少会把Java堆划分为<strong>新生代</strong>👶和<strong>老年代</strong>👴两个区域。新生代朝生夕死，每次回收后存活少量对象，将会逐步晋升到老年代中存放。</p>
+<p>第三条经验法则：</p>
+<ol start="3">
+<li>跨代引用假说：跨代引用相对于同代引用来说仅占极少数。<br>隐含推论：存在互相引用关系的两个对象，是应该倾向于同生或同死的 。</li>
+</ol>
+<p>依据此假说，只用在新生代上建议一个全局的数据结构（被称为“记忆集”），该结构把老年代划分成若干小块，标示出老年代的哪一块内存会存在跨代引用，这样就不用为了少量跨代引用扫面整个老年代</p>
+<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><ul>
+<li>思想：算法分成“标记”和“清除”两个阶段。首先标记出所有需要回收的对象，在标记完成后，统一回收掉所有被标记的对象，也可以反过来，标记存活的对象，统一回收所有未被标记的对象。标记的过程就是对象是否属于垃圾的判定过程。</li>
+<li>优点：最基础的收集算法</li>
+<li>缺点：1.执行效率不稳定。2.内存空间的碎片化问题</li>
+</ul>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406161514082-1220415753.jpg" alt="img"></p>
+<h2 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h2><ul>
+<li>思想：“半区复制”。它将可用内存按照容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。</li>
+<li>优点：实现简单，运行高效，解决了标记-清除算法面对大量可回收对象时执行效率低的问题</li>
+<li>缺点：空间浪费明显，可用内存被缩小至原来的一半</li>
+<li>备注1：商用JVM大多优先采用了这种收集算法区回收新生代。<br>备注2：更优化的半区复制分代策略，“Appel式回收”。具体做法是把新生代分为一块较大的Eden空间和两块较小的Survivor空间，每次分配内存只使用Eden和其中一块Survivor空间上。发生垃圾收集时，将Eden和Survivor中仍然存活的对象一次性复制到另一块Survivor空间上，然后清理掉Eden和已用过的那块Survivor空间。Hotspot默认二者大小之比为8:1。逃生门设计：当Survivor空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行分配担保。</li>
+</ul>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406162053957-592638524.jpg" alt="img"></p>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406170311707-1412704605.jpg" alt="img"></p>
+<h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><ul>
+<li>思想：其标记过程与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都像内存空间一端移动，然后直接清理掉边界以外的内存。</li>
+</ul>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/989246-20170406162848519-1635773526.jpg" alt="img"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/19/改写equals-和hashCode/" itemprop="url">
-              
-                <span itemprop="name">改写equals()和hashCode()</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-19T22:43:09+08:00" content="2020-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/19/Java-关键字/" itemprop="url">
-              
-                <span itemprop="name">Java 关键字</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-19T22:31:26+08:00" content="2020-03-19">
-          03-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/14/Flink-简介/" itemprop="url">
-              
-                <span itemprop="name">Flink 简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-14T21:04:14+08:00" content="2020-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/14/Flink之容错机制/" itemprop="url">
-              
-                <span itemprop="name">Flink之容错机制</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-14T21:04:04+08:00" content="2020-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/14/数据库概念及初识MySQL/" itemprop="url">
-              
-                <span itemprop="name">数据库概念及初识MySQL</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-14T17:08:53+08:00" content="2020-03-14">
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/13/Java-基础/" itemprop="url">
-              
-                <span itemprop="name">Java 基础</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-13T20:36:31+08:00" content="2020-03-13">
-          03-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/22/《深入理解Java虚拟机》读书笔记-2-——Java内存区域与OOM异常/" rel="next" title="《深入理解Java虚拟机》读书笔记(2)——Java内存区域与OOM异常">
+                <i class="fa fa-chevron-left"></i> 《深入理解Java虚拟机》读书笔记(2)——Java内存区域与OOM异常
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -667,6 +569,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -687,8 +593,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -750,6 +665,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对象死活确认"><span class="nav-text">对象死活确认</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#❌引用计数算法"><span class="nav-text">❌引用计数算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#✅可达性计数算法"><span class="nav-text">✅可达性计数算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集算法"><span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分代收集理论"><span class="nav-text">分代收集理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-清除算法"><span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-复制算法"><span class="nav-text">标记-复制算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标记-整理算法"><span class="nav-text">标记-整理算法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -908,6 +839,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

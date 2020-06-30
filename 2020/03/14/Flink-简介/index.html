@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  631
+                  633
                 </span>
               
 
@@ -425,9 +425,7 @@
         <center>
     Flink刚入门时候讲的背景知识
 </center>
-
 <a id="more"></a>
-
 <p>主要内容</p>
 <ul>
 <li>Flink是什么</li>
@@ -437,11 +435,14 @@
 <li>Flink vs Spark Streaming</li>
 </ul>
 <hr>
-<h2 id="Flink是什么"><a href="#Flink是什么" class="headerlink" title="Flink是什么"></a>Flink是什么</h2><p>Apache Flink是一个框架和<strong>分布式</strong>处理引擎，用于对<strong>无界和有解数据</strong>流进行<strong>状态</strong>运算</p>
-<h2 id="为什么选择Flink"><a href="#为什么选择Flink" class="headerlink" title="为什么选择Flink"></a>为什么选择Flink</h2><ul>
+<h2 id="Flink是什么">Flink是什么</h2>
+<p>Apache Flink是一个框架和<strong>分布式</strong>处理引擎，用于对<strong>无界和有解数据</strong>流进行<strong>状态</strong>运算</p>
+<h2 id="为什么选择Flink">为什么选择Flink</h2>
+<ul>
 <li>流数据更真实地反映了我们的生活方式</li>
 <li>传统的数据架构是基于有限数据集的</li>
-<li>目标<ul>
+<li>目标
+<ul>
 <li>低延迟</li>
 <li>高吞吐</li>
 <li>结果的准确性和良好的容错性</li>
@@ -450,12 +451,17 @@
 </ul>
 <p><strong>行业进行流处理举例</strong></p>
 <ul>
-<li>电商和市场销售<br>数据报表、广告投放、业务流程需要</li>
-<li>物联网<br>传感器实时数据采集和显示、实时报警、交通运输业</li>
-<li>电信业<br>基站流量调配</li>
-<li>银行和金融业<br>实时结算和通知推送、实时检测异常行为</li>
+<li>电商和市场销售<br>
+数据报表、广告投放、业务流程需要</li>
+<li>物联网<br>
+传感器实时数据采集和显示、实时报警、交通运输业</li>
+<li>电信业<br>
+基站流量调配</li>
+<li>银行和金融业<br>
+实时结算和通知推送、实时检测异常行为</li>
 </ul>
-<h2 id="流处理的发展和演变"><a href="#流处理的发展和演变" class="headerlink" title="流处理的发展和演变"></a>流处理的发展和演变</h2><p>第一代流处理：来一个处理一个</p>
+<h2 id="流处理的发展和演变">流处理的发展和演变</h2>
+<p>第一代流处理：来一个处理一个</p>
 <p>优点：低延迟</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200314205057.png" alt></p>
 <p>第二代流处理：lambda架构</p>
@@ -465,10 +471,15 @@
 <p>第三代流处理：flink</p>
 <p>相对于spark streaming通过micro-batch来实现流处理，flink为纯流处理</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200314205300.png" alt></p>
-<h2 id="Flink使用场景"><a href="#Flink使用场景" class="headerlink" title="Flink使用场景"></a>Flink使用场景</h2><h3 id="事件驱动型应用"><a href="#事件驱动型应用" class="headerlink" title="事件驱动型应用"></a>事件驱动型应用</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/pr3wlx98.bmp" alt></p>
-<h3 id="数据分析应用"><a href="#数据分析应用" class="headerlink" title="数据分析应用"></a>数据分析应用</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/puo9kfzg.bmp" alt></p>
-<h3 id="数据管道应用"><a href="#数据管道应用" class="headerlink" title="数据管道应用"></a>数据管道应用</h3><p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/bv3bypbt.bmp" alt></p>
-<h2 id="Flink特点"><a href="#Flink特点" class="headerlink" title="Flink特点"></a>Flink特点</h2><ul>
+<h2 id="Flink使用场景">Flink使用场景</h2>
+<h3 id="事件驱动型应用">事件驱动型应用</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/pr3wlx98.bmp" alt></p>
+<h3 id="数据分析应用">数据分析应用</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/puo9kfzg.bmp" alt></p>
+<h3 id="数据管道应用">数据管道应用</h3>
+<p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/bv3bypbt.bmp" alt></p>
+<h2 id="Flink特点">Flink特点</h2>
+<ul>
 <li>纯流处理</li>
 <li>分层API</li>
 <li>支持事件时间和处理时间语义</li>
@@ -477,7 +488,8 @@
 <li>与众多常用存储系统的连接</li>
 <li>高可用，动态扩展</li>
 </ul>
-<h2 id="Flink-vs-Spark-Streaming"><a href="#Flink-vs-Spark-Streaming" class="headerlink" title="Flink vs Spark Streaming"></a>Flink vs Spark Streaming</h2><p>stream &amp; micro-batch</p>
+<h2 id="Flink-vs-Spark-Streaming">Flink vs Spark Streaming</h2>
+<p>stream &amp; micro-batch</p>
 <p>取决于看问题的角度，微批小到一个事件时，就是流处理，反之流处理也能看成批处理</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200314210031.png" alt></p>
 <p>数据模型</p>
@@ -623,7 +635,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -729,7 +741,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">61k</span> 字
+      博客全站共： <span class="post-count">61.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

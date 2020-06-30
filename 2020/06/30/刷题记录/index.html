@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="final、abstract、protected关键字">
-<meta name="keywords" content="Java">
+<meta name="description" content="力扣刷题，备战秋招～">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java 关键字">
-<meta property="og:url" content="http://yoursite.com/2020/03/19/Java-关键字/index.html">
+<meta property="og:title" content="刷题记录">
+<meta property="og:url" content="http://yoursite.com/2020/06/30/刷题记录/index.html">
 <meta property="og:site_name" content="Yuan&#39;s Blog">
-<meta property="og:description" content="final、abstract、protected关键字">
+<meta property="og:description" content="力扣刷题，备战秋招～">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-19T14:43:14.000Z">
+<meta property="og:updated_time" content="2020-06-30T14:26:45.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java 关键字">
-<meta name="twitter:description" content="final、abstract、protected关键字">
+<meta name="twitter:title" content="刷题记录">
+<meta name="twitter:description" content="力扣刷题，备战秋招～">
 
 
 
@@ -120,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/19/Java-关键字/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/30/刷题记录/">
 
 
 
 
 
-  <title>Java 关键字 | Yuan's Blog</title>
+  <title>刷题记录 | Yuan's Blog</title>
   
 
 
@@ -295,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/Java-关键字/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/刷题记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan Zhibo">
@@ -312,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java 关键字</h1>
+          <h1 class="post-title" itemprop="name headline">刷题记录</h1>
         
 
         <div class="post-meta">
@@ -324,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-19T22:31:26+08:00">
-                2020-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-30T22:25:52+08:00">
+                2020-06-30
               </time>
             
 
@@ -334,28 +333,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-SE/" itemprop="url" rel="index">
-                    <span itemprop="name">Java SE</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -378,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  342
+                  820
                 </span>
               
 
@@ -394,7 +371,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -416,32 +393,439 @@
 
       
         <center>
-    final、abstract、protected关键字
+  力扣刷题，备战秋招～
 </center>
 <a id="more"></a>
-<h2 id="final">final</h2>
-<ol>
-<li>对类。阻止该类被继承。如果一个类声明为final，其中的方法自动成为final，但不包含域</li>
-<li>对方法。子类不能覆盖这个方法</li>
-</ol>
-<p>将方法或类声明为final的主要目的是：确保它们不会再子类中改变语义</p>
-<ol start="3">
-<li>对基本类型。赋值后不能修改其值</li>
-<li>对引用类型。确定引用后，不能更改引用</li>
-<li></li>
-</ol>
-<h2 id="abstract抽象类">abstract抽象类</h2>
-<p>包含一个或多个抽象方法的类本身必须被声明为抽象的。</p>
-<p>类即使不喊抽象方法，也可声明为抽象类，作用是该类不可被实例化。可以定义一个抽象类的对象变量，但是只能引用非抽象的子类对象。</p>
-<h2 id="protected">protected</h2>
-<p>人们希望父类中的某些方法允许被子类访问，或允许子类的方法访问父类的某个域。为此需要将这些方法或域声明为protected。</p>
-<p>访问修饰符：</p>
-<ol>
-<li>仅对本类可见——private</li>
-<li>对所有类可见——public</li>
-<li>对本包和所有子类可见——protected</li>
-<li>对本包可见——默认，不需要修饰符</li>
-</ol>
+<p>*：表示有思路，写得出来</p>
+<p>?: 表示没思路，看题解做出来的，还需要提高</p>
+<p>#: 表示知道是哪种题型，但是具体的代码不知道怎么去编写</p>
+<p>？号的题目隔天重点看</p>
+<table>
+<thead>
+<tr>
+<th>日期</th>
+<th style="text-align:center">次数</th>
+<th>题目</th>
+<th>思路</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6.18</td>
+<td style="text-align:center">*</td>
+<td>jz 10-1</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 7</td>
+<td>二叉树、递归</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 10-2</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 11</td>
+<td>数组</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 13</td>
+<td>矩阵搜索：1.深度优先、广度优先<br>2. 递推</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 15</td>
+<td>循环、位运算</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">#</td>
+<td>jz 14-i</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td>jz 14-ii</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 16</td>
+<td>快速幂</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 17</td>
+<td>循环打印</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 18</td>
+<td>链表删除元素</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 21</td>
+<td>数组 1.循环 2.双指针</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 22</td>
+<td>链表，倒数第k个（阿里面试😭</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 24</td>
+<td>链表反转，翻转的算法不是很熟练</td>
+</tr>
+<tr>
+<td>6.19</td>
+<td style="text-align:center">*</td>
+<td>125</td>
+<td>字符串，双指针</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 25</td>
+<td>链表合并</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 27</td>
+<td>二叉树，递归</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 29</td>
+<td>矩阵 循环模拟</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 28</td>
+<td>二叉树，我用的方法是层次遍历，<br>解答使用的是递归的方法，这个才是王道。</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 26</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 30</td>
+<td>栈，辅助栈（腾讯面试😭</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">？</td>
+<td>jz 31</td>
+<td>栈，辅助模拟出入栈</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 32-i</td>
+<td>二叉树 层次遍历</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 32-ii</td>
+<td>二叉树，层次遍历稍微复杂一点。</td>
+</tr>
+<tr>
+<td>6.22</td>
+<td style="text-align:center">？</td>
+<td>jz 33</td>
+<td>二叉搜索树，递归</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 34</td>
+<td>二叉搜索树，回溯算法</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 39</td>
+<td>数组。1.数组排序法<br> 2.摩尔投票法（最优解，看答案实现）</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 36</td>
+<td>二叉搜索树，中序遍历，递归，循环链表</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 42</td>
+<td>数组，动态规划</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 43</td>
+<td>找规律，<code>这个算法是真的想不到..</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 47</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td>6.23</td>
+<td style="text-align:center">?</td>
+<td>jz 48</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 49</td>
+<td>动态规划，<code>不太容易想</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 50</td>
+<td>哈希表，<code>简单题得做出来啊..</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 52</td>
+<td>链表，<code>双指针</code>是没想到的</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 55-1</td>
+<td>二叉树，递归求深度</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 53-ii</td>
+<td>数组</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 54</td>
+<td>二叉搜索树，递归实现中序遍历</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 55-i</td>
+<td>二叉树，递归求深度</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 55-ii</td>
+<td>平衡二叉树，求深度，然后递归判断是否平衡</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 56-i</td>
+<td>巧妙的位运算</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 56-ii</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 57</td>
+<td><code>双指针</code>对撞</td>
+</tr>
+<tr>
+<td>6.24</td>
+<td style="text-align:center">?</td>
+<td>jz 57-ii</td>
+<td>滑动窗口</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 59-i</td>
+<td>双端队列或链表解决</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 58-i</td>
+<td><code>字符串</code>的处理不是很熟练</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 58-ii</td>
+<td>还是字符串</td>
+</tr>
+<tr>
+<td>6.25</td>
+<td style="text-align:center">?</td>
+<td>jz 61</td>
+<td>有趣的问题，自己有点思路但还是没题解想的明白</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 62</td>
+<td>大三了，大一时候遇到的问题现在也还不会。</td>
+</tr>
+<tr>
+<td>6.26</td>
+<td style="text-align:center">*</td>
+<td>面试 02.01</td>
+<td>链表删除</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 63</td>
+<td>典型动态规划</td>
+</tr>
+<tr>
+<td>6.28</td>
+<td style="text-align:center">?</td>
+<td>jz 66</td>
+<td>巧妙的循环</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 67</td>
+<td>字符串处理</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 68-i</td>
+<td>BST, 最近公共祖先，递归或者迭代，<code>重点</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 68-ii</td>
+<td>二叉树，最近公共祖先，递归，<code>重点</code></td>
+</tr>
+<tr>
+<td>6.29</td>
+<td style="text-align:center">*</td>
+<td>215</td>
+<td>数组排序，<code>第k大</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 14-i</td>
+<td>数学推导、贪心，<code>难！</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 14-ii</td>
+<td>⬆️题的基础上加上快速求余</td>
+</tr>
+<tr>
+<td>6.30</td>
+<td style="text-align:center">*</td>
+<td>jz 9</td>
+<td>两个栈模拟队列</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">?</td>
+<td>jz 12</td>
+<td>深度优先dfs，<code>重点</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 17</td>
+<td>考点在于大数越界问题</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">*</td>
+<td>jz 26</td>
+<td>和12题思路蕾丝，都是dfs，然后判断是否符合。<code>重点</code></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -475,12 +859,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-        </div>
-      
 
       
       
@@ -490,8 +868,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/14/Flink-简介/" rel="next" title="Flink 简介">
-                <i class="fa fa-chevron-left"></i> Flink 简介
+              <a href="/2020/06/12/球队管理系统走过的坑/" rel="next" title="球队管理系统走过的坑">
+                <i class="fa fa-chevron-left"></i> 球队管理系统走过的坑
               </a>
             
           </div>
@@ -499,10 +877,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/03/19/改写equals-和hashCode/" rel="prev" title="改写equals()和hashCode()">
-                改写equals()和hashCode() <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,17 +928,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -626,22 +991,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#final"><span class="nav-text">final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abstract抽象类"><span class="nav-text">abstract抽象类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#protected"><span class="nav-text">protected</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

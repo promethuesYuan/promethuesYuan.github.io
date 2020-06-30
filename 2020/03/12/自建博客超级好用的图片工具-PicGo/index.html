@@ -431,10 +431,9 @@
         <center>
     对个人博客来说,超级好用的图片管理工具,不容错过!
 </center>
-
 <a id="more"></a>
-
-<h2 id="图片的困扰😫"><a href="#图片的困扰😫" class="headerlink" title="图片的困扰😫"></a>图片的困扰😫</h2><p>最开始写博客的时候,用的七牛云作为图床.博客里插入一张图片特别复杂,需要经历以下过程:</p>
+<h2 id="图片的困扰😫">图片的困扰😫</h2>
+<p>最开始写博客的时候,用的七牛云作为图床.博客里插入一张图片特别复杂,需要经历以下过程:</p>
 <ol>
 <li>打开七牛云点进自己存储空间</li>
 <li>点击上传一张图片</li>
@@ -442,16 +441,18 @@
 <li>在博客中插入该链接</li>
 </ol>
 <p>整个过程非常繁琐低效,导致我都不怎么喜欢插入图片.后来又因为我的七牛云没有域名备案没法使用,索性就一直没有加图片.最近发现了一个方便插入图片的神器,来和大家分享一下</p>
-<h2 id="神器-PicGo-rocket"><a href="#神器-PicGo-rocket" class="headerlink" title="神器:PicGo :rocket:"></a>神器:PicGo <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f680.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png?v8">🚀</span></h2><p><strong>介绍:PicGo  一个用于快速上传图片并获取图片URL链接的工具, 开源免费</strong></p>
+<h2 id="神器-PicGo-🚀">神器:PicGo 🚀</h2>
+<p><strong>介绍:PicGo  一个用于快速上传图片并获取图片URL链接的工具, 开源免费</strong></p>
 <p>下载地址:<a href="https://github.com/Molunerfinn/PicGo/releases" target="_blank" rel="noopener">PicGo</a></p>
 <p>进入页面我们可以看到以下的下载选项,选择对应的操作系统下载即可</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312165915.png" alt></p>
 <p>安装完成后打开软件,就可以看到以下的画面啦😉</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312170030.png" alt></p>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><h3 id="创建自己的云储存-cloud"><a href="#创建自己的云储存-cloud" class="headerlink" title="创建自己的云储存:cloud:"></a>创建自己的云储存<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2601.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2601.png?v8">☁</span></h3><p>我们的图片需要上传到云存储中,推荐有<a href="https://cloud.tencent.com/product/cos" target="_blank" rel="noopener">腾讯云</a>, <a href="https://www.aliyun.com/product/oss?spm=5176.10695662.1112155.1.2f2d36b9i9gSAT" target="_blank" rel="noopener">阿里云</a>. 这两个产品都有各自的优惠, 选择一个你自己喜欢的就可以. 我选的是腾讯云, 之前用云服务器挺好用的.</p>
+<h2 id="如何使用">如何使用</h2>
+<h3 id="创建自己的云储存☁️">创建自己的云储存☁️</h3>
+<p>我们的图片需要上传到云存储中,推荐有<a href="https://cloud.tencent.com/product/cos" target="_blank" rel="noopener">腾讯云</a>, <a href="https://www.aliyun.com/product/oss?spm=5176.10695662.1112155.1.2f2d36b9i9gSAT" target="_blank" rel="noopener">阿里云</a>. 这两个产品都有各自的优惠, 选择一个你自己喜欢的就可以. 我选的是腾讯云, 之前用云服务器挺好用的.</p>
 <p>购买成功后我们进入自己的对象存储管理界面, 创建新的存储桶</p>
 <img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312171109.png" style="zoom: 67%;">
-
 <p>创建成功后, 我们进入该存储桶, 新增一个文件夹,如image, 我们的博客图片都将放置到该文件夹下</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312171237.png" alt></p>
 <p>然后点击<strong>密钥管理</strong>来生成我们的密钥</p>
@@ -459,7 +460,8 @@
 <p>新建密钥后,我们就得到了自己的SecretId和SecretKey</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312171507.png" alt></p>
 <p>好了, 在云端服务器要做的都差不多了, 然后就是看软件如何配置啦😎~</p>
-<h3 id="配置PicGo"><a href="#配置PicGo" class="headerlink" title="配置PicGo"></a>配置PicGo</h3><p>打开软件, 我们来到图床设置的腾讯云COS(ps:此处根据自己的图床服务商来选择), 可以看到以下画面</p>
+<h3 id="配置PicGo">配置PicGo</h3>
+<p>打开软件, 我们来到图床设置的腾讯云COS(ps:此处根据自己的图床服务商来选择), 可以看到以下画面</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312172049.png" alt></p>
 <p>说一下这几个配置:</p>
 <ul>
@@ -467,30 +469,30 @@
 <li>SecretId, SecretKey, APPID 在咱们刚才配置密钥的地方有, 复制粘贴过来</li>
 <li>存储空间名: 就是我们存储桶的名, 可以再腾讯云对象存储-&gt;存储桶列表看到, 确认存储区也是的, 都复制过来</li>
 <li>指定存储路径: 这个就是咱们刚才创建的那个image文件夹, 以后图片都会存到该目录下</li>
-<li><strong>设置为默认图床:</strong>咱就一个图床, 设置成为默认以后都会发到我的腾讯云图床上</li>
+<li>**设置为默认图床:**咱就一个图床, 设置成为默认以后都会发到我的腾讯云图床上</li>
 </ul>
 <p>OK, 到现在咱们的PicGo就已经配置好了, 马上开用!🤩</p>
-<h3 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h3><p>来到我们的上传区</p>
+<h3 id="具体使用">具体使用</h3>
+<p>来到我们的上传区</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312170030.png" alt></p>
 <p>我们可以把需要上传的图片拖到上传区域, 也可以点击上传按钮批量上传. 学习中我们需要很多的截图, <strong>剪贴板图片上传</strong>就很好用了.</p>
 <p>链接格式. 由于我们是写markdown, 就选择Markdown格式就行, 如果有别的用途也可以选择.</p>
 <p>我们随便上传一张图片, 上传完成, Windows电脑右下角会有如下提示</p>
 <img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312173218.png" style="zoom:50%;">
-
 <p>❗注意, 上传成功后, 会自动生成该图片链接的markdown语句, 我们只需要ctrl+v, 就可以复制到我们的博客中啦~真的是超级好用</p>
-<h3 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h3><p>我们可以再相册页面进行图片批量的删除和复制</p>
+<h3 id="进阶使用">进阶使用</h3>
+<p>我们可以再相册页面进行图片批量的删除和复制</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312173632.png" alt></p>
-<p>老是开着这个窗口, 拖照片挺麻烦的, 怎么办<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2753.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2753.png?v8">❓</span></p>
+<p>老是开着这个窗口, 拖照片挺麻烦的, 怎么办❓</p>
 <p>windows下可以把窗口最小化, 功能也很丰富, 拖动照片到这个小蓝圈上就可以上传了</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312173906.png" alt></p>
 <p><strong>终极无敌好用的快捷键😆</strong></p>
 <p>我们在软件页面点击PicGo设置</p>
 <img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312174127.png" style="zoom:80%;">
-
 <p>点击修改快捷键, 我把快捷键改成了ctrl + [ , 觉得非常好用</p>
 <img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200312174237.png" style="zoom:80%;">
-
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>好了, 现在我们可以截图 - 快捷键上传 - 快捷键粘贴, 一气合成插入图片了, 软件的作者真的太厉害了<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png?v8">👍</span></p>
+<h2 id="最后">最后</h2>
+<p>好了, 现在我们可以截图 - 快捷键上传 - 快捷键粘贴, 一气合成插入图片了, 软件的作者真的太厉害了👍</p>
 <p>希望这篇文章能对你有所帮助, 一起写博客勤积累, 做个life-long learner吧~</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -625,7 +627,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片的困扰😫"><span class="nav-text">图片的困扰😫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神器-PicGo-rocket"><span class="nav-text">神器:PicGo 🚀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-text">如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建自己的云储存-cloud"><span class="nav-text">创建自己的云储存☁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PicGo"><span class="nav-text">配置PicGo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体使用"><span class="nav-text">具体使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶使用"><span class="nav-text">进阶使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片的困扰😫"><span class="nav-text">图片的困扰😫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神器-PicGo-🚀"><span class="nav-text">神器:PicGo 🚀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用"><span class="nav-text">如何使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建自己的云储存☁️"><span class="nav-text">创建自己的云储存☁️</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置PicGo"><span class="nav-text">配置PicGo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体使用"><span class="nav-text">具体使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶使用"><span class="nav-text">进阶使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-text">最后</span></a></li></ol></div>
             
 
           </div>
@@ -731,7 +733,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">61k</span> 字
+      博客全站共： <span class="post-count">61.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

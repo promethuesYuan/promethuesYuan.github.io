@@ -399,10 +399,9 @@
         <center>
   学习完Springboot后，对于如何使用其进行开发还有些一知半解，通过一个小demo整合来熟悉开发流程～
 </center>
-
 <a id="more"></a>
-
-<h2 id="项目概况👨‍💻"><a href="#项目概况👨‍💻" class="headerlink" title="项目概况👨‍💻"></a>项目概况👨‍💻</h2><p>初学者整合项目，实现了一些基本的功能，目的是为了熟悉开发的整个过程。项目中一共两种角色，用户以及员工。</p>
+<h2 id="项目概况👨‍💻">项目概况👨‍💻</h2>
+<p>初学者整合项目，实现了一些基本的功能，目的是为了熟悉开发的整个过程。项目中一共两种角色，用户以及员工。</p>
 <p>用户的功能：<code>注册和登录</code></p>
 <p>员工的功能：<code>对员工列表进行CRUD</code></p>
 <p><strong>整合的一些技术栈</strong></p>
@@ -412,19 +411,20 @@
 <li>druid</li>
 <li>thymeleaf</li>
 </ul>
-<h2 id="项目搭建步骤"><a href="#项目搭建步骤" class="headerlink" title="项目搭建步骤"></a>项目搭建步骤</h2><h3 id="通过idea初始化项目"><a href="#通过idea初始化项目" class="headerlink" title="通过idea初始化项目"></a>通过idea初始化项目</h3><p>选择所需要用的依赖</p>
+<h2 id="项目搭建步骤">项目搭建步骤</h2>
+<h3 id="通过idea初始化项目">通过idea初始化项目</h3>
+<p>选择所需要用的依赖</p>
 <img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200519204954547.png" alt="image-20200519204954547" style="zoom:67%;">
-
 <p>mybatis和druid的依赖无法在项目初始化时加入，从maven仓库得到两个的依赖</p>
 <figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!--mybatis-springboo--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--druid --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>druid<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.22<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="建立项目结构"><a href="#建立项目结构" class="headerlink" title="建立项目结构"></a>建立项目结构</h3><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200519205302720.png" alt="image-20200519205302720" style="zoom:67%;">
-
+<h3 id="建立项目结构">建立项目结构</h3>
+<img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/image-20200519205302720.png" alt="image-20200519205302720" style="zoom:67%;">
 <p>项目的基本结构搭建如上图，需要得到thymeleaf支持的html文件需要放在templates下</p>
-<h3 id="编写配置文件"><a href="#编写配置文件" class="headerlink" title="编写配置文件"></a>编写配置文件</h3><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  servlet:</span></span><br><span class="line"><span class="attr">    context-path:</span> <span class="string">/ems</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://localhost:3306/ems?serverTimezone=UTC&amp;userUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">xxxx</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">xxxxx</span></span><br><span class="line"><span class="attr">  resources:</span></span><br><span class="line"><span class="attr">    static-locations:</span> <span class="attr">classpath:/templates/,classpath:/static/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line"><span class="attr">  mapper-locations:</span> <span class="attr">classpath:/com/promethuesYuan/mapper/*.xml</span></span><br><span class="line"><span class="attr">  type-aliases-package:</span> <span class="string">com.promethuesYuan.entity</span></span><br></pre></td></tr></tbody></table></figure>
-
+<h3 id="编写配置文件">编写配置文件</h3>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  servlet:</span></span><br><span class="line"><span class="attr">    context-path:</span> <span class="string">/ems</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    type:</span> <span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://localhost:3306/ems?serverTimezone=UTC&amp;userUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">xxxx</span></span><br><span class="line"><span class="attr">    password:</span> <span class="string">xxxxx</span></span><br><span class="line"><span class="attr">  resources:</span></span><br><span class="line"><span class="attr">    static-locations:</span> <span class="attr">classpath:/templates/,classpath:/static/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line"><span class="attr">  mapper-locations:</span> <span class="attr">classpath:/com/promethuesYuan/mapper/*.xml</span></span><br><span class="line"><span class="attr">  type-aliases-package:</span> <span class="string">com.promethuesYuan.entity</span></span><br></pre></td></tr></tbody></table></figure>
 <p>这个地方主要的还是配置datasource和mybatis</p>
-<h3 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h3><p>略～</p>
+<h3 id="初始化数据库">初始化数据库</h3>
+<p>略～</p>
 <hr>
 <p>😀至此，项目的框架已经搭建成功过了，剩下的就是根据需求开发了</p>
 <p>之前学习看别人写项目为主，自己动手的比较少。通过上手实践一下，对流程什么的清楚了一下，但对原理还一知半解，接下来的项目实践中，既要积累经验，也要多思考这些原理的东西啊～</p>
@@ -567,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -673,7 +673,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">61k</span> 字
+      博客全站共： <span class="post-count">61.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

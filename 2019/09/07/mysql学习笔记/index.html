@@ -417,16 +417,11 @@
       
         <center>MySQL学习记录</center>
 <a id="more"></a>
-<h2 id="MySQL安装">MySQL安装</h2>
-<p>这个部分在暑假实习时候已经安装成功，就没有多花时间在这个上面。<br>
-但为什么当时没有学习使用MySQL呢…当时用了navicat图形化管理，到后来不还是得学，哎…</p>
-<h2 id="MySQL数据库相关操作">MySQL数据库相关操作</h2>
-<h3 id="创建">创建</h3>
-<p>在MySQL中，使用<code>create database</code>语句创建数据库，语法格式如下：</p>
+
+<h2 id="MySQL安装"><a href="#MySQL安装" class="headerlink" title="MySQL安装"></a>MySQL安装</h2><p>这个部分在暑假实习时候已经安装成功，就没有多花时间在这个上面。<br>但为什么当时没有学习使用MySQL呢….当时用了navicat图形化管理，到后来不还是得学，哎….</p>
+<h2 id="MySQL数据库相关操作"><a href="#MySQL数据库相关操作" class="headerlink" title="MySQL数据库相关操作"></a>MySQL数据库相关操作</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>在MySQL中，使用<code>create database</code>语句创建数据库，语法格式如下：</p>
 <pre><code>CREATE DATABASE [IF NOT EXISTS] &lt;数据库名&gt;
-[[DEFAULT] CHARACTER SET &lt;字符集名&gt;] [[DEFAULT] COLLATE &lt;校对规则名&gt;];
-</code></pre>
-<p>语法说明：</p>
+[[DEFAULT] CHARACTER SET &lt;字符集名&gt;] [[DEFAULT] COLLATE &lt;校对规则名&gt;];</code></pre><p>语法说明：</p>
 <ul>
 <li>IF NOT EXISTS：在创建数据库之前进行判断，只有该数据库目前尚不存在时才能执行操作。此选项可以用来避免数据库已经存在而重复创建的错误。</li>
 <li>[DEFAULT] CHARACTER SET：指定数据库的默认字符集。</li>
@@ -439,73 +434,42 @@
 <pre><code>mysql&gt; CREATE DATABASE IF NOT EXISTS test_db_char
 -&gt; DEFAULT CHARACTER SET utf8
 -&gt; DEFAULT COLLATE utf8_chinese_ci;
-Query OK, 1 row affected (0.03 sec)
-</code></pre>
-<h3 id="查看">查看</h3>
-<p><code>show databases</code>语句，可以查看所有用户范围内的数据库<br>
-该语句可以加上后缀like, 用于匹配数据库名称, 后面所借数据库名需用’ '括起来。</p>
+Query OK, 1 row affected (0.03 sec)</code></pre><h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p><code>show databases</code>语句，可以查看所有用户范围内的数据库<br>该语句可以加上后缀like, 用于匹配数据库名称, 后面所借数据库名需用’ ‘括起来。</p>
 <p><strong>实例</strong></p>
-<pre><code>show databases like  'test_db'	完全匹配查找名为test_db的数据库
-show databases like  '%test%'	查找数据库名称中含有test的所有数据库
-show databases like  'db%'	查找数据库名称中以db开头的所有数据库
-show databases like  '%db'	查找数据库名称中以db结尾的所有数据库
-</code></pre>
-<h3 id="修改">修改</h3>
-<p>修改数据库语法格式为：</p>
+<pre><code>show databases like  'test_db'    完全匹配查找名为test_db的数据库
+show databases like  '%test%'    查找数据库名称中含有test的所有数据库
+show databases like  'db%'    查找数据库名称中以db开头的所有数据库
+show databases like  '%db'    查找数据库名称中以db结尾的所有数据库</code></pre><h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>修改数据库语法格式为：</p>
 <pre><code>ALTER DATABASE [数据库名] { [ DEFAULT ] CHARACTER SET &lt;字符集名&gt; |
-[ DEFAULT ] COLLATE &lt;校对规则名&gt;}
-</code></pre>
-<p>查看数据库的定义声明：<code>show create database 数据库名</code></p>
+[ DEFAULT ] COLLATE &lt;校对规则名&gt;}</code></pre><p>查看数据库的定义声明：<code>show create database 数据库名</code></p>
 <p><strong>实例</strong></p>
 <pre><code>mysql&gt; CREATE DATABASE test_db
     -&gt; DEFAULT CHARACTER SET gb2312
     -&gt; DEFAULT COLLATE gb2312_chinese_ci;
-mysql&gt; SHOW CREATE DATABASE test_db;
-</code></pre>
-<h3 id="删除">删除</h3>
-<p>语法格式：</p>
-<pre><code>DROP DATABASE [ IF EXISTS ] &lt;数据库名&gt;
-</code></pre>
-<ul>
+mysql&gt; SHOW CREATE DATABASE test_db;</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>语法格式：</p>
+<pre><code>DROP DATABASE [ IF EXISTS ] &lt;数据库名&gt;</code></pre><ul>
 <li>&lt;数据库名&gt;：指定要删除的数据库名。</li>
 <li>IF EXISTS：用于防止当数据库不存在时发生错误。</li>
 <li>DROP DATABASE：删除数据库中的所有表格并同时删除数据库。使用此语句时要非常小心，以免错误删除。如果要使用 DROP DATABASE，需要获得数据库 DROP 权限。</li>
 </ul>
-<h3 id="选择">选择</h3>
-<p>语法格式:</p>
-<pre><code>use &lt;数据库名&gt;
-</code></pre>
-<p>如何查看当前使用的是哪个数据库?有三条语句可以实现。</p>
+<h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><p>语法格式:</p>
+<pre><code>use &lt;数据库名&gt;</code></pre><p>如何查看当前使用的是哪个数据库?有三条语句可以实现。</p>
 <ol>
 <li>select database();</li>
 <li>show table;</li>
 <li>status;</li>
 </ol>
-<h3 id="引擎">引擎</h3>
-<p>设置默认引擎：</p>
-<pre><code>SET default_storage_engine=&lt; 存储引擎名 &gt;
-</code></pre>
-<p>InnoDB 是系统的默认引擎，支持可靠的事务处理。通过上述语句修改后，默认引擎可以改变，但是MySQL重启后，默认引擎依然是InnoDB。</p>
-<h2 id="MySQL常见数据类型">MySQL常见数据类型</h2>
-<p>在MySQL中常见的数据类型如下所示:</p>
-<p><strong>1) 整数类型</strong><br>
-包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT，浮点数类型 FLOAT 和 DOUBLE，定点数类型 DECIMAL。</p>
-<p><strong>2) 日期/时间类型</strong><br>
-包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。</p>
-<p><strong>3) 字符串类型</strong><br>
-包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。</p>
-<p><strong>4) 二进制类型</strong><br>
-包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。</p>
+<h3 id="引擎"><a href="#引擎" class="headerlink" title="引擎"></a>引擎</h3><p>设置默认引擎：</p>
+<pre><code>SET default_storage_engine=&lt; 存储引擎名 &gt;</code></pre><p>InnoDB 是系统的默认引擎，支持可靠的事务处理。通过上述语句修改后，默认引擎可以改变，但是MySQL重启后，默认引擎依然是InnoDB。</p>
+<h2 id="MySQL常见数据类型"><a href="#MySQL常见数据类型" class="headerlink" title="MySQL常见数据类型"></a>MySQL常见数据类型</h2><p>在MySQL中常见的数据类型如下所示:</p>
+<p><strong>1) 整数类型</strong><br> 包括 TINYINT、SMALLINT、MEDIUMINT、INT、BIGINT，浮点数类型 FLOAT 和 DOUBLE，定点数类型 DECIMAL。 </p>
+<p><strong>2) 日期/时间类型</strong><br> 包括 YEAR、TIME、DATE、DATETIME 和 TIMESTAMP。 </p>
+<p><strong>3) 字符串类型</strong><br> 包括 CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。 </p>
+<p><strong>4) 二进制类型</strong><br> 包括 BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。</p>
 <p>具体数据类型的讲解可以看这儿<a href="http://c.biancheng.net/view/2421.html" target="_blank" rel="noopener">MySQL常见数据类型</a></p>
-<h2 id="MySQL表相关操作">MySQL表相关操作</h2>
-<h3 id="创建-2">创建</h3>
-<p>其语法格式为：</p>
-<pre><code>CREATE TABLE &lt;表名&gt; ([表定义选项])[表选项][分区选项];
-</code></pre>
-<p>其中，[表定义选项]的格式为：</p>
-<pre><code>&lt;列名1&gt; &lt;类型1&gt; [,…] &lt;列名n&gt; &lt;类型n&gt;
-</code></pre>
-<p><strong>实例</strong></p>
+<h2 id="MySQL表相关操作"><a href="#MySQL表相关操作" class="headerlink" title="MySQL表相关操作"></a>MySQL表相关操作</h2><h3 id="创建-1"><a href="#创建-1" class="headerlink" title="创建"></a>创建</h3><p>其语法格式为： </p>
+<pre><code>CREATE TABLE &lt;表名&gt; ([表定义选项])[表选项][分区选项];</code></pre><p>其中，[表定义选项]的格式为：</p>
+<pre><code>&lt;列名1&gt; &lt;类型1&gt; [,…] &lt;列名n&gt; &lt;类型n&gt;</code></pre><p><strong>实例</strong></p>
 <p>船舰一个员工表，结构如下。</p>
 <table>
 <thead>
@@ -515,8 +479,7 @@ mysql&gt; SHOW CREATE DATABASE test_db;
 <th>备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>id</td>
 <td>INT(ll)</td>
 <td>员工编号</td>
@@ -536,8 +499,7 @@ mysql&gt; SHOW CREATE DATABASE test_db;
 <td>FLOAT</td>
 <td>工资</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <pre><code>mysql&gt; USE test_db;
 Database changed
 mysql&gt; CREATE TABLE tb_emp1
@@ -547,137 +509,61 @@ mysql&gt; CREATE TABLE tb_emp1
     -&gt; deptId INT(11),
     -&gt; salary FLOAT
     -&gt; );
-Query OK, 0 rows affected (0.37 sec)
-</code></pre>
-<p>使用<code>show tables</code>语句查看数据表是否创建成功</p>
-<h3 id="查看-2">查看</h3>
-<p>DESCRIBE/DESC 语句可以查看表的字段信息，包括字段名、字段数据类型、是否为主键、是否有默认值等，语法规则如下：</p>
-<pre><code>DESCRIBE &lt;表名&gt;;
-</code></pre>
-<p>或简写成：</p>
-<pre><code>DESC &lt;表名&gt;;
-</code></pre>
-<p>SHOW CREATE TABLE语句可以用来显示创建表时的CREATE TABLE语句，语法格式如下：</p>
-<pre><code>SHOW CREATE TABLE &lt;表名&gt;\G；
-</code></pre>
-<h3 id="修改-2">修改</h3>
-<p>常用的语法格式如下：</p>
-<pre><code>ALTER TABLE &lt;表名&gt; [修改选项]
-</code></pre>
-<p>修改选项的语法格式如下：</p>
+Query OK, 0 rows affected (0.37 sec)</code></pre><p>使用<code>show tables</code>语句查看数据表是否创建成功</p>
+<h3 id="查看-1"><a href="#查看-1" class="headerlink" title="查看"></a>查看</h3><p>DESCRIBE/DESC 语句可以查看表的字段信息，包括字段名、字段数据类型、是否为主键、是否有默认值等，语法规则如下：</p>
+<pre><code>DESCRIBE &lt;表名&gt;;</code></pre><p> 或简写成： </p>
+<pre><code>DESC &lt;表名&gt;;</code></pre><p>SHOW CREATE TABLE语句可以用来显示创建表时的CREATE TABLE语句，语法格式如下： </p>
+<pre><code>SHOW CREATE TABLE &lt;表名&gt;\G；</code></pre><h3 id="修改-1"><a href="#修改-1" class="headerlink" title="修改"></a>修改</h3><p>常用的语法格式如下： </p>
+<pre><code>ALTER TABLE &lt;表名&gt; [修改选项]</code></pre><p> 修改选项的语法格式如下： </p>
 <pre><code>{ ADD COLUMN &lt;列名&gt; &lt;类型&gt;
 | CHANGE COLUMN &lt;旧列名&gt; &lt;新列名&gt; &lt;新列类型&gt;
 | ALTER COLUMN &lt;列名&gt; { SET DEFAULT &lt;默认值&gt; | DROP DEFAULT }
 | MODIFY COLUMN &lt;列名&gt; &lt;类型&gt;
 | DROP COLUMN &lt;列名&gt;
-| RENAME TO &lt;新表名&gt; }
-</code></pre>
-<h4 id="添加字段">添加字段</h4>
-<pre><code>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt; [约束条件] [FIRST|AFTER 已存在的字段名]；
-</code></pre>
-<p>**实例：**在第一列添加int类型字段col1</p>
+| RENAME TO &lt;新表名&gt; }</code></pre><h4 id="添加字段"><a href="#添加字段" class="headerlink" title="添加字段"></a>添加字段</h4><pre><code>ALTER TABLE &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt; [约束条件] [FIRST|AFTER 已存在的字段名]；</code></pre><p><strong>实例：</strong>在第一列添加int类型字段col1</p>
 <pre><code>mysql&gt; ALTER TABLE tb_emp1
 -&gt; ADD COLUMN col1 INT FIRST;
 Query OK, 0 rows affected (0.94 sec)
-Records: 0  Duplicates: 0  Warnings: 0
-</code></pre>
-<p>若无 first 或 after，则默认在最后一行添加新字段</p>
-<h4 id="修改字段类型">修改字段类型</h4>
-<pre><code>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;
-</code></pre>
-<h4 id="删除字段">删除字段</h4>
-<pre><code>ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;；
-</code></pre>
-<h4 id="修改字段名称">修改字段名称</h4>
-<pre><code>ALTER TABLE &lt;表名&gt; CHANGE &lt;旧字段名&gt; &lt;新字段名&gt; &lt;新数据类型&gt;；
-</code></pre>
-<p>新数据类型指的是修改后的数据类型，如果不需要修改字段的数据类型，可以将新数据类型设置成与原来一样，但数据类型不能为空。</p>
-<h4 id="修改表名">修改表名</h4>
-<pre><code>ALTER TABLE &lt;旧表名&gt; RENAME [TO] &lt;新表名&gt;；
-</code></pre>
-<h3 id="删除-2">删除</h3>
-<p>语法格式如下：</p>
-<pre><code>DROP TABLE [IF EXISTS] &lt;表名&gt; [ , &lt;表名1&gt; , &lt;表名2&gt;] …
-</code></pre>
-<p>语法说明如下：<br>
-1.&lt;表名&gt;：被删除的表名。DROP TABLE 语句可以同时删除多个表，用户必须拥有该命令的权限。<br>
-2.表被删除时，所有的表数据和表定义会被取消，所以使用本语句要小心。<br>
-3.表被删除时，用户在该表上的权限并不会自动被删除。<br>
-4.参数IF EXISTS用于在删除前判断删除的表是否存在，加上该参数后，在删除表的时候，如果表不存在，SQL 语句可以顺利执行，但会发出警告（warning）。</p>
-<h2 id="MySQL键约束">MySQL键约束</h2>
-<p>键约束感觉就是给一些键增加特定的标识，作为这个表的某一种标识的体现。</p>
+Records: 0  Duplicates: 0  Warnings: 0</code></pre><p>若无 first 或 after，则默认在最后一行添加新字段</p>
+<h4 id="修改字段类型"><a href="#修改字段类型" class="headerlink" title="修改字段类型"></a>修改字段类型</h4><pre><code>ALTER TABLE &lt;表名&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;</code></pre><h4 id="删除字段"><a href="#删除字段" class="headerlink" title="删除字段"></a>删除字段</h4><pre><code>ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;；</code></pre><h4 id="修改字段名称"><a href="#修改字段名称" class="headerlink" title="修改字段名称"></a>修改字段名称</h4><pre><code>ALTER TABLE &lt;表名&gt; CHANGE &lt;旧字段名&gt; &lt;新字段名&gt; &lt;新数据类型&gt;；</code></pre><p>新数据类型指的是修改后的数据类型，如果不需要修改字段的数据类型，可以将新数据类型设置成与原来一样，但数据类型不能为空。</p>
+<h4 id="修改表名"><a href="#修改表名" class="headerlink" title="修改表名"></a>修改表名</h4><pre><code>ALTER TABLE &lt;旧表名&gt; RENAME [TO] &lt;新表名&gt;；</code></pre><h3 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h3><p>语法格式如下：</p>
+<pre><code>DROP TABLE [IF EXISTS] &lt;表名&gt; [ , &lt;表名1&gt; , &lt;表名2&gt;] …</code></pre><p>语法说明如下：<br>1.&lt;表名&gt;：被删除的表名。DROP TABLE 语句可以同时删除多个表，用户必须拥有该命令的权限。<br>2.表被删除时，所有的表数据和表定义会被取消，所以使用本语句要小心。<br>3.表被删除时，用户在该表上的权限并不会自动被删除。<br>4.参数IF EXISTS用于在删除前判断删除的表是否存在，加上该参数后，在删除表的时候，如果表不存在，SQL 语句可以顺利执行，但会发出警告（warning）。</p>
+<h2 id="MySQL键约束"><a href="#MySQL键约束" class="headerlink" title="MySQL键约束"></a>MySQL键约束</h2><p>键约束感觉就是给一些键增加特定的标识，作为这个表的某一种标识的体现。</p>
 <p>键约束一共有主键、外键、唯一约束。</p>
-<h3 id="主键">主键</h3>
-<p><strong>定义&amp;作用：</strong>“主键（PRIMARY KEY）”的完整称呼是“主键约束”。MySQL 主键约束是一个列或者列的组合，其值能唯一地标识表中的每一行。这样的一列或多列称为表的主键，通过它可以强制表的实体完整性。</p>
+<h3 id="主键"><a href="#主键" class="headerlink" title="主键"></a>主键</h3><p><strong>定义&amp;作用：</strong>“主键（PRIMARY KEY）”的完整称呼是“主键约束”。MySQL 主键约束是一个列或者列的组合，其值能唯一地标识表中的每一行。这样的一列或多列称为表的主键，通过它可以强制表的实体完整性。</p>
 <p><strong>创建语法：</strong></p>
-<pre><code>&lt;字段名&gt; &lt;数据类型&gt; PRIMARY KEY [默认值]
-</code></pre>
-<p>实例：<code>id int(11) primary key</code>，此时id即成为这个表的主键。</p>
+<pre><code>&lt;字段名&gt; &lt;数据类型&gt; PRIMARY KEY [默认值]</code></pre><p>实例：<code>id int(11) primary key</code>，此时id即成为这个表的主键。</p>
 <p>在定义完所有列之后，<strong>指定主键的语法格式为：</strong></p>
-<pre><code>[CONSTRAINT &lt;约束名&gt;] PRIMARY KEY [字段名]
-</code></pre>
-<p>实例：<code>primary key(id)</code>,此时id即成为这个表的主键。</p>
+<pre><code>[CONSTRAINT &lt;约束名&gt;] PRIMARY KEY [字段名]</code></pre><p>实例：<code>primary key(id)</code>,此时id即成为这个表的主键。</p>
 <p><strong>创建复合主键：</strong></p>
-<pre><code>PRIMARY KEY [字段1，字段2，…,字段n]
-</code></pre>
-<p>实例：<code>primary key(id, deptId)</code>,此时id和deptId即成为这个表的复合主键。</p>
+<pre><code>PRIMARY KEY [字段1，字段2，…,字段n]</code></pre><p>实例：<code>primary key(id, deptId)</code>,此时id和deptId即成为这个表的复合主键。</p>
 <p><strong>修改表时添加主键：</strong></p>
-<pre><code>ALTER TABLE &lt;数据表名&gt; ADD PRIMARY KEY(&lt;列名&gt;);
-</code></pre>
-<p>实例：<code>ALTER TABLE tb_emp2  ADD PRIMARY KEY(id);</code>，此时添加id成为这个表的主键。</p>
-<h3 id="外键">外键</h3>
-<p><strong>定义&amp;作用：</strong><br>
-MySQL 外键约束（FOREIGN KEY）用来在两个表的数据之间建立链接，它可以是一列或者多列。一个表可以有一个或多个外键。<br>
-外键对应的是参照完整性，一个表的外键可以为空值，若不为空值，则每一个外键的值必须等于另一个表中主键的某个值。<br>
-外键是表的一个字段，不是本表的主键，但对应另一个表的主键。定义外键后，不允许删除另一个表中具有关联关系的行。</p>
+<pre><code>ALTER TABLE &lt;数据表名&gt; ADD PRIMARY KEY(&lt;列名&gt;);</code></pre><p>实例：<code>ALTER TABLE tb_emp2  ADD PRIMARY KEY(id);</code>，此时添加id成为这个表的主键。</p>
+<h3 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h3><p><strong>定义&amp;作用：</strong><br>MySQL 外键约束（FOREIGN KEY）用来在两个表的数据之间建立链接，它可以是一列或者多列。一个表可以有一个或多个外键。<br>外键对应的是参照完整性，一个表的外键可以为空值，若不为空值，则每一个外键的值必须等于另一个表中主键的某个值。<br>外键是表的一个字段，不是本表的主键，但对应另一个表的主键。定义外键后，不允许删除另一个表中具有关联关系的行。</p>
 <p><strong>创建语法：</strong></p>
 <pre><code>[CONSTRAINT &lt;外键名&gt;] FOREIGN KEY 字段名 [，字段名2，…]
-REFERENCES &lt;主表名&gt; 主键列1 [，主键列2，…]
-</code></pre>
-<p>实例：<code>CONSTRAINT fk_emp_dept1 FOREIGN KEY(deptId) REFERENCES tb_dept1(id)</code></p>
+REFERENCES &lt;主表名&gt; 主键列1 [，主键列2，…]</code></pre><p>实例：<code>CONSTRAINT fk_emp_dept1 FOREIGN KEY(deptId) REFERENCES tb_dept1(id)</code></p>
 <p><strong>修改表时添加外键：</strong></p>
 <pre><code>ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;索引名&gt;
-FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);
-</code></pre>
-<p>实例：</p>
+FOREIGN KEY(&lt;列名&gt;) REFERENCES &lt;主表名&gt; (&lt;列名&gt;);</code></pre><p>实例：</p>
 <pre><code>mysql&gt; ALTER TABLE tb_emp2
 -&gt; ADD CONSTRAINT fk_tb_dept1
 -&gt; FOREIGN KEY(deptId)
--&gt; REFERENCES tb_dept1(id);
-</code></pre>
-<p><strong>删除外键：</strong></p>
-<pre><code>ALTER TABLE &lt;表名&gt; DROP FOREIGN KEY &lt;外键约束名&gt;;
-</code></pre>
-<p>实例:</p>
+-&gt; REFERENCES tb_dept1(id);</code></pre><p><strong>删除外键：</strong></p>
+<pre><code>ALTER TABLE &lt;表名&gt; DROP FOREIGN KEY &lt;外键约束名&gt;;</code></pre><p>实例:</p>
 <pre><code>mysql&gt; ALTER TABLE tb_emp2
-	-&gt; DROP FOREIGN KEY fk_tb_dept1;
-</code></pre>
-<h3 id="唯一约束">唯一约束</h3>
-<p><strong>定义&amp;作用：</strong></p>
+    -&gt; DROP FOREIGN KEY fk_tb_dept1;</code></pre><h3 id="唯一约束"><a href="#唯一约束" class="headerlink" title="唯一约束"></a>唯一约束</h3><p><strong>定义&amp;作用：</strong></p>
 <p>MySQL唯一约束（Unique Key）要求该列唯一，允许为空，但只能出现一个空值。唯一约束可以确保一列或者几列不出现重复值。</p>
 <p><strong>创建语法：</strong></p>
-<pre><code>&lt;字段名&gt; &lt;数据类型&gt; UNIQUE
-</code></pre>
-<p><strong>添加唯一约束：</strong></p>
-<pre><code>ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;唯一约束名&gt; UNIQUE(&lt;列名&gt;);
-</code></pre>
-<p>实例：<br>
-mysql&gt; ALTER TABLE tb_dept1<br>
--&gt; ADD CONSTRAINT unique_name UNIQUE(name);</p>
+<pre><code>&lt;字段名&gt; &lt;数据类型&gt; UNIQUE</code></pre><p><strong>添加唯一约束：</strong></p>
+<pre><code>ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;唯一约束名&gt; UNIQUE(&lt;列名&gt;);</code></pre><p>实例：<br>    mysql&gt; ALTER TABLE tb_dept1<br>        -&gt; ADD CONSTRAINT unique_name UNIQUE(name);</p>
 <p><strong>删除唯一约束：</strong></p>
-<pre><code>ALTER TABLE &lt;表名&gt; DROP INDEX &lt;唯一约束名&gt;;
-</code></pre>
-<h3 id="检查约束">检查约束</h3>
-<p>具体语法: <code>CHECK &lt;表达式&gt;</code></p>
+<pre><code>ALTER TABLE &lt;表名&gt; DROP INDEX &lt;唯一约束名&gt;;</code></pre><h3 id="检查约束"><a href="#检查约束" class="headerlink" title="检查约束"></a>检查约束</h3><p>具体语法: <code>CHECK &lt;表达式&gt;</code></p>
 <p>修改表时添加约束： <code>ALTER TABLE tb_emp7 ADD CONSTRAINT &lt;检查约束名&gt; CHECK(&lt;检查约束&gt;)</code></p>
 <p>删除约束: <code>ALTER TABLE &lt;数据表名&gt; DROP CONSTRAINT &lt;检查约束名&gt;;</code></p>
-<h3 id="默认值">默认值</h3>
-<p>设置：<code>&lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;;</code></p>
-<h3 id="非空约束">非空约束</h3>
-<p>设置: <code>&lt;字段名&gt; &lt;数据类型&gt; NOT NULL;</code></p>
-<h2 id="选择数据">选择数据</h2>
-<h3 id="select">select</h3>
-<p>select语句语法：</p>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><p>设置：<code>&lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;;</code></p>
+<h3 id="非空约束"><a href="#非空约束" class="headerlink" title="非空约束"></a>非空约束</h3><p>设置: <code>&lt;字段名&gt; &lt;数据类型&gt; NOT NULL;</code></p>
+<h2 id="选择数据"><a href="#选择数据" class="headerlink" title="选择数据"></a>选择数据</h2><h3 id="select"><a href="#select" class="headerlink" title="select"></a>select</h3><p>select语句语法：</p>
 <pre><code>SELECT
 {* | &lt;字段列名&gt;}
 [
@@ -687,55 +573,22 @@ FROM &lt;表 1&gt;, &lt;表 2&gt;…
 [HAVING &lt;expression&gt; [{&lt;operator&gt; &lt;expression&gt;}…]]
 [ORDER BY &lt;order by definition&gt;]
 [LIMIT[&lt;offset&gt;,] &lt;row count&gt;]
-]
-</code></pre>
-<p>查询表中<strong>全部内容</strong>，具体格式：</p>
-<pre><code>SELECT * FROM 表名;
-</code></pre>
-<p><strong>查询指定字段</strong>，具体格式：</p>
-<pre><code>SELECT &lt; 列名 &gt; FROM &lt; 表名 &gt;;
-</code></pre>
-<h3 id="去重">去重</h3>
-<p>消除重复的记录值，使用关键字distinct,具体语法:</p>
-<pre><code>SELECT DISTINCT &lt;字段名&gt; FROM &lt;表名&gt;;
-</code></pre>
-<h3 id="限制查询条数">限制查询条数</h3>
-<p>当只需要查询某几行内容时，需要用到关键字llimit，具体格式:</p>
-<pre><code>&lt;LIMIT&gt; [&lt;位置偏移量&gt;,] &lt;行数&gt;
-</code></pre>
-<p>实例1：</p>
+]</code></pre><p>查询表中<strong>全部内容</strong>，具体格式：</p>
+<pre><code>SELECT * FROM 表名;</code></pre><p><strong>查询指定字段</strong>，具体格式：</p>
+<pre><code>SELECT &lt; 列名 &gt; FROM &lt; 表名 &gt;;</code></pre><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>消除重复的记录值，使用关键字distinct,具体语法:</p>
+<pre><code>SELECT DISTINCT &lt;字段名&gt; FROM &lt;表名&gt;;</code></pre><h3 id="限制查询条数"><a href="#限制查询条数" class="headerlink" title="限制查询条数"></a>限制查询条数</h3><p>当只需要查询某几行内容时，需要用到关键字llimit，具体格式:</p>
+<pre><code>&lt;LIMIT&gt; [&lt;位置偏移量&gt;,] &lt;行数&gt;</code></pre><p>实例1：</p>
 <pre><code>SELECT * FROM tb_students_info LIMIT 4;
-查询的就是1~4行的内容
-</code></pre>
-<p>实例2：<br>
-SELECT * FROM tb_students_info LIMIT 3,5;<br>
-查询的就是偏移3行，即4~8行的内容</p>
-<h3 id="排序">排序</h3>
-<p>具体格式：</p>
-<pre><code>ORDER BY {&lt;列名&gt; | &lt;表达式&gt; | &lt;位置&gt;} [ASC|DESC]
-</code></pre>
-<p><strong>注:</strong><br>
-关键字 ASC 表示按升序分组，关键字 DESC 表示按降序分组，其中 ASC 为默认值。这两个关键字必须位于对应的列名、表达式、列的位置之后。</p>
+查询的就是1~4行的内容</code></pre><p>实例2：<br>    SELECT * FROM tb_students_info LIMIT 3,5;<br>    查询的就是偏移3行，即4~8行的内容</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>具体格式：</p>
+<pre><code>ORDER BY {&lt;列名&gt; | &lt;表达式&gt; | &lt;位置&gt;} [ASC|DESC]</code></pre><p><strong>注:</strong><br>关键字 ASC 表示按升序分组，关键字 DESC 表示按降序分组，其中 ASC 为默认值。这两个关键字必须位于对应的列名、表达式、列的位置之后。</p>
 <p>实例1：</p>
-<pre><code> SELECT * FROM tb_students_info ORDER BY height;
-</code></pre>
-<p>以height为升序排序</p>
+<pre><code>SELECT * FROM tb_students_info ORDER BY height;</code></pre><p>以height为升序排序</p>
 <p>实例2：</p>
-<pre><code>SELECT name,height FROM tb_student_info ORDER BY height DESC,name ASC;
-</code></pre>
-<p>先以height为降序排序，然后以name为升序排序</p>
-<h3 id="条件查询">条件查询</h3>
-<p>筛选数据，具体格式：</p>
-<pre><code>WHERE &lt;查询条件&gt; {&lt;判定运算1&gt;，&lt;判定运算2&gt;，…}
-</code></pre>
-<p>判断语法如下:<br>
-&lt;表达式1&gt;{=|&lt;|&lt;=|&gt;|&gt;=|&lt;=&gt;|&lt;&gt;|！=}&lt;表达式2&gt;<br>
-&lt;表达式1&gt;[NOT]LIKE&lt;表达式2&gt;<br>
-&lt;表达式1&gt;[NOT][REGEXP|RLIKE]&lt;表达式2&gt;<br>
-&lt;表达式1&gt;[NOT]BETWEEN&lt;表达式2&gt;AND&lt;表达式3&gt;<br>
-&lt;表达式1&gt;IS[NOT]NULL</p>
-<h2 id="插入数据">插入数据</h2>
-<script>
+<pre><code>SELECT name,height FROM tb_student_info ORDER BY height DESC,name ASC;</code></pre><p>先以height为降序排序，然后以name为升序排序</p>
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>筛选数据，具体格式：</p>
+<pre><code>WHERE &lt;查询条件&gt; {&lt;判定运算1&gt;，&lt;判定运算2&gt;，…}</code></pre><p>判断语法如下:<br>&lt;表达式1&gt;{=|&lt;|&lt;=|&gt;|&gt;=|&lt;=&gt;|&lt;&gt;|！=}&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT]LIKE&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT][REGEXP|RLIKE]&lt;表达式2&gt;<br>&lt;表达式1&gt;[NOT]BETWEEN&lt;表达式2&gt;AND&lt;表达式3&gt;<br>&lt;表达式1&gt;IS[NOT]NULL</p>
+<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -874,7 +727,7 @@ SELECT * FROM tb_students_info LIMIT 3,5;<br>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -896,7 +749,7 @@ SELECT * FROM tb_students_info LIMIT 3,5;<br>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -929,7 +782,7 @@ SELECT * FROM tb_students_info LIMIT 3,5;<br>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-2"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-2"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-2"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-2"><span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL键约束"><span class="nav-text">MySQL键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-text">外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一约束"><span class="nav-text">唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查约束"><span class="nav-text">检查约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非空约束"><span class="nav-text">非空约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择数据"><span class="nav-text">选择数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select"><span class="nav-text">select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去重"><span class="nav-text">去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制查询条数"><span class="nav-text">限制查询条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-text">条件查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-text">插入数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装"><span class="nav-text">MySQL安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库相关操作"><span class="nav-text">MySQL数据库相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择"><span class="nav-text">选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引擎"><span class="nav-text">引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL常见数据类型"><span class="nav-text">MySQL常见数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL表相关操作"><span class="nav-text">MySQL表相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-1"><span class="nav-text">创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看-1"><span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改-1"><span class="nav-text">修改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字段"><span class="nav-text">添加字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段类型"><span class="nav-text">修改字段类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除字段"><span class="nav-text">删除字段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改字段名称"><span class="nav-text">修改字段名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改表名"><span class="nav-text">修改表名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-1"><span class="nav-text">删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL键约束"><span class="nav-text">MySQL键约束</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主键"><span class="nav-text">主键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外键"><span class="nav-text">外键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#唯一约束"><span class="nav-text">唯一约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查约束"><span class="nav-text">检查约束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-text">默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非空约束"><span class="nav-text">非空约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择数据"><span class="nav-text">选择数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#select"><span class="nav-text">select</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#去重"><span class="nav-text">去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限制查询条数"><span class="nav-text">限制查询条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件查询"><span class="nav-text">条件查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入数据"><span class="nav-text">插入数据</span></a></li></ol></div>
             
 
           </div>
@@ -980,7 +833,7 @@ SELECT * FROM tb_students_info LIMIT 3,5;<br>
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">62k</span> 字
+      博客全站共： <span class="post-count">67.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

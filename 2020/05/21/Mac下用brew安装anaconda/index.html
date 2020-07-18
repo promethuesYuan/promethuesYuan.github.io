@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  370
+                  368
                 </span>
               
 
@@ -396,21 +396,22 @@
         <center>
   机器学习作业要用到python，总结一下如何用brew轻松安装anaconda
 </center>
+
 <a id="more"></a>
-<h1>为什么要用anaconda</h1>
-<p>Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致力于简化包管理和部署。 Anaconda的包使用软件包管理系统Conda进行管理。超过1200万人使用Anaconda发行版本，并且Anaconda拥有超过1400个适用于Windows、Linux和MacOS的数据科学软件包。</p>
+
+<h1 id="为什么要用anaconda"><a href="#为什么要用anaconda" class="headerlink" title="为什么要用anaconda"></a>为什么要用anaconda</h1><p>Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致力于简化包管理和部署。 Anaconda的包使用软件包管理系统Conda进行管理。超过1200万人使用Anaconda发行版本，并且Anaconda拥有超过1400个适用于Windows、Linux和MacOS的数据科学软件包。</p>
 <p>有了anaconda之后，python的包管理会变的相当容易，搞python必装工具😎</p>
-<h1>安装过程</h1>
-<h2 id="安装anaconda">安装anaconda</h2>
-<p>在Mac上可以用brew来安装，只需要一句命令行即可开始安装</p>
+<h1 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h1><h2 id="安装anaconda"><a href="#安装anaconda" class="headerlink" title="安装anaconda"></a>安装anaconda</h2><p>在Mac上可以用brew来安装，只需要一句命令行即可开始安装</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install anaconda</span><br></pre></td></tr></tbody></table></figure>
+
 <p>安装过程中可能又步骤会让你输入密码，输入即可</p>
-<h2 id="配置环境变量">配置环境变量</h2>
-<p>安装完成后，还需要配置环境变量，才可以在命令行中使用conda</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>安装完成后，还需要配置环境变量，才可以在命令行中使用conda</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export PATH=/usr/local/anaconda3/bin:$PATH'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></tbody></table></figure>
+
 <p>第一个命令是将环境变量写入bash配置中，第二个则是加载配置，使其生效～</p>
 <p>配置完后，来进行测试，看是否安装成功</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ conda -V</span><br><span class="line">conda 4.8.3</span><br></pre></td></tr></tbody></table></figure>
+
 <p>出现了conda的版本，说明安装成功～</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -551,7 +552,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -573,7 +574,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -606,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">为什么要用anaconda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-text">配置环境变量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要用anaconda"><span class="nav-text">为什么要用anaconda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装过程"><span class="nav-text">安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装anaconda"><span class="nav-text">安装anaconda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置环境变量"><span class="nav-text">配置环境变量</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -657,7 +658,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">62k</span> 字
+      博客全站共： <span class="post-count">67.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->

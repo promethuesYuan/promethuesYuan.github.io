@@ -401,33 +401,30 @@
         <center>
   跟着尚硅谷书城项目学习，完成的时候遇到了一些问题，本文用于记录问题以及解决方法
 </center>
+
 <a id="more"></a>
-<h2 id="问题1-数据库连接有问题">问题1:数据库连接有问题</h2>
-<p>JdbcUtils实现后，对该模块进行测试，看能否与数据库正常连接。此时出现了以下的错误：</p>
+
+<h2 id="问题1-数据库连接有问题"><a href="#问题1-数据库连接有问题" class="headerlink" title="问题1:数据库连接有问题"></a>问题1:数据库连接有问题</h2><p>JdbcUtils实现后，对该模块进行测试，看能否与数据库正常连接。此时出现了以下的错误：</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/%E8%BF%9E%E6%8E%A5%E5%87%BA%E9%94%99.png" alt></p>
 <p>报错说:<code>Client does not support authentic protocal requested by server</code>.在这篇<a href="https://www.jianshu.com/p/e3105a4657b8" target="_blank" rel="noopener">文章</a>找到了解决方法。</p>
 <p>出现该报错的主要原因是mysql服务器要求的认证插件版本与客户端不一致造成的。在mysql 8.0的版本中，默认的认证插件为caching_sha2_password，必须使用支持该插件的客户端版本。</p>
 <p><strong>那么如何解决呢？</strong></p>
 <p>通过命令行进入mysql终端后，输入以下命令：</p>
 <ol>
-<li>
-<p><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你想设置的MySQL登录密码';</code></p>
+<li><p><code>ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你想设置的MySQL登录密码';</code></p>
 </li>
-<li>
-<p><code>FLUSH PRIVILEGES</code></p>
+<li><p><code>FLUSH PRIVILEGES</code></p>
 </li>
 </ol>
 <p>运行结果如图所示：</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/%E4%BF%AE%E6%94%B9mysql.png" alt></p>
 <p>修改后再对数据库连接进行测试，发现连接成功。</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200415214013.png" alt></p>
-<h2 id="问题2-数据库字符集出错">问题2:数据库字符集出错</h2>
-<p>在问题1解决后，测试时还出现了这个问题：</p>
+<h2 id="问题2-数据库字符集出错"><a href="#问题2-数据库字符集出错" class="headerlink" title="问题2:数据库字符集出错"></a>问题2:数据库字符集出错</h2><p>在问题1解决后，测试时还出现了这个问题：</p>
 <p><img src="https://1900-1300387133.cos.ap-chengdu.myqcloud.com/image/20200415214120.png" alt></p>
 <p>依然是mysql的连接问题，由问题提示可以发现，这个问题应该是和字符集有关，查阅资料后，发现在连接的配置文件中，在url后面加上<code>?useUnicode=true&amp;characterEncoding=utf8</code>就可以解决问题。</p>
 <p>添加之后，测试时可以正常连接。</p>
-<h2 id="问题3-注册界面无法正常跳转">问题3:注册界面无法正常跳转</h2>
-<p>跟着老师的讲解写代码，在写注册界面的代码逻辑时，配置好html标签内容以及servlet内容后，我发现实现结果和老师讲解不太一样。我点击注册后，url确实编程了servlet的路径，但是没有页面。</p>
+<h2 id="问题3-注册界面无法正常跳转"><a href="#问题3-注册界面无法正常跳转" class="headerlink" title="问题3:注册界面无法正常跳转"></a>问题3:注册界面无法正常跳转</h2><p>跟着老师的讲解写代码，在写注册界面的代码逻辑时，配置好html标签内容以及servlet内容后，我发现实现结果和老师讲解不太一样。我点击注册后，url确实编程了servlet的路径，但是没有页面。</p>
 <p>在仔细看了好几遍代码，确认无误后，还是没找到问题。最终重新部署了一下服务器，就正常了……</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -568,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -674,7 +671,7 @@
     <!-- 博客字数统计 -->
     <span class="site-pv">
       <i class="fa fa-pencil"></i>
-      博客全站共： <span class="post-count">62k</span> 字
+      博客全站共： <span class="post-count">67.9k</span> 字
     </span>
 </div>
 <!-- 新增访客统计代码 END-->
